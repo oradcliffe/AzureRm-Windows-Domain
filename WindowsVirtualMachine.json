@@ -188,7 +188,8 @@
                   {
                       "name": "ipconfig1",
                       "properties": {
-                          "privateIPAllocationMethod": "Dynamic",
+                        "privateIPAllocationMethod": "Static",
+                        "privateIPAddress": "192.168.95.3",
                           "subnet": {
                               "id": "[variables('GTM-DC01SubnetRef')]"
                           },
@@ -263,7 +264,8 @@
                   {
                       "name": "ipconfig1",
                       "properties": {
-                          "privateIPAllocationMethod": "Dynamic",
+                        "privateIPAllocationMethod": "Static",
+                        "privateIPAddress": "192.168.95.4",
                           "subnet": {
                               "id": "[variables('GTM-DC02SubnetRef')]"
                           },
@@ -338,7 +340,8 @@
                   {
                       "name": "ipconfig1",
                       "properties": {
-                          "privateIPAllocationMethod": "Dynamic",
+                        "privateIPAllocationMethod": "Static",
+                        "privateIPAddress": "192.168.95.5",
                           "subnet": {
                               "id": "[variables('GTM-RODC01SubnetRef')]"
                           },
