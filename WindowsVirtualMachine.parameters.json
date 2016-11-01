@@ -9,7 +9,12 @@
       "value": "radcliffe"
     },
     "GTM-DC01AdminPassword": {
-      "value": "Pa$$w0rd"
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
+        },
+        "secretName": "ServerPass"
+      }
     },
     "GTM-DC01WindowsOSVersion": {
       "value": "2012-R2-Datacenter"
@@ -21,7 +26,12 @@
       "value": "radcliffe"
     },
     "GTM-DC02AdminPassword": {
-      "value": "Pa$$w0rd"
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
+        },
+        "secretName": "ServerPass"
+      }
     },
     "GTM-DC02WindowsOSVersion": {
       "value": "2012-R2-Datacenter"
@@ -33,7 +43,12 @@
       "value": "radcliffe"
     },
     "GTM-RODC01AdminPassword": {
-      "value": "Pa$$w0rd"
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
+        },
+        "secretName": "ServerPass"
+      }
     },
     "GTM-RODC01WindowsOSVersion": {
       "value": "2012-R2-Datacenter"
