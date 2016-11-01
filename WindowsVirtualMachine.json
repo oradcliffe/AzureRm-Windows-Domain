@@ -96,7 +96,7 @@
     "VNet1Subnet1Prefix": "192.168.95.0/24",
     "VNet1Subnet2Name": "Future",
     "VNet1Subnet2Prefix": "192.168.96.0/24",
-      "ojradcliffestorageName": "[concat('ojrad', uniqueString(resourceGroup().id)).]",
+      "ojradcliffestorageName": "[concat('ojrad', uniqueString(resourceGroup().id))]",
       "GTM-DC01ImagePublisher": "MicrosoftWindowsServer",
       "GTM-DC01ImageOffer": "WindowsServer",
       "GTM-DC01OSDiskName": "GTM-DC01OSDisk",
