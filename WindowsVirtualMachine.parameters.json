@@ -2,9 +2,6 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "adminUsername": {
-      "value": "radcliffe"
-    },
     "GTM-DC01Name": {
       "value": "GTM-DC01"
     },
@@ -47,8 +44,8 @@
     "PublicIP-DC02DnsName": {
       "value": "DC02"
     },
-    "PublicIP-RODC02DnsName": {
-      "value": "RODC02"
+    "PublicIP-RODC01DnsName": {
+      "value": "RODC01"
     }
   }
 }
