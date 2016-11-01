@@ -1,0 +1,1 @@
+((Get-AzureRmResourceProvider -ProviderNamespace microsoft.storage).ResourceTypes | Where-Object ResourceTypeName -eq storageaccounts).ApiVersions

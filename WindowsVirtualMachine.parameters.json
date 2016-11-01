@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "radcliffe"
+    },
+    "GTM-DC01Name": {
+      "value": "GTM-DC01"
+    },
+    "GTM-DC01AdminUserName": {
+      "value": "radcliffe"
+    },
+    "GTM-DC01AdminPassword": {
+      "value": "Pa$$w0rd"
+    },
+    "GTM-DC01WindowsOSVersion": {
+      "value": "2012-R2-Datacenter"
+    },
+    "GTM-DC02Name": {
+      "value": "GTM-DC02"
+    },
+    "GTM-DC02AdminUserName": {
+      "value": "radcliffe"
+    },
+    "GTM-DC02AdminPassword": {
+      "value": "Pa$$w0rd"
+    },
+    "GTM-DC02WindowsOSVersion": {
+      "value": "2012-R2-Datacenter"
+    },
+    "GTM-RODC01Name": {
+      "value": "GTM-DC03"
+    },
+    "GTM-RODC01AdminUserName": {
+      "value": "radcliffe"
+    },
+    "GTM-RODC01AdminPassword": {
+      "value": "Pa$$w0rd"
+    },
+    "GTM-RODC01WindowsOSVersion": {
+      "value": "2012-R2-Datacenter"
+    },
+    "PublicIP-DC01DnsName": {
+      "value": "DC01"
+    },
+    "PublicIP-DC02DnsName": {
+      "value": "DC02"
+    },
+    "PublicIP-RODC02DnsName": {
+      "value": "RODC02"
+    }
+  }
+}
