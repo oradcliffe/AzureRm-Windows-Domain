@@ -39,13 +39,13 @@
       "value": "2012-R2-Datacenter"
     },
     "PublicIP-DC01DnsName": {
-      "value": "DC01"
+      "value": "DC012012R2ojradcliffe"
     },
     "PublicIP-DC02DnsName": {
-      "value": "DC02"
+      "value": "DC022012R2ojradcliffe"
     },
     "PublicIP-RODC01DnsName": {
-      "value": "RODC01"
+      "value": "RODC012012R2ojradcliffe"
     }
   }
 }
