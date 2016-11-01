@@ -112,7 +112,7 @@
       "GTM-DC02VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
       "GTM-DC02SubnetRef": "[concat(variables('GTM-DC02VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
       "GTM-DC02StorageAccountContainerName": "vhds",
-      "GTM-DC02NicName": "[concat(parameters('GTM-DC02Name'), 'NetworkInterface')]",
+      "GTM-DC02NicName": "[concat(parameters('GTM-DC02Name'), 'Nic0')]",
       "GTM-RODC01ImagePublisher": "MicrosoftWindowsServer",
       "GTM-RODC01ImageOffer": "WindowsServer",
       "GTM-RODC01OSDiskName": "GTM-RODC01OSDisk",
@@ -120,7 +120,7 @@
       "GTM-RODC01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
       "GTM-RODC01SubnetRef": "[concat(variables('GTM-RODC01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
       "GTM-RODC01StorageAccountContainerName": "vhds",
-      "GTM-RODC01NicName": "[concat(parameters('GTM-RODC01Name'), 'NetworkInterface')]",
+      "GTM-RODC01NicName": "[concat(parameters('GTM-RODC01Name'), 'Nic0')]",
       "PublicIP-DC01Name": "PublicIP-DC01",
       "PublicIP-DC02Name": "PublicIP-DC02",
       "PublicIP-RODC01Name": "PublicIP-RODC01"
@@ -189,7 +189,7 @@
                       "name": "ipconfig1",
                       "properties": {
                         "privateIPAllocationMethod": "Static",
-                        "privateIPAddress": "192.168.95.3",
+                        "privateIPAddress": "192.168.95.10",
                           "subnet": {
                               "id": "[variables('GTM-DC01SubnetRef')]"
                           },
@@ -265,7 +265,7 @@
                       "name": "ipconfig1",
                       "properties": {
                         "privateIPAllocationMethod": "Static",
-                        "privateIPAddress": "192.168.95.4",
+                        "privateIPAddress": "192.168.95.11",
                           "subnet": {
                               "id": "[variables('GTM-DC02SubnetRef')]"
                           },
@@ -341,7 +341,7 @@
                       "name": "ipconfig1",
                       "properties": {
                         "privateIPAllocationMethod": "Static",
-                        "privateIPAddress": "192.168.95.5",
+                        "privateIPAddress": "192.168.95.12",
                           "subnet": {
                               "id": "[variables('GTM-RODC01SubnetRef')]"
                           },
