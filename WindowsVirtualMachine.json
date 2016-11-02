@@ -32,6 +32,8 @@
         "2012-Datacenter",
         "2012-R2-Datacenter",
         "Windows-Server-Technical-Preview",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
         "2016-Datacenter"
       ]
     },
@@ -54,6 +56,8 @@
         "2012-Datacenter",
         "2012-R2-Datacenter",
         "Windows-Server-Technical-Preview",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
         "2016-Datacenter"
       ]
     },
@@ -76,6 +80,8 @@
         "2012-Datacenter",
         "2012-R2-Datacenter",
         "Windows-Server-Technical-Preview",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
         "2016-Datacenter"
       ]
     },
