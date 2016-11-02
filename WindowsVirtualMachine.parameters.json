@@ -61,6 +61,9 @@
     },
     "PublicIP-RODC01DnsName": {
       "value": "rodc012012r2ojradcliffe"
+    },
+    "domainname": {
+      "value": "gametimeor.priv"
     }
   }
 }

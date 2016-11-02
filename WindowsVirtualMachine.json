@@ -2,92 +2,98 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "ojradcliffestorageType": {
-          "type": "string",
-          "defaultValue": "Standard_LRS",
-          "allowedValues": [
-              "Standard_LRS",
-              "Standard_ZRS",
-              "Standard_GRS",
-              "Standard_RAGRS",
-              "Premium_LRS"
-          ]
-      },
-      "GTM-DC01Name": {
-          "type": "string",
-          "minLength": 1
-      },
-      "GTM-DC01AdminUserName": {
-          "type": "string",
-          "minLength": 1
-      },
-      "GTM-DC01AdminPassword": {
-          "type": "securestring"
-      },
-      "GTM-DC01WindowsOSVersion": {
-          "type": "string",
-          "defaultValue": "2012-R2-Datacenter",
-          "allowedValues": [
-              "2008-R2-SP1",
-              "2012-Datacenter",
-              "2012-R2-Datacenter",
-              "Windows-Server-Technical-Preview"
-          ]
-      },
-      "GTM-DC02Name": {
-          "type": "string",
-          "minLength": 1
-      },
-      "GTM-DC02AdminUserName": {
-          "type": "string",
-          "minLength": 1
-      },
-      "GTM-DC02AdminPassword": {
-          "type": "securestring"
-      },
-      "GTM-DC02WindowsOSVersion": {
-          "type": "string",
-          "defaultValue": "2012-R2-Datacenter",
-          "allowedValues": [
-              "2008-R2-SP1",
-              "2012-Datacenter",
-              "2012-R2-Datacenter",
-              "Windows-Server-Technical-Preview"
-          ]
-      },
-      "GTM-RODC01Name": {
-          "type": "string",
-          "minLength": 1
-      },
-      "GTM-RODC01AdminUserName": {
-          "type": "string",
-          "minLength": 1
-      },
-      "GTM-RODC01AdminPassword": {
-          "type": "securestring"
-      },
-      "GTM-RODC01WindowsOSVersion": {
-          "type": "string",
-          "defaultValue": "2012-R2-Datacenter",
-          "allowedValues": [
-              "2008-R2-SP1",
-              "2012-Datacenter",
-              "2012-R2-Datacenter",
-              "Windows-Server-Technical-Preview"
-          ]
-      },
-      "PublicIP-DC01DnsName": {
-          "type": "string",
-          "minLength": 1
-      },
-      "PublicIP-DC02DnsName": {
-          "type": "string",
-          "minLength": 1
-      },
-      "PublicIP-RODC01DnsName": {
-          "type": "string",
-          "minLength": 1
+    "ojradcliffestorageType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ]
+    },
+    "GTM-DC01Name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "GTM-DC01AdminUserName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "GTM-DC01AdminPassword": {
+      "type": "securestring"
+    },
+    "GTM-DC01WindowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2012-R2-Datacenter",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "Windows-Server-Technical-Preview"
+      ]
+    },
+    "GTM-DC02Name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "GTM-DC02AdminUserName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "GTM-DC02AdminPassword": {
+      "type": "securestring"
+    },
+    "GTM-DC02WindowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2012-R2-Datacenter",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "Windows-Server-Technical-Preview"
+      ]
+    },
+    "GTM-RODC01Name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "GTM-RODC01AdminUserName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "GTM-RODC01AdminPassword": {
+      "type": "securestring"
+    },
+    "GTM-RODC01WindowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2012-R2-Datacenter",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "Windows-Server-Technical-Preview"
+      ]
+    },
+    "PublicIP-DC01DnsName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "PublicIP-DC02DnsName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "PublicIP-RODC01DnsName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domainName": {
+      "type": "string",
+      "metadata": {
+        "description": "The FQDN of the AD Domain created "
       }
+    }
 
   },
   "variables": {
@@ -96,34 +102,34 @@
     "VNet1Subnet1Prefix": "192.168.95.0/24",
     "VNet1Subnet2Name": "Future",
     "VNet1Subnet2Prefix": "192.168.96.0/24",
-      "ojradcliffestorageName": "[concat('ojrad', uniqueString(resourceGroup().id))]",
-      "GTM-DC01ImagePublisher": "MicrosoftWindowsServer",
-      "GTM-DC01ImageOffer": "WindowsServer",
-      "GTM-DC01OSDiskName": "GTM-DC01OSDisk",
-      "GTM-DC01VmSize": "Standard_D2_v2",
-      "GTM-DC01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
-      "GTM-DC01SubnetRef": "[concat(variables('GTM-DC01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
-      "GTM-DC01StorageAccountContainerName": "vhds",
-      "GTM-DC01NicName": "[concat(parameters('GTM-DC01Name'), 'Nic0')]",
-      "GTM-DC02ImagePublisher": "MicrosoftWindowsServer",
-      "GTM-DC02ImageOffer": "WindowsServer",
-      "GTM-DC02OSDiskName": "GTM-DC02OSDisk",
-      "GTM-DC02VmSize": "Standard_D2_v2",
-      "GTM-DC02VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
-      "GTM-DC02SubnetRef": "[concat(variables('GTM-DC02VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
-      "GTM-DC02StorageAccountContainerName": "vhds",
-      "GTM-DC02NicName": "[concat(parameters('GTM-DC02Name'), 'Nic0')]",
-      "GTM-RODC01ImagePublisher": "MicrosoftWindowsServer",
-      "GTM-RODC01ImageOffer": "WindowsServer",
-      "GTM-RODC01OSDiskName": "GTM-RODC01OSDisk",
-      "GTM-RODC01VmSize": "Standard_D2_v2",
-      "GTM-RODC01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
-      "GTM-RODC01SubnetRef": "[concat(variables('GTM-RODC01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
-      "GTM-RODC01StorageAccountContainerName": "vhds",
-      "GTM-RODC01NicName": "[concat(parameters('GTM-RODC01Name'), 'Nic0')]",
-      "PublicIP-DC01Name": "PublicIP-DC01",
-      "PublicIP-DC02Name": "PublicIP-DC02",
-      "PublicIP-RODC01Name": "PublicIP-RODC01"
+    "ojradcliffestorageName": "[concat('ojrad', uniqueString(resourceGroup().id))]",
+    "GTM-DC01ImagePublisher": "MicrosoftWindowsServer",
+    "GTM-DC01ImageOffer": "WindowsServer",
+    "GTM-DC01OSDiskName": "GTM-DC01OSDisk",
+    "GTM-DC01VmSize": "Standard_D2_v2",
+    "GTM-DC01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
+    "GTM-DC01SubnetRef": "[concat(variables('GTM-DC01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
+    "GTM-DC01StorageAccountContainerName": "vhds",
+    "GTM-DC01NicName": "[concat(parameters('GTM-DC01Name'), 'Nic0')]",
+    "GTM-DC02ImagePublisher": "MicrosoftWindowsServer",
+    "GTM-DC02ImageOffer": "WindowsServer",
+    "GTM-DC02OSDiskName": "GTM-DC02OSDisk",
+    "GTM-DC02VmSize": "Standard_D2_v2",
+    "GTM-DC02VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
+    "GTM-DC02SubnetRef": "[concat(variables('GTM-DC02VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
+    "GTM-DC02StorageAccountContainerName": "vhds",
+    "GTM-DC02NicName": "[concat(parameters('GTM-DC02Name'), 'Nic0')]",
+    "GTM-RODC01ImagePublisher": "MicrosoftWindowsServer",
+    "GTM-RODC01ImageOffer": "WindowsServer",
+    "GTM-RODC01OSDiskName": "GTM-RODC01OSDisk",
+    "GTM-RODC01VmSize": "Standard_D2_v2",
+    "GTM-RODC01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
+    "GTM-RODC01SubnetRef": "[concat(variables('GTM-RODC01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
+    "GTM-RODC01StorageAccountContainerName": "vhds",
+    "GTM-RODC01NicName": "[concat(parameters('GTM-RODC01Name'), 'Nic0')]",
+    "PublicIP-DC01Name": "PublicIP-DC01",
+    "PublicIP-DC02Name": "PublicIP-DC02",
+    "PublicIP-RODC01Name": "PublicIP-RODC01"
 
   },
   "resources": [
@@ -158,295 +164,295 @@
         ]
       }
     },
-      {
-          "name": "[variables('ojradcliffestorageName')]",
-          "type": "Microsoft.Storage/storageAccounts",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-06-15",
-          "dependsOn": [ ],
-          "tags": {
-              "displayName": "ojradcliffestorage"
-          },
-          "properties": {
-              "accountType": "[parameters('ojradcliffestorageType')]"
-          }
+    {
+      "name": "[variables('ojradcliffestorageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "ojradcliffestorage"
       },
-      {
-          "name": "[variables('GTM-DC01NicName')]",
-          "type": "Microsoft.Network/networkInterfaces",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-06-15",
-          "dependsOn": [
-              "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
-              "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC01Name'))]"
-          ],
-          "tags": {
-              "displayName": "GTM-DC01Nic"
-          },
-          "properties": {
-              "ipConfigurations": [
-                  {
-                      "name": "ipconfig1",
-                      "properties": {
-                        "privateIPAllocationMethod": "Static",
-                        "privateIPAddress": "192.168.95.10",
-                          "subnet": {
-                              "id": "[variables('GTM-DC01SubnetRef')]"
-                          },
-                          "publicIPAddress": {
-                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC01Name'))]"
-                          }
-                      }
-                  }
-              ]
-          }
-      },
-      {
-          "name": "[parameters('GTM-DC01Name')]",
-          "type": "Microsoft.Compute/virtualMachines",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-06-15",
-          "dependsOn": [
-              "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
-              "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-DC01NicName'))]"
-          ],
-          "tags": {
-              "displayName": "GTM-DC01"
-          },
-          "properties": {
-              "hardwareProfile": {
-                  "vmSize": "[variables('GTM-DC01VmSize')]"
-              },
-              "osProfile": {
-                  "computerName": "[parameters('GTM-DC01Name')]",
-                  "adminUsername": "[parameters('GTM-DC01AdminUsername')]",
-                  "adminPassword": "[parameters('GTM-DC01AdminPassword')]"
-              },
-              "storageProfile": {
-                  "imageReference": {
-                      "publisher": "[variables('GTM-DC01ImagePublisher')]",
-                      "offer": "[variables('GTM-DC01ImageOffer')]",
-                      "sku": "[parameters('GTM-DC01WindowsOSVersion')]",
-                      "version": "latest"
-                  },
-                  "osDisk": {
-                      "name": "GTM-DC01OSDisk",
-                      "vhd": {
-                          "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('GTM-DC01StorageAccountContainerName'), '/', variables('GTM-DC01OSDiskName'), '.vhd')]"
-                      },
-                      "caching": "ReadWrite",
-                      "createOption": "FromImage"
-                  }
-              },
-              "networkProfile": {
-                  "networkInterfaces": [
-                      {
-                          "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-DC01NicName'))]"
-                      }
-                  ]
-              }
-          }
-      },
-      {
-          "name": "[variables('GTM-DC02NicName')]",
-          "type": "Microsoft.Network/networkInterfaces",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-06-15",
-          "dependsOn": [
-              "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
-              "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC02Name'))]"
-          ],
-          "tags": {
-              "displayName": "GTM-DC02Nic"
-          },
-          "properties": {
-              "ipConfigurations": [
-                  {
-                      "name": "ipconfig1",
-                      "properties": {
-                        "privateIPAllocationMethod": "Static",
-                        "privateIPAddress": "192.168.95.11",
-                          "subnet": {
-                              "id": "[variables('GTM-DC02SubnetRef')]"
-                          },
-                          "publicIPAddress": {
-                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC02Name'))]"
-                          }
-                      }
-                  }
-              ]
-          }
-      },
-      {
-          "name": "[parameters('GTM-DC02Name')]",
-          "type": "Microsoft.Compute/virtualMachines",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-06-15",
-          "dependsOn": [
-              "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
-              "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-DC02NicName'))]"
-          ],
-          "tags": {
-              "displayName": "GTM-DC02"
-          },
-          "properties": {
-              "hardwareProfile": {
-                  "vmSize": "[variables('GTM-DC02VmSize')]"
-              },
-              "osProfile": {
-                  "computerName": "[parameters('GTM-DC02Name')]",
-                  "adminUsername": "[parameters('GTM-DC02AdminUsername')]",
-                  "adminPassword": "[parameters('GTM-DC02AdminPassword')]"
-              },
-              "storageProfile": {
-                  "imageReference": {
-                      "publisher": "[variables('GTM-DC02ImagePublisher')]",
-                      "offer": "[variables('GTM-DC02ImageOffer')]",
-                      "sku": "[parameters('GTM-DC02WindowsOSVersion')]",
-                      "version": "latest"
-                  },
-                  "osDisk": {
-                      "name": "GTM-DC02OSDisk",
-                      "vhd": {
-                          "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('GTM-DC02StorageAccountContainerName'), '/', variables('GTM-DC02OSDiskName'), '.vhd')]"
-                      },
-                      "caching": "ReadWrite",
-                      "createOption": "FromImage"
-                  }
-              },
-              "networkProfile": {
-                  "networkInterfaces": [
-                      {
-                          "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-DC02NicName'))]"
-                      }
-                  ]
-              }
-          }
-      },
-      {
-          "name": "[variables('GTM-RODC01NicName')]",
-          "type": "Microsoft.Network/networkInterfaces",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-06-15",
-          "dependsOn": [
-              "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
-              "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-RODC01Name'))]"
-          ],
-          "tags": {
-              "displayName": "GTM-RODC01Nic"
-          },
-          "properties": {
-              "ipConfigurations": [
-                  {
-                      "name": "ipconfig1",
-                      "properties": {
-                        "privateIPAllocationMethod": "Static",
-                        "privateIPAddress": "192.168.95.12",
-                          "subnet": {
-                              "id": "[variables('GTM-RODC01SubnetRef')]"
-                          },
-                          "publicIPAddress": {
-                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-RODC01Name'))]"
-                          }
-                      }
-                  }
-              ]
-          }
-      },
-      {
-          "name": "[parameters('GTM-RODC01Name')]",
-          "type": "Microsoft.Compute/virtualMachines",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-06-15",
-          "dependsOn": [
-              "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
-              "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-RODC01NicName'))]"
-          ],
-          "tags": {
-              "displayName": "GTM-RODC01"
-          },
-          "properties": {
-              "hardwareProfile": {
-                  "vmSize": "[variables('GTM-RODC01VmSize')]"
-              },
-              "osProfile": {
-                  "computerName": "[parameters('GTM-RODC01Name')]",
-                  "adminUsername": "[parameters('GTM-RODC01AdminUsername')]",
-                  "adminPassword": "[parameters('GTM-RODC01AdminPassword')]"
-              },
-              "storageProfile": {
-                  "imageReference": {
-                      "publisher": "[variables('GTM-RODC01ImagePublisher')]",
-                      "offer": "[variables('GTM-RODC01ImageOffer')]",
-                      "sku": "[parameters('GTM-RODC01WindowsOSVersion')]",
-                      "version": "latest"
-                  },
-                  "osDisk": {
-                      "name": "GTM-RODC01OSDisk",
-                      "vhd": {
-                          "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('GTM-RODC01StorageAccountContainerName'), '/', variables('GTM-RODC01OSDiskName'), '.vhd')]"
-                      },
-                      "caching": "ReadWrite",
-                      "createOption": "FromImage"
-                  }
-              },
-              "networkProfile": {
-                  "networkInterfaces": [
-                      {
-                          "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-RODC01NicName'))]"
-                      }
-                  ]
-              }
-          }
-      },
-      {
-          "name": "[variables('PublicIP-DC01Name')]",
-          "type": "Microsoft.Network/publicIPAddresses",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-06-15",
-          "dependsOn": [ ],
-          "tags": {
-              "displayName": "PublicIP-DC01"
-          },
-          "properties": {
-              "publicIPAllocationMethod": "Dynamic",
-              "dnsSettings": {
-                  "domainNameLabel": "[parameters('PublicIP-DC01DnsName')]"
-              }
-          }
-      },
-      {
-          "name": "[variables('PublicIP-DC02Name')]",
-          "type": "Microsoft.Network/publicIPAddresses",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-06-15",
-          "dependsOn": [ ],
-          "tags": {
-              "displayName": "PublicIP-DC02"
-          },
-          "properties": {
-              "publicIPAllocationMethod": "Dynamic",
-              "dnsSettings": {
-                  "domainNameLabel": "[parameters('PublicIP-DC02DnsName')]"
-              }
-          }
-      },
-      {
-          "name": "[variables('PublicIP-RODC01Name')]",
-          "type": "Microsoft.Network/publicIPAddresses",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-06-15",
-        "dependsOn": [],
-          "tags": {
-              "displayName": "PublicIP-RODC01"
-          },
-          "properties": {
-              "publicIPAllocationMethod": "Dynamic",
-              "dnsSettings": {
-                  "domainNameLabel": "[parameters('PublicIP-RODC01DnsName')]"
-              }
-          }
+      "properties": {
+        "accountType": "[parameters('ojradcliffestorageType')]"
       }
+    },
+    {
+      "name": "[variables('GTM-DC01NicName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
+        "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC01Name'))]"
+      ],
+      "tags": {
+        "displayName": "GTM-DC01Nic"
+      },
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "192.168.95.10",
+              "subnet": {
+                "id": "[variables('GTM-DC01SubnetRef')]"
+              },
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC01Name'))]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "[parameters('GTM-DC01Name')]",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-DC01NicName'))]"
+      ],
+      "tags": {
+        "displayName": "GTM-DC01"
+      },
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('GTM-DC01VmSize')]"
+        },
+        "osProfile": {
+          "computerName": "[parameters('GTM-DC01Name')]",
+          "adminUsername": "[parameters('GTM-DC01AdminUsername')]",
+          "adminPassword": "[parameters('GTM-DC01AdminPassword')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[variables('GTM-DC01ImagePublisher')]",
+            "offer": "[variables('GTM-DC01ImageOffer')]",
+            "sku": "[parameters('GTM-DC01WindowsOSVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "GTM-DC01OSDisk",
+            "vhd": {
+              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('GTM-DC01StorageAccountContainerName'), '/', variables('GTM-DC01OSDiskName'), '.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-DC01NicName'))]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "[variables('GTM-DC02NicName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
+        "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC02Name'))]"
+      ],
+      "tags": {
+        "displayName": "GTM-DC02Nic"
+      },
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "192.168.95.11",
+              "subnet": {
+                "id": "[variables('GTM-DC02SubnetRef')]"
+              },
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC02Name'))]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "[parameters('GTM-DC02Name')]",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-DC02NicName'))]"
+      ],
+      "tags": {
+        "displayName": "GTM-DC02"
+      },
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('GTM-DC02VmSize')]"
+        },
+        "osProfile": {
+          "computerName": "[parameters('GTM-DC02Name')]",
+          "adminUsername": "[parameters('GTM-DC02AdminUsername')]",
+          "adminPassword": "[parameters('GTM-DC02AdminPassword')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[variables('GTM-DC02ImagePublisher')]",
+            "offer": "[variables('GTM-DC02ImageOffer')]",
+            "sku": "[parameters('GTM-DC02WindowsOSVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "GTM-DC02OSDisk",
+            "vhd": {
+              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('GTM-DC02StorageAccountContainerName'), '/', variables('GTM-DC02OSDiskName'), '.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-DC02NicName'))]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "[variables('GTM-RODC01NicName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
+        "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-RODC01Name'))]"
+      ],
+      "tags": {
+        "displayName": "GTM-RODC01Nic"
+      },
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "192.168.95.12",
+              "subnet": {
+                "id": "[variables('GTM-RODC01SubnetRef')]"
+              },
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-RODC01Name'))]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "[parameters('GTM-RODC01Name')]",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-RODC01NicName'))]"
+      ],
+      "tags": {
+        "displayName": "GTM-RODC01"
+      },
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('GTM-RODC01VmSize')]"
+        },
+        "osProfile": {
+          "computerName": "[parameters('GTM-RODC01Name')]",
+          "adminUsername": "[parameters('GTM-RODC01AdminUsername')]",
+          "adminPassword": "[parameters('GTM-RODC01AdminPassword')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[variables('GTM-RODC01ImagePublisher')]",
+            "offer": "[variables('GTM-RODC01ImageOffer')]",
+            "sku": "[parameters('GTM-RODC01WindowsOSVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "GTM-RODC01OSDisk",
+            "vhd": {
+              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('GTM-RODC01StorageAccountContainerName'), '/', variables('GTM-RODC01OSDiskName'), '.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-RODC01NicName'))]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "[variables('PublicIP-DC01Name')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "PublicIP-DC01"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('PublicIP-DC01DnsName')]"
+        }
+      }
+    },
+    {
+      "name": "[variables('PublicIP-DC02Name')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "PublicIP-DC02"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('PublicIP-DC02DnsName')]"
+        }
+      }
+    },
+    {
+      "name": "[variables('PublicIP-RODC01Name')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "PublicIP-RODC01"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('PublicIP-RODC01DnsName')]"
+        }
+      }
+    }
 
   ]
 }
