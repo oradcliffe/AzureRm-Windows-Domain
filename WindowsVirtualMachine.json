@@ -26,12 +26,13 @@
     },
     "GTM-DC01WindowsOSVersion": {
       "type": "string",
-      "defaultValue": "2012-R2-Datacenter",
+      "defaultValue": "2016-Datacenter",
       "allowedValues": [
         "2008-R2-SP1",
         "2012-Datacenter",
         "2012-R2-Datacenter",
-        "Windows-Server-Technical-Preview"
+        "Windows-Server-Technical-Preview",
+        "2016-Datacenter"
       ]
     },
     "GTM-DC02Name": {
@@ -47,12 +48,13 @@
     },
     "GTM-DC02WindowsOSVersion": {
       "type": "string",
-      "defaultValue": "2012-R2-Datacenter",
+      "defaultValue": "2016-Datacenter",
       "allowedValues": [
         "2008-R2-SP1",
         "2012-Datacenter",
         "2012-R2-Datacenter",
-        "Windows-Server-Technical-Preview"
+        "Windows-Server-Technical-Preview",
+        "2016-Datacenter"
       ]
     },
     "GTM-RODC01Name": {
@@ -68,12 +70,13 @@
     },
     "GTM-RODC01WindowsOSVersion": {
       "type": "string",
-      "defaultValue": "2012-R2-Datacenter",
+      "defaultValue": "2016-Datacenter",
       "allowedValues": [
         "2008-R2-SP1",
         "2012-Datacenter",
         "2012-R2-Datacenter",
         "Windows-Server-Technical-Preview"
+        "2016-Datacenter"
       ]
     },
     "PublicIP-DC01DnsName": {
