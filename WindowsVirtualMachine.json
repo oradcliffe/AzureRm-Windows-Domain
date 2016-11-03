@@ -102,6 +102,12 @@
       "metadata": {
         "description": "The FQDN of the AD Domain created "
       }
+    },
+    "assetLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "Where to find DSC modules"
+      }
     }
 
   },
@@ -138,8 +144,10 @@
     "GTM-RODC01NicName": "[concat(parameters('GTM-RODC01Name'), 'Nic0')]",
     "PublicIP-DC01Name": "PublicIP-DC01",
     "PublicIP-DC02Name": "PublicIP-DC02",
-    "PublicIP-RODC01Name": "PublicIP-RODC01"
-
+    "PublicIP-RODC01Name": "PublicIP-RODC01",
+    "DC01DSCURL": "[concat(parameters('assetLocation'),'DSCCreateFirstDC.zip')]",
+    "DC01DSCscript": "CreateFirstDC.ps1",
+    "DC01DSCfunction": "CreatefirstDC"
   },
   "resources": [
     {
@@ -260,7 +268,42 @@
             }
           ]
         }
-      }
+      },
+      "resources": [
+        {
+          "name": "Microsoft.Powershell.DSC",
+          "type": "extensions",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2016-03-30",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-DC01Name'))]"
+          ],
+          "tags": {
+            "displayName": "DC01DSC"
+          },
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.9",
+            "autoUpgradeMinorVersion": true,
+            "forceUpdateTag": "[parameters('DC01DSCUpdateTagVersion')]",
+            "settings": {
+              "wmfVersion": "latest",
+              "configuration": {
+                "url": "[variables('DC01DSCURL')]",
+                "script": "[variables('DC01DSCscript')]",
+                "function": "[variables('DC01DSCfunction')]"
+              },
+              "configurationArguments": {
+                "DomainName": "[parameters('domainName')]"
+              }
+            },
+            "protectedSettings": {
+              "Adminpass": "[parameters('GTM-DC01AdminPassword')]"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "[variables('GTM-DC02NicName')]",

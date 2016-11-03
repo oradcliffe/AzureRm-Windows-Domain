@@ -64,6 +64,9 @@
     },
     "domainname": {
       "value": "gametimeor.priv"
+    },
+    "assetlocation": {
+      "value": "https://github.com/oradcliffe/AzureRm-Windows-Domain/raw/master/"
     }
   }
 }
