@@ -106,7 +106,7 @@
     "assetLocation": {
       "type": "string",
       "metadata": {
-        "description": "Where to find DSC modules"
+        "description": "Where to find DSC zipfiles"
       }
     }
 
