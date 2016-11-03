@@ -296,6 +296,7 @@
               },
               "configurationArguments": {
                 "DomainName": "[parameters('domainName')]"
+                "Adminusername": "[parameters('GTM-DC01AdminUserName')]"
               }
             },
             "protectedSettings": {
