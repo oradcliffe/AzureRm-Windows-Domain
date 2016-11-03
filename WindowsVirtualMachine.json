@@ -286,7 +286,6 @@
             "type": "DSC",
             "typeHandlerVersion": "2.9",
             "autoUpgradeMinorVersion": true,
-            "forceUpdateTag": "[parameters('DC01DSCUpdateTagVersion')]",
             "settings": {
               "wmfVersion": "latest",
               "configuration": {
@@ -295,7 +294,7 @@
                 "function": "[variables('DC01DSCfunction')]"
               },
               "configurationArguments": {
-                "DomainName": "[parameters('domainName')]"
+                "DomainName": "[parameters('domainName')]",
                 "Adminusername": "[parameters('GTM-DC01AdminUserName')]"
               }
             },
