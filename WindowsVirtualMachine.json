@@ -295,11 +295,11 @@
               },
               "configurationArguments": {
                 "DomainName": "[parameters('domainName')]",
-                "Adminusername": "[parameters('GTM-DC01AdminUserName')]"
+                "Adminusername": "[parameters('GTM-DC01AdminUserName')]",
+                "Adminpass": "Pa$$w0rd"
               }
             },
             "protectedSettings": {
-              "Adminpass": "[parameters('GTM-DC01AdminPassword')]"
             }
           }
         }
