@@ -137,8 +137,8 @@
     "GTM-RODC01StorageAccountContainerName": "vhds",
     "GTM-RODC01NicName": "[concat(parameters('GTM-RODC01Name'), 'Nic0')]",
     "PublicIP-DC01Name": "PublicIP-DC01",
-    "PublicIP-DC02Name": "PublicIP-DC01",
-    "PublicIP-RODC01Name": "PublicIP-DC01"
+    "PublicIP-DC02Name": "PublicIP-DC02",
+    "PublicIP-RODC01Name": "PublicIP-RODC01"
 
   },
   "resources": [
