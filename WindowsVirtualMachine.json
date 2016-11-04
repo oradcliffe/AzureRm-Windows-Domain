@@ -145,9 +145,9 @@
     "PublicIP-DC01Name": "PublicIP-DC01",
     "PublicIP-DC02Name": "PublicIP-DC02",
     "PublicIP-RODC01Name": "PublicIP-RODC01",
-    "DC01DSCURL": "[concat(parameters('assetLocation'),'DSCtestfile.zip')]",
-    "DC01DSCscript": "DSCtestfile.ps1",
-    "DC01DSCfunction": "testfile"
+    "DC01DSCURL": "[concat(parameters('assetLocation'),'DSCCreateFirstDC.zip')]",
+    "DC01DSCscript": "CreateFirstDC.ps1",
+    "DC01DSCfunction": "CreateFirstDC"
   },
   "resources": [
     {
@@ -294,9 +294,17 @@
                 "function": "[variables('DC01DSCfunction')]"
               },
               "configurationArguments": {
+                "DomainName": "[parameters('domainName')]",
+                "Admincreds": {
+                  "Username": "[parameters('GTM-DC01AdminUserName')]",
+                  "Password": "PrivateSettingsRef:AdminPassword"
+                }
               }
             },
             "protectedSettings": {
+              "Items": {
+                "AdminPassword": "[parameters('GTM-DC01AdminPassword')"
+              }
             }
           }
         }
