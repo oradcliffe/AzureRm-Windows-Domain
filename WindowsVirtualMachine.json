@@ -243,7 +243,10 @@
         "osProfile": {
           "computerName": "[parameters('GTM-DC01Name')]",
           "adminUsername": "[parameters('GTM-DC01AdminUsername')]",
-          "adminPassword": "[parameters('GTM-DC01AdminPassword')]"
+          "adminPassword": "[parameters('GTM-DC01AdminPassword')]",
+          "windowsConfiguration": {
+            "timeZone": "Central Time"
+          }
         },
         "storageProfile": {
           "imageReference": {
@@ -359,7 +362,10 @@
         "osProfile": {
           "computerName": "[parameters('GTM-DC02Name')]",
           "adminUsername": "[parameters('GTM-DC02AdminUsername')]",
-          "adminPassword": "[parameters('GTM-DC02AdminPassword')]"
+          "adminPassword": "[parameters('GTM-DC02AdminPassword')]",
+          "windowsConfiguration": {
+            "timeZone": "Central Time"
+          }
         },
         "storageProfile": {
           "imageReference": {
@@ -435,7 +441,10 @@
         "osProfile": {
           "computerName": "[parameters('GTM-RODC01Name')]",
           "adminUsername": "[parameters('GTM-RODC01AdminUsername')]",
-          "adminPassword": "[parameters('GTM-RODC01AdminPassword')]"
+          "adminPassword": "[parameters('GTM-RODC01AdminPassword')]",
+          "windowsConfiguration": {
+            "timeZone": "Central Time"
+          }
         },
         "storageProfile": {
           "imageReference": {
