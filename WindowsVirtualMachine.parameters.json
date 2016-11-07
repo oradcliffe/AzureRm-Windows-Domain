@@ -17,7 +17,7 @@
       }
     },
     "GTM-DC01WindowsOSVersion": {
-      "value": "2016-Datacenter"
+      "value": "2012-R2-Datacenter"
     },
     "GTM-DC02Name": {
       "value": "GTM-Server-01"
@@ -34,7 +34,7 @@
       }
     },
     "GTM-DC02WindowsOSVersion": {
-      "value": "2016-Datacenter"
+      "value": "2012-R2-Datacenter"
     },
     "GTM-RODC01Name": {
       "value": "GTM-RODC01"
@@ -51,7 +51,7 @@
       }
     },
     "GTM-RODC01WindowsOSVersion": {
-      "value": "2016-Datacenter"
+      "value": "2012-R2-Datacenter"
     },
     "PublicIP-DC01DnsName": {
       "value": "dc012012r2ojradcliffe"
