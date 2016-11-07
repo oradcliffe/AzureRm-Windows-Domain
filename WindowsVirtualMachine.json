@@ -245,7 +245,7 @@
           "adminUsername": "[parameters('GTM-DC01AdminUsername')]",
           "adminPassword": "[parameters('GTM-DC01AdminPassword')]",
           "windowsConfiguration": {
-            "timeZone": "Central Time"
+            "timeZone": "Central Standard Time"
           }
         },
         "storageProfile": {
@@ -364,7 +364,7 @@
           "adminUsername": "[parameters('GTM-DC02AdminUsername')]",
           "adminPassword": "[parameters('GTM-DC02AdminPassword')]",
           "windowsConfiguration": {
-            "timeZone": "Central Time"
+            "timeZone": "Central Standard Time"
           }
         },
         "storageProfile": {
@@ -443,7 +443,7 @@
           "adminUsername": "[parameters('GTM-RODC01AdminUsername')]",
           "adminPassword": "[parameters('GTM-RODC01AdminPassword')]",
           "windowsConfiguration": {
-            "timeZone": "Central Time"
+            "timeZone": "Central Standard Time"
           }
         },
         "storageProfile": {
