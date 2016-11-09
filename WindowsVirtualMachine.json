@@ -222,8 +222,7 @@
               "publicIPAddress": {
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC01Name'))]"
               }
-            },
-            "dnsservers": "[variables('PrivateIP-DC01')]"
+            }
           }
         ]
       }
