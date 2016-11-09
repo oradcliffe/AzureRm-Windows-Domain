@@ -215,7 +215,7 @@
             "name": "ipconfig1",
             "properties": {
               "privateIPAllocationMethod": "Static",
-              "privateIPAddress": "192.168.95.10",
+              "privateIPAddress": "[variables('PrivateIP-DC01')]",
               "subnet": {
                 "id": "[variables('GTM-DC01SubnetRef')]"
               },
@@ -334,7 +334,7 @@
             "name": "ipconfig1",
             "properties": {
               "privateIPAllocationMethod": "Static",
-              "privateIPAddress": "192.168.95.11",
+              "privateIPAddress": "[variables('PrivateIP-DC02')]",
               "subnet": {
                 "id": "[variables('GTM-DC02SubnetRef')]"
               },
@@ -414,7 +414,7 @@
             "name": "ipconfig1",
             "properties": {
               "privateIPAllocationMethod": "Static",
-              "privateIPAddress": "192.168.95.12",
+              "privateIPAddress": "[variables('PrivateIP-RODC01')]",
               "subnet": {
                 "id": "[variables('GTM-RODC01SubnetRef')]"
               },
