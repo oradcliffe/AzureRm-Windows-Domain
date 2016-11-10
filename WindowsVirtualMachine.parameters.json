@@ -54,13 +54,13 @@
       "value": "2012-R2-Datacenter"
     },
     "PublicIP-DC01DnsName": {
-      "value": "dc01"
+      "value": "dc012012r2ojradcliffe"
     },
     "PublicIP-DC02DnsName": {
-      "value": "dc02"
+      "value": "dc022012r2ojradcliffe"
     },
     "PublicIP-RODC01DnsName": {
-      "value": "rodc01"
+      "value": "rodc012012r2ojradcliffe"
     },
     "domainname": {
       "value": "gametimeor.priv"
