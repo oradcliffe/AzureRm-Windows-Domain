@@ -142,9 +142,9 @@
     "GTM-RODC01SubnetRef": "[concat(variables('GTM-RODC01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
     "GTM-RODC01StorageAccountContainerName": "vhds",
     "GTM-RODC01NicName": "[concat(parameters('GTM-RODC01Name'), 'Nic0')]",
-    "PublicIP-DC01Name": "PublicIP-DC01",
-    "PublicIP-DC02Name": "PublicIP-DC02",
-    "PublicIP-RODC01Name": "PublicIP-RODC01",
+    "PublicIP-DC01Name": "[concat(uniqueString(resourceGroup().id)), parameters('PublicIP-DC01DnsName')]",
+    "PublicIP-DC02Name": "[concat(uniqueString(resourceGroup().id)), parameters('PublicIP-DC02DnsName')]",
+    "PublicIP-RODC01Name": "[concat(uniqueString(resourceGroup().id)), parameters('PublicIP-RODC01DnsName')]",
     "PrivateIP-DC01": "192.168.95.10",
     "PrivateIP-DC02": "192.168.95.11",
     "PrivateIP-RODC01": "192.168.95.12",
@@ -488,7 +488,7 @@
       "properties": {
         "publicIPAllocationMethod": "Dynamic",
         "dnsSettings": {
-          "domainNameLabel": "[parameters('PublicIP-DC01DnsName')]"
+          "domainNameLabel": "[variables('PublicIP-DC01Name')]"
         }
       }
     },
@@ -504,7 +504,7 @@
       "properties": {
         "publicIPAllocationMethod": "Dynamic",
         "dnsSettings": {
-          "domainNameLabel": "[parameters('PublicIP-DC02DnsName')]"
+          "domainNameLabel": "[variables('PublicIP-DC02Name')]"
         }
       }
     },
@@ -520,7 +520,7 @@
       "properties": {
         "publicIPAllocationMethod": "Dynamic",
         "dnsSettings": {
-          "domainNameLabel": "[parameters('PublicIP-RODC01DnsName')]"
+          "domainNameLabel": "[variables('PublicIP-RODC01Name')]"
         }
       }
     }
