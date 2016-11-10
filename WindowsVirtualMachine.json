@@ -145,6 +145,12 @@
     "PublicIP-DC01Name": "PublicIP-DC01",
     "PublicIP-DC02Name": "PublicIP-DC02",
     "PublicIP-RODC01Name": "PublicIP-RODC01",
+<<<<<<< HEAD
+=======
+    "PrivateIP-DC01": "192.168.95.10",
+    "PrivateIP-DC02": "192.168.95.11",
+    "PrivateIP-RODC01": "192.168.95.12",
+>>>>>>> 00bb8600e46189ea6f199d1cf4ca47a8aa5a6cbf
     "DC01DSCURL": "[concat(parameters('assetLocation'),'DSCCreateFirstDC.zip')]",
     "DC01DSCscript": "CreateFirstDC.ps1",
     "DC01DSCfunction": "CreateFirstDC"
@@ -338,7 +344,8 @@
               "publicIPAddress": {
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC02Name'))]"
               }
-            }
+            },
+            "dnsservers": "[variables('PrivateIP-DC01')]"
           }
         ]
       }
@@ -417,7 +424,8 @@
               "publicIPAddress": {
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-RODC01Name'))]"
               }
-            }
+            },
+            "dnsservers": "[variables('PrivateIP-DC01')]"
           }
         ]
       }
