@@ -54,13 +54,13 @@
       "value": "2012-R2-Datacenter"
     },
     "PublicIP-DC01DnsName": {
-      "value": "[concat('dc01', resourceGroup().resourcegroupname)]"
+      "value": "[concat('dc01', resourceGroup().name)]"
     },
     "PublicIP-DC02DnsName": {
-      "value": "[concat('dc02', resourceGroup().resourcegroupname)]"
+      "value": "[concat('dc02', resourceGroup().name)]"
     },
     "PublicIP-RODC01DnsName": {
-      "value": "[concat('rodc01', resourceGroup().resourcegroupname)]"
+      "value": "[concat('rodc01', resourceGroup().name)]"
     },
     "domainname": {
       "value": "gametimeor.priv"
