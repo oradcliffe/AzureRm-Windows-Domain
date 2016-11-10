@@ -181,7 +181,10 @@
               "addressPrefix": "[variables('VNet1Subnet2Prefix')]"
             }
           }
-        ]
+        ],
+        "dhcpOptions": {
+          "dnsServers": [ "[variables('PrivateIP-DC01')", "[variables('PrivateIP-RODC01')]" ]
+        }
       }
     },
     {
