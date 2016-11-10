@@ -183,7 +183,7 @@
           }
         ],
         "dhcpOptions": {
-          "dnsServers": ["[variables('PrivateIP-DC01')", "[variables('PrivateIP-RODC01')]"]
+          "dnsServers": ["192.168.95.10", "192.168.95.12"]
         }
       }
     },
