@@ -535,7 +535,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[concat(parameters('assetLocation'),'/vnet-with-dns-server.json')]",
+          "uri": "[concat(parameters('assetLocation'),'vnet-with-dns-server.json')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
