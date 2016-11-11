@@ -565,6 +565,41 @@
           }
         }
       }
+    },
+    {
+      "name": "updatenicdns",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2015-01-01",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-DC01Name'),'/extensions/CreateFirstDC')]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(parameters('assetLocation'),'Internal-nic-with-dns-update.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "ServernicName": {
+            "value": "[variables('GTM-DC02NicName')]"
+          },
+          "RODCnicName": {
+            "value": "[variables('GTM-RODC01NicName')]"
+          },
+          "ServeripConfigurations": {
+            "value": "[variables('VNet1Subnet1Name')]"
+          },
+          "RODCipConfigurations": {
+            "value": "[variables('VNet1Subnet1Prefix')]"
+          },
+          "dsnServers": {
+            "value": [
+              "[variables('PrivateIP-DC01')]",
+              "[variables('PrivateIP-RODC01')]"
+            ]
+          }
+        }
+      }
     }
 
   ]
