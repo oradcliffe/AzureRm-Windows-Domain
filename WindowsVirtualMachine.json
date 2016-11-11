@@ -530,7 +530,7 @@
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
       "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-DC01Name'),'/extensions/CreateFirstDC')]"
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-DC01Name'),'/extensions/DC01DSC')]"
       ],
       "properties": {
         "mode": "Incremental",
