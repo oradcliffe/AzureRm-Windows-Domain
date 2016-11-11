@@ -112,6 +112,7 @@
 
   },
   "variables": {
+    "VNetName": "VNet1",
     "VNet1Prefix": "192.168.0.0/16",
     "VNet1Subnet1Name": "Production",
     "VNet1Subnet1Prefix": "192.168.95.0/24",
@@ -154,7 +155,7 @@
   },
   "resources": [
     {
-      "name": "VNet1",
+      "name": "[variables('VNetName')]",
       "type": "Microsoft.Network/virtualNetworks",
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-06-15",
@@ -181,10 +182,7 @@
               "addressPrefix": "[variables('VNet1Subnet2Prefix')]"
             }
           }
-        ],
-        "dhcpOptions": {
-          "dnsServers": ["192.168.95.10", "192.168.95.12"]
-        }
+        ]
       }
     },
     {
@@ -524,6 +522,44 @@
         "publicIPAllocationMethod": "Dynamic",
         "dnsSettings": {
           "domainNameLabel": "[parameters('PublicIP-RODC01DnsName')]"
+        }
+      }
+    },
+    {
+      "name": "updatevnetdns",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2015-01-01",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-DC01Name'),'/extensions/CreateFirstDC')]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(parameters('assetLocation'),'/vnet-with-dns-server.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "virtualNetworkName": {
+            "value": "[variables('VNetName')]"
+          },
+          "virtualNetworkAddressRange": {
+            "value": "[variables('VNet1Prefix')]"
+          },
+          "subnet1Name": {
+            "value": "[variables('VNet1Subnet1Name')]"
+          },
+          "subnet1Range": {
+            "value": "[variables('VNet1Subnet1Prefix')]"
+          },
+          "subnet2Name": {
+            "value": "[variables('VNet1Subnet2Name')]"
+          },
+          "subnet2Range": {
+            "value": "[variables('VNet1Subnet2Prefix')]"
+          },
+          "DNSServerAddress": {
+            "value": "[variables('PrivateIP-DC01')]"
+          }
         }
       }
     }
