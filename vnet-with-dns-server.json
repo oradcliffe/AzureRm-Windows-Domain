@@ -66,15 +66,15 @@
         },
         "subnets": [
           {
-            "name": "[variables('VNet1Subnet1Name')]",
+            "name": "[parameters('subnet1Name')]",
             "properties": {
-              "addressPrefix": "[variables('VNet1Subnet1Prefix')]"
+              "addressPrefix": "[parameters('subnet1Range')]"
             }
           },
           {
-            "name": "[variables('VNet1Subnet2Name')]",
+            "name": "[parameters('subnet2Name')]",
             "properties": {
-              "addressPrefix": "[variables('VNet1Subnet2Prefix')]"
+              "addressPrefix": "[parameters('subnet2Range')]"
             }
           }
         ]
