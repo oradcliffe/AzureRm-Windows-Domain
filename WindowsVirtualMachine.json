@@ -558,7 +558,10 @@
             "value": "[variables('VNet1Subnet2Prefix')]"
           },
           "DNSServerAddress": {
-            "value": "[variables('PrivateIP-DC01')]"
+            "value": [
+              "[variables('PrivateIP-DC01')]",
+              "[variables('PrivateIP-RODC01')]"
+            ]
           }
         }
       }
