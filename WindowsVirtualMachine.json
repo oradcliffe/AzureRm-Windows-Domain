@@ -146,9 +146,9 @@
     "PublicIP-DC01Name": "PublicIP-DC01",
     "PublicIP-DC02Name": "PublicIP-DC02",
     "PublicIP-RODC01Name": "PublicIP-RODC01",
-    "PrivateIP-DC01": "192.168.95.10",
-    "PrivateIP-DC02": "192.168.95.11",
-    "PrivateIP-RODC01": "192.168.95.12",
+    "PrivateIP-DC01": "192.168.95.10/24",
+    "PrivateIP-DC02": "192.168.95.11/24",
+    "PrivateIP-RODC01": "192.168.95.12/24",
     "DC01DSCURL": "[concat(parameters('assetLocation'),'DSCCreateFirstDC.zip')]",
     "DC01DSCscript": "CreateFirstDC.ps1",
     "DC01DSCfunction": "CreateFirstDC"
