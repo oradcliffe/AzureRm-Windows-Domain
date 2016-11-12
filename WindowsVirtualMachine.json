@@ -585,10 +585,38 @@
             "value": "[variables('GTM-RODC01NicName')]"
           },
           "ServeripConfigurations": {
-            "value": "[variables('VNet1Subnet1Name')]"
+            "value": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Static",
+                  "privateIPAddress": "[variables('PrivateIP-DC02')]",
+                  "subnet": {
+                    "id": "[variables('GTM-DC02SubnetRef')]"
+                  },
+                  "publicIPAddress": {
+                    "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC02Name'))]"
+                  }
+                }
+              }
+            ]
           },
           "RODCipConfigurations": {
-            "value": "[variables('VNet1Subnet1Prefix')]"
+            "value": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Static",
+                  "privateIPAddress": "[variables('PrivateIP-RODC01')]",
+                  "subnet": {
+                    "id": "[variables('GTM-RODC01SubnetRef')]"
+                  },
+                  "publicIPAddress": {
+                    "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-RODC01Name'))]"
+                  }
+                }
+              }
+            ]
           },
           "dsnServers": {
             "value": [
