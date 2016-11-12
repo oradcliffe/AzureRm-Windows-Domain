@@ -151,7 +151,10 @@
     "PrivateIP-RODC01": "192.168.95.12",
     "DC01DSCURL": "[concat(parameters('assetLocation'),'DSCCreateFirstDC.zip')]",
     "DC01DSCscript": "CreateFirstDC.ps1",
-    "DC01DSCfunction": "CreateFirstDC"
+    "DC01DSCfunction": "CreateFirstDC",
+    "DC02DSCURL": "[concat(parameters('assetLocation'),'DSCCreateFirstDC.zip')]",
+    "DC02DSCscript": "DC02DomainJoin.ps1",
+    "DC02DSCfunction": "DomainJoin"
   },
   "resources": [
     {
@@ -394,7 +397,48 @@
             }
           ]
         }
-      }
+      },
+      "resources": [
+        {
+          "name": "ServerDomainJoin",
+          "type": "extensions",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2016-03-30",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-DC01Name'))]",
+            "Microsoft.resources/deployments/updatenicdns"
+          ],
+          "tags": {
+            "displayName": "ServerDomainJoin"
+          },
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.9",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "wmfVersion": "latest",
+              "configuration": {
+                "url": "[variables('DC02DSCURL')]",
+                "script": "[variables('DC02DSCscript')]",
+                "function": "[variables('DC02DSCfunction')]"
+              },
+              "configurationArguments": {
+                "DomainName": "[parameters('domainName')]",
+                "Admincreds": {
+                  "Username": "[parameters('GTM-DC02AdminUserName')]",
+                  "Password": "PrivateSettingsRef:AdminPassword"
+                }
+              }
+            },
+            "protectedSettings": {
+              "Items": {
+                "AdminPassword": "[parameters('GTM-DC02AdminPassword')"
+              }
+            }
+          }
+        }
+      ]
     },
     {
       "name": "[variables('GTM-RODC01NicName')]",
