@@ -342,8 +342,7 @@
               "publicIPAddress": {
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC02Name'))]"
               }
-            },
-            "dnsservers": "[variables('PrivateIP-DC01')]"
+            }
           }
         ]
       }
@@ -422,8 +421,7 @@
               "publicIPAddress": {
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-RODC01Name'))]"
               }
-            },
-            "dnsservers": "[variables('PrivateIP-DC01')]"
+            }
           }
         ]
       }
