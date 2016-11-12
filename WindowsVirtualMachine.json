@@ -405,7 +405,7 @@
           "location": "[resourceGroup().location]",
           "apiVersion": "2016-03-30",
           "dependsOn": [
-            "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-DC01Name'))]",
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-DC02Name'))]",
             "Microsoft.resources/deployments/updatenicdns"
           ],
           "tags": {
