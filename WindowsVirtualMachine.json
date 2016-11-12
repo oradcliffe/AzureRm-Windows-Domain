@@ -618,7 +618,7 @@
               }
             ]
           },
-          "dsnServers": {
+          "dnsServers": {
             "value": [
               "[variables('PrivateIP-DC01')]",
               "[variables('PrivateIP-RODC01')]"
