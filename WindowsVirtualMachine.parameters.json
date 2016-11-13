@@ -19,8 +19,25 @@
     "GTM-DC01WindowsOSVersion": {
       "value": "2012-R2-Datacenter"
     },
-    "GTM-DC02Name": {
+    "GTM-Server01Name": {
       "value": "GTM-Server-01"
+    },
+    "GTM-Server01AdminUserName": {
+      "value": "radcliffe"
+    },
+    "GTM-Server01AdminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
+        },
+        "secretName": "ServerPass"
+      }
+    },
+    "GTM-Server01WindowsOSVersion": {
+      "value": "2012-R2-Datacenter"
+    },
+    "GTM-DC02Name": {
+      "value": "GTM-DC02"
     },
     "GTM-DC02AdminUserName": {
       "value": "radcliffe"
@@ -36,37 +53,20 @@
     "GTM-DC02WindowsOSVersion": {
       "value": "2012-R2-Datacenter"
     },
-    "GTM-RODC01Name": {
-      "value": "GTM-RODC01"
-    },
-    "GTM-RODC01AdminUserName": {
-      "value": "radcliffe"
-    },
-    "GTM-RODC01AdminPassword": {
-      "reference": {
-        "keyVault": {
-          "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
-        },
-        "secretName": "ServerPass"
-      }
-    },
-    "GTM-RODC01WindowsOSVersion": {
-      "value": "2012-R2-Datacenter"
-    },
     "PublicIP-DC01DnsName": {
       "value": "dc012012r2ojradcliffe"
     },
-    "PublicIP-DC02DnsName": {
-      "value": "dc022012r2ojradcliffe"
+    "PublicIP-Server01DnsName": {
+      "value": "Server012012r2ojradcliffe"
     },
-    "PublicIP-RODC01DnsName": {
-      "value": "rodc012012r2ojradcliffe"
+    "PublicIP-DC02DnsName": {
+      "value": "DC022012r2ojradcliffe"
     },
     "domainname": {
       "value": "gametimeor.priv"
     },
     "assetlocation": {
-      "value": "https://github.com/oradcliffe/AzureRm-Windows-Domain/raw/domainjoin2/"
+      "value": "https://github.com/oradcliffe/AzureRm-Windows-Domain/raw/replacenames/"
     }
   }
 }
