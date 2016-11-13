@@ -8,10 +8,10 @@
         "Description": "The name of the server NIC to Create or Update"
       }
     },
-    "RODCnicName": {
+    "DC02nicName": {
       "type": "string",
       "metadata": {
-        "Description": "The name of the RODC NIC to Create or Update"
+        "Description": "The name of the DC02 NIC to Create or Update"
       }
     },
     "ServeripConfigurations": {
@@ -20,7 +20,7 @@
         "Description": "The IP configurations of the NIC"
       }
     },
-    "RODCipConfigurations": {
+    "DC02ipConfigurations": {
       "type": "array",
       "metadata": {
         "Description": "The IP configurations of the NIC"
@@ -47,12 +47,12 @@
       }
     },
     {
-      "name": "[parameters('RODCnicName')]",
+      "name": "[parameters('DC02nicName')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-05-01-preview",
       "properties": {
-        "ipConfigurations": "[parameters('RODCipConfigurations')]",
+        "ipConfigurations": "[parameters('DC02ipConfigurations')]",
         "dnsSettings": {
           "dnsServers": "[parameters('dnsServers')]"
         }
