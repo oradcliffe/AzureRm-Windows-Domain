@@ -397,7 +397,7 @@
       },
         "resources": [
           {
-            "name": "[concat(parameters('GTM-DC02Name'), '/joindomain')",
+            "name": "Server1JoinDomain",
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "location": "[resourceGroup().location]",
             "apiVersion": "2016-03-30",
