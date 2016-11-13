@@ -57,10 +57,10 @@
       "value": "dc012012r2ojradcliffe"
     },
     "PublicIP-Server01DnsName": {
-      "value": "Server012012r2ojradcliffe"
+      "value": "server012012r2ojradcliffe"
     },
     "PublicIP-DC02DnsName": {
-      "value": "DC022012r2ojradcliffe"
+      "value": "dc022012r2ojradcliffe"
     },
     "domainname": {
       "value": "gametimeor.priv"
