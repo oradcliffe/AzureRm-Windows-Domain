@@ -402,7 +402,7 @@
             "location": "[resourceGroup().location]",
             "apiVersion": "2016-03-30",
             "dependsOn": [
-              "[resourceId('Microsoft.Compute/extensions', '/CreateFirstDC')]"
+              "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-DC01Name'),'/extensions/CreateFirstDC')]"
             ],
             "tags": {
               "displayName": "DC02JoinDomain"
