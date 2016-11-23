@@ -106,7 +106,7 @@
     "assetLocation": {
       "type": "string",
       "metadata": {
-        "description": "Where to find DSC zipfiles"
+        "description": "Where to find assets used in this template"
       }
     }
 
