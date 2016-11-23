@@ -149,7 +149,7 @@
     "PrivateIP-DC01": "192.168.95.10",
     "PrivateIP-Server01": "192.168.95.11",
     "PrivateIP-DC02": "192.168.95.12",
-    "DC01DSCURL": "[concat(parameters('assetLocation'),'DSCCreateFirstDC.zip')]",
+    "DSCURL": "[concat(parameters('assetLocation'),'DSCAssets.zip')]",
     "DC01DSCscript": "CreateFirstDC.ps1",
     "DC01DSCfunction": "CreateFirstDC"
   },
@@ -296,7 +296,7 @@
             "settings": {
               "wmfVersion": "latest",
               "configuration": {
-                "url": "[variables('DC01DSCURL')]",
+                "url": "[variables('DSCURL')]",
                 "script": "[variables('DC01DSCscript')]",
                 "function": "[variables('DC01DSCfunction')]"
               },
