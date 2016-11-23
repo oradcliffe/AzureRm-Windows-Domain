@@ -151,7 +151,9 @@
     "PrivateIP-DC02": "192.168.95.12",
     "DSCURL": "[concat(parameters('assetLocation'),'DSCAssets.zip')]",
     "DC01DSCscript": "CreateFirstDC.ps1",
-    "DC01DSCfunction": "CreateFirstDC"
+    "DC01DSCfunction": "CreateFirstDC",
+    "DC02DSCscript": "CreateSecondDC.ps1",
+    "DC02DSCfunction":  "CreateSecondDC"
   },
   "resources": [
     {
@@ -503,7 +505,48 @@
             }
           ]
         }
-      }
+      },
+      "resources": [
+        {
+          "name": "SecondDC",
+          "type": "extensions",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2016-03-30",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-DC02Name'))]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-DC01Name'),'/extensions/CreateFirstDC')]"
+          ],
+          "tags": {
+            "displayName": "DC02DSC"
+          },
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.9",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "wmfVersion": "latest",
+              "configuration": {
+                "url": "[variables('DSCURL')]",
+                "script": "[variables('DC02DSCscript')]",
+                "function": "[variables('DC02DSCfunction')]"
+              },
+              "configurationArguments": {
+                "DomainName": "[parameters('domainName')]",
+                "Admincreds": {
+                  "Username": "[parameters('GTM-DC02AdminUserName')]",
+                  "Password": "PrivateSettingsRef:AdminPassword"
+                }
+              }
+            },
+            "protectedSettings": {
+              "Items": {
+                "AdminPassword": "[parameters('GTM-DC02AdminPassword')"
+              }
+            }
+          }
+        }
+      ]
     },
     {
       "name": "[variables('PublicIP-DC01Name')]",
