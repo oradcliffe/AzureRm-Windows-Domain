@@ -40,7 +40,7 @@
       "value": "GTM-DC02"
     },
     "GTM-DC02AdminUserName": {
-      "value": "radcliffe"
+      "value": "dc02admin"
     },
     "GTM-DC02AdminPassword": {
       "reference": {
