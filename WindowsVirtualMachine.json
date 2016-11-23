@@ -24,6 +24,9 @@
     "GTM-DC01AdminPassword": {
       "type": "securestring"
     },
+    "GTM-DC01AdminPasswordnonsecure": {
+      "type": "securestring"
+    },
     "GTM-DC01WindowsOSVersion": {
       "type": "string",
       "defaultValue": "2016-Datacenter",
@@ -312,7 +315,7 @@
             },
             "protectedSettings": {
               "Items": {
-                "AdminPassword": "[parameters('GTM-DC01AdminPassword')"
+                "AdminPassword": "[parameters('GTM-DC01AdminPasswordnonsecure')"
               }
             }
           }
@@ -541,7 +544,7 @@
             },
             "protectedSettings": {
               "Items": {
-                "AdminPassword": "[parameters('GTM-DC01AdminPassword')"
+                "AdminPassword": "[parameters('GTM-DC01AdminPasswordnonsecure')"
               }
             }
           }

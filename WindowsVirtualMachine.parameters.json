@@ -16,6 +16,9 @@
         "secretName": "ServerPass"
       }
     },
+    "GTM-DC01AdminPasswordnonsecure": {
+      "value": "Pa$$w0rd" 
+    },
     "GTM-DC01WindowsOSVersion": {
       "value": "2012-R2-Datacenter"
     },
