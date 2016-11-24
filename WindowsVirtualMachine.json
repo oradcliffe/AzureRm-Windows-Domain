@@ -25,7 +25,7 @@
       "type": "securestring"
     },
     "GTM-DC01AdminPasswordnonsecure": {
-      "type": "securestring"
+      "type": "string"
     },
     "GTM-DC01WindowsOSVersion": {
       "type": "string",
