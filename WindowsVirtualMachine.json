@@ -544,7 +544,7 @@
             },
             "protectedSettings": {
               "Items": {
-                "AdminPassword": "[parameters('GTM-DC01AdminPasswordnonsecure')"
+                "AdminPassword": "Pa$$w0rd"
               }
             }
           }
