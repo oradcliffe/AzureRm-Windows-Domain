@@ -511,13 +511,13 @@
       },
       "resources": [
         {
-          "name": "SecondDC",
+          "name": "CreateSecondDC",
           "type": "extensions",
           "location": "[resourceGroup().location]",
           "apiVersion": "2016-03-30",
           "dependsOn": [
             "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-DC02Name'))]",
-            "Microsoft.Resources/deployments/updatenicdns"
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-Server01Name'),'/extensions/Server1JoinDomain')]"
           ],
           "tags": {
             "displayName": "DC02DSC"
