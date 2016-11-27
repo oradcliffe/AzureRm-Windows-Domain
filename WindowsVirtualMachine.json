@@ -315,7 +315,7 @@
             },
             "protectedSettings": {
               "Items": {
-                "AdminPassword": "[parameters('GTM-DC01AdminPasswordnonsecure')"
+                "AdminPassword": "[parameters('GTM-DC01AdminPassword')"
               }
             }
           }
@@ -538,8 +538,13 @@
                 "DomainName": "[parameters('domainName')]",
                 "Admincreds": {
                   "Username": "radcliffe",
-                  "Password": "Pa$$w0rd"
+                  "Password": "PrivateSettingsRef:AdminPasswordDC02"
                 }
+              }
+            },
+            "protectedSettings": {
+              "Items": {
+                "AdminPasswordDC02": "Pa$$w0rd"
               }
             }
           }
