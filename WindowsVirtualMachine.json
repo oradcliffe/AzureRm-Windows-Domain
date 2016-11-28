@@ -538,7 +538,7 @@
                 "DomainName": "[parameters('domainName')]",
                 "Admincreds": {
                   "Username": "[parameters('GTM-DC01AdminUserName')]",
-                  "Password": "[parameters('GTM-DC01AdminPassword')"
+                  "Password": "Pa$$w0rd"
                 }
               }
             },
