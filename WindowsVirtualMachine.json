@@ -538,11 +538,14 @@
                 "DomainName": "[parameters('domainName')]",
                 "Admincreds": {
                   "Username": "[parameters('GTM-DC01AdminUserName')]",
-                  "Password": "Pa$$w0rd"
+                  "Password": "PrivateSettingsRef:AdminPassword"
                 }
               }
             },
             "protectedSettings": {
+              "Items": {
+                "AdminPassword": "[parameters('GTM-DC01AdminPassword')"
+              }
             }
           }
         }
