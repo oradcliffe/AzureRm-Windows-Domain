@@ -408,7 +408,8 @@
             "apiVersion": "2016-03-30",
             "dependsOn": [
               "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-Server01Name'))]",
-              "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-DC01Name'),'/extensions/CreateFirstDC')]"
+              "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-DC01Name'),'/extensions/CreateFirstDC')]",
+              "Microsoft.Resources/deployments/updatenicdns"
             ],
             "tags": {
               "displayName": "Server01JoinDomain"
