@@ -538,14 +538,12 @@
               "configurationArguments": {
                 "DomainName": "[parameters('domainName')]",
                 "adminCreds": {
-                  "userName": "[parameters('GTM-DC01AdminUserName')]",
-                  "password": "PrivateSettingsRef:adminPassword"
+                  "userName": "radcliffe",
+                  "password": "V,=nvEvP$W2bXwP/"
                 }
               }
             },
             "protectedSettings": {
-              "Items": {
-                "adminPassword": "[parameters('GTM-DC01AdminPassword')"
               }
             }
           }
