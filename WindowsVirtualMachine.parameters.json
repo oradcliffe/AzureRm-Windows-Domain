@@ -26,7 +26,7 @@
       "value": "GTM-Server-01"
     },
     "GTM-Server01AdminUserName": {
-      "value": "radcliffe"
+      "value": "serveradmin"
     },
     "GTM-Server01AdminPassword": {
       "reference": {
@@ -43,7 +43,7 @@
       "value": "GTM-DC02"
     },
     "GTM-DC02AdminUserName": {
-      "value": "radcliffe"
+      "value": "admin2"
     },
     "GTM-DC02AdminPassword": {
       "reference": {

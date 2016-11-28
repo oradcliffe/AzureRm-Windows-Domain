@@ -296,7 +296,7 @@
           "properties": {
             "publisher": "Microsoft.Powershell",
             "type": "DSC",
-            "typeHandlerVersion": "2.9",
+            "typeHandlerVersion": "2.20",
             "autoUpgradeMinorVersion": true,
             "settings": {
               "wmfVersion": "latest",
@@ -525,7 +525,7 @@
           "properties": {
             "publisher": "Microsoft.Powershell",
             "type": "DSC",
-            "typeHandlerVersion": "2.9",
+            "typeHandlerVersion": "2.20",
             "autoUpgradeMinorVersion": true,
             "settings": {
               "wmfVersion": "latest",
@@ -537,15 +537,12 @@
               "configurationArguments": {
                 "DomainName": "[parameters('domainName')]",
                 "Admincreds": {
-                  "Username": "radcliffe",
-                  "Password": "PrivateSettingsRef:AdminPasswordDC02"
+                  "Username": "[parameters('GTM-DC01AdminUserName')]",
+                  "Password": "[parameters('GTM-DC01AdminPassword')"
                 }
               }
             },
             "protectedSettings": {
-              "Items": {
-                "AdminPasswordDC02": "Pa$$w0rd"
-              }
             }
           }
         }
