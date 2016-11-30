@@ -156,7 +156,10 @@
     "DC01DSCscript": "CreateFirstDC.ps1",
     "DC01DSCfunction": "CreateFirstDC",
     "DC02DSCscript": "CreateSecondDC.ps1",
-    "DC02DSCfunction":  "CreateSecondDC"
+    "DC02DSCfunction": "CreateSecondDC",
+    "adDataScript": "adData.ps1",
+    "adDataFunction": "CreateADDomainWithData",
+    "adPopulationData": "populationData.psd1"
   },
   "resources": [
     {
@@ -319,6 +322,47 @@
               }
             }
           }
+        },
+        {
+          "name": "adDataCreation",
+          "type": "extensions",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2016-03-30",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-Server01Name'),'/extensions/Server1JoinDomain')]"
+          ],
+          "tags": {
+            "displayName": "adDataCreation"
+          },
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.20",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "wmfVersion": "latest",
+              "configuration": {
+                "url": "[variables('DSCURL')]",
+                "script": "[variables('adDataScript')]",
+                "function": "[variables('adDataFunction')]"
+              },
+              "configurationdata": {
+                "url": "[concat(variables('DSCURL'), variables('adPopulationData'))]"
+              },
+              "configurationArguments": {
+                "DomainName": "[parameters('domainName')]",
+                "Admincreds": {
+                  "Username": "[parameters('GTM-DC01AdminUserName')]",
+                  "Password": "PrivateSettingsRef:AdminPassword"
+                }
+              }
+            },
+            "protectedSettings": {
+              "Items": {
+                "AdminPassword": "[parameters('GTM-DC01AdminPassword')"
+              }
+            }
+          }
         }
       ]
     },
@@ -400,37 +444,37 @@
           ]
         }
       },
-        "resources": [
-          {
-            "name": "Server1JoinDomain",
-            "type": "extensions",
-            "location": "[resourceGroup().location]",
-            "apiVersion": "2016-03-30",
-            "dependsOn": [
-              "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-Server01Name'))]",
-              "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-DC01Name'),'/extensions/CreateFirstDC')]",
-              "Microsoft.Resources/deployments/updatenicdns"
-            ],
-            "tags": {
-              "displayName": "Server01JoinDomain"
+      "resources": [
+        {
+          "name": "Server1JoinDomain",
+          "type": "extensions",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2016-03-30",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-Server01Name'))]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-DC01Name'),'/extensions/CreateFirstDC')]",
+            "Microsoft.Resources/deployments/updatenicdns"
+          ],
+          "tags": {
+            "displayName": "Server01JoinDomain"
+          },
+          "properties": {
+            "publisher": "Microsoft.Compute",
+            "type": "JsonADDomainExtension",
+            "typeHandlerVersion": "1.3",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "Name": "[parameters('domainName')]",
+              "User": "[concat(parameters('domainName'), '\\', parameters('GTM-DC01AdminUserName'))]",
+              "Restart": "true",
+              "Options": "3"
             },
-            "properties": {
-              "publisher": "Microsoft.Compute",
-              "type": "JsonADDomainExtension",
-              "typeHandlerVersion": "1.3",
-              "autoUpgradeMinorVersion": true,
-              "settings": {
-                "Name": "[parameters('domainName')]",
-                "User": "[concat(parameters('domainName'), '\\', parameters('GTM-DC01AdminUserName'))]",
-                "Restart": "true",
-                "Options": "3"
-              },
-              "protectedSettings": {
-                "password": "[parameters('GTM-DC01AdminPassword')]"
-              }
+            "protectedSettings": {
+              "password": "[parameters('GTM-DC01AdminPassword')]"
             }
           }
-        ]
+        }
+      ]
     },
     {
       "name": "[variables('GTM-DC02NicName')]",
