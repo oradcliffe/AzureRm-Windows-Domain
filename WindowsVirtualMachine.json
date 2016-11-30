@@ -322,48 +322,6 @@
               }
             }
           }
-        },
-        {
-          "name": "adDataCreation",
-          "type": "extensions",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2016-03-30",
-          "dependsOn": [
-            "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-DC01Name'))]",
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-Server01Name'),'/extensions/Server1JoinDomain')]"
-          ],
-          "tags": {
-            "displayName": "adDataCreation"
-          },
-          "properties": {
-            "publisher": "Microsoft.Powershell",
-            "type": "DSC",
-            "typeHandlerVersion": "2.20",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-              "wmfVersion": "latest",
-              "configuration": {
-                "url": "[variables('DSCURL')]",
-                "script": "[variables('adDataScript')]",
-                "function": "[variables('adDataFunction')]"
-              },
-              "configurationdata": {
-                "url": "[concat(variables('DSCURL'), variables('adPopulationData'))]"
-              },
-              "configurationArguments": {
-                "DomainName": "[parameters('domainName')]",
-                "Admincreds": {
-                  "Username": "[parameters('GTM-DC01AdminUserName')]",
-                  "Password": "PrivateSettingsRef:AdminPassword"
-                }
-              }
-            },
-            "protectedSettings": {
-              "Items": {
-                "AdminPassword": "[parameters('GTM-DC01AdminPassword')"
-              }
-            }
-          }
         }
       ]
     },
@@ -579,6 +537,9 @@
                 "url": "[variables('DSCURL')]",
                 "script": "[variables('DC02DSCscript')]",
                 "function": "[variables('DC02DSCfunction')]"
+              },
+              "configurationdata": {
+                "url": "[concat(variables('DSCURL'), variables('adPopulationData'))]"
               },
               "configurationArguments": {
                 "DomainName": "[parameters('domainName')]",
