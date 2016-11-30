@@ -329,6 +329,7 @@
           "location": "[resourceGroup().location]",
           "apiVersion": "2016-03-30",
           "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-DC01Name'))]",
             "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-Server01Name'),'/extensions/Server1JoinDomain')]"
           ],
           "tags": {
