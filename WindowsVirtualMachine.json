@@ -157,8 +157,6 @@
     "DC01DSCfunction": "CreateFirstDC",
     "DC02DSCscript": "CreateSecondDC.ps1",
     "DC02DSCfunction": "CreateSecondDC",
-    "adDataScript": "adData.ps1",
-    "adDataFunction": "CreateADDomainWithData",
     "adPopulationData": "populationData.psd1"
   },
   "resources": [
@@ -539,7 +537,7 @@
                 "function": "[variables('DC02DSCfunction')]"
               },
               "configurationdata": {
-                "url": "[concat(variables('DSCURL'), variables('adPopulationData'))]"
+                "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
               },
               "configurationArguments": {
                 "DomainName": "[parameters('domainName')]",
