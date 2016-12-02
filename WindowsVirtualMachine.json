@@ -542,8 +542,8 @@
               "configurationArguments": {
                 "DomainName": "[parameters('domainName')]",
                 "adminCreds": {
-                  "userName": "radcliffe",
-                  "password": "V,=nvEvP$W2bXwP/"
+                  "userName": "[parameters('GTM-DC01AdminUserName')]",
+                  "password": "[parameters('GTM-DC01AdminPassword')]"
                 }
               }
             },
