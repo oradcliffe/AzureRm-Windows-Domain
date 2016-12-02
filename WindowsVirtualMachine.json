@@ -543,11 +543,14 @@
                 "DomainName": "[parameters('domainName')]",
                 "adminCreds": {
                   "userName": "[parameters('GTM-DC01AdminUserName')]",
-                  "password": "[parameters('GTM-DC01AdminPassword')]"
+                  "password": "PrivateSettingsRef:AdminPassword"
                 }
               }
             },
             "protectedSettings": {
+              "Items": {
+                "AdminPassword": "[parameters('GTM-DC01AdminPassword')"
+              }
             }
           }
         }
