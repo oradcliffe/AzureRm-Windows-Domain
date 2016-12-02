@@ -314,7 +314,7 @@
               }
             },
             "protectedSettings": {
-              "Items": {
+              "items": {
                 "AdminPassword": "[parameters('GTM-DC01AdminPassword')"
               }
             }
@@ -359,7 +359,8 @@
       "apiVersion": "2015-06-15",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
-        "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-Server01NicName'))]"
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-Server01NicName'))]",
+        "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-DC01Name'))]"
       ],
       "tags": {
         "displayName": "GTM-Server01"
@@ -469,7 +470,8 @@
       "apiVersion": "2015-06-15",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
-        "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-DC02NicName'))]"
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-DC02NicName'))]",
+        "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-DC01Name'))]"
       ],
       "tags": {
         "displayName": "GTM-DC02"
@@ -544,7 +546,7 @@
               }
             },
             "protectedSettings": {
-              "Items": {
+              "items": {
                 "adminPassword": "[parameters('GTM-DC01AdminPassword')"
               }
             }
