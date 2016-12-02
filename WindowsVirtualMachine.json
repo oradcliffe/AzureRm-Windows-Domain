@@ -24,9 +24,6 @@
     "GTM-DC01AdminPassword": {
       "type": "securestring"
     },
-    "GTM-DC01AdminPasswordnonsecure": {
-      "type": "securestring"
-    },
     "GTM-DC01WindowsOSVersion": {
       "type": "string",
       "defaultValue": "2012-R2-Datacenter",
@@ -543,15 +540,11 @@
                 "DomainName": "[parameters('domainName')]",
                 "adminCreds": {
                   "userName": "[parameters('GTM-DC01AdminUserName')]",
-                  "password": "PrivateSettingsRef:AdminPassword"
+                  "password": "[parameters('GTM-DC01AdminPassword')]"
                 }
               }
             },
-            "protectedSettings": {
-              "Items": {
-                "AdminPassword": "[parameters('GTM-DC01AdminPassword')"
-              }
-            }
+            "protectedSettings": {}
           }
         }
       ]
