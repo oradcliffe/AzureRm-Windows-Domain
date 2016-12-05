@@ -62,6 +62,12 @@
     "PublicIP-DC02DnsName": {
       "value": "dc022012r2ojradcliffe"
     },
+    "PublicIP-FS01DnsName": {
+      "value": "FS012012r2ojradcliffe"
+    },
+    "PublicIP-FS02DnsName": {
+      "value": "FS022012r2ojradcliffe"
+    },
     "domainname": {
       "value": "gametimeor.priv"
     },
