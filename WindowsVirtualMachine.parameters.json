@@ -13,7 +13,7 @@
         "keyVault": {
           "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
         },
-        "secretName": "ServerPass3"
+        "secretName": "ServerPass"
       }
     },
     "GTM-DC01WindowsOSVersion": {
@@ -30,7 +30,7 @@
         "keyVault": {
           "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
         },
-        "secretName": "ServerPass2"
+        "secretName": "ServerPass"
       }
     },
     "GTM-Server01WindowsOSVersion": {
