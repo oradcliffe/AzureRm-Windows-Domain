@@ -846,6 +846,22 @@
       }
     },
     {
+      "name": "[variables('PublicIP-FS02Name')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "PublicIP-FS02"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('PublicIP-FS02DnsName')]"
+        }
+      }
+    },
+    {
       "name": "updatevnetdns",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
