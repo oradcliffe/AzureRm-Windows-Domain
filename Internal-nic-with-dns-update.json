@@ -14,6 +14,18 @@
         "Description": "The name of the DC02 NIC to Create or Update"
       }
     },
+    "FS01nicName": {
+      "type": "string",
+      "metadata": {
+        "Description": "The name of the DC02 NIC to Create or Update"
+      }
+    },
+    "FS02nicName": {
+      "type": "string",
+      "metadata": {
+        "Description": "The name of the DC02 NIC to Create or Update"
+      }
+    },
     "ServeripConfigurations": {
       "type": "array",
       "metadata": {
@@ -21,6 +33,18 @@
       }
     },
     "DC02ipConfigurations": {
+      "type": "array",
+      "metadata": {
+        "Description": "The IP configurations of the NIC"
+      }
+    },
+    "FS01ipConfigurations": {
+      "type": "array",
+      "metadata": {
+        "Description": "The IP configurations of the NIC"
+      }
+    },
+    "FS02ipConfigurations": {
       "type": "array",
       "metadata": {
         "Description": "The IP configurations of the NIC"
@@ -53,6 +77,30 @@
       "apiVersion": "2015-05-01-preview",
       "properties": {
         "ipConfigurations": "[parameters('DC02ipConfigurations')]",
+        "dnsSettings": {
+          "dnsServers": "[parameters('dnsServers')]"
+        }
+      }
+    },
+    {
+      "name": "[parameters('FS01nicName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-05-01-preview",
+      "properties": {
+        "ipConfigurations": "[parameters('FS01ipConfigurations')]",
+        "dnsSettings": {
+          "dnsServers": "[parameters('dnsServers')]"
+        }
+      }
+    },
+    {
+      "name": "[parameters('FS02nicName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-05-01-preview",
+      "properties": {
+        "ipConfigurations": "[parameters('FS02ipConfigurations')]",
         "dnsSettings": {
           "dnsServers": "[parameters('dnsServers')]"
         }

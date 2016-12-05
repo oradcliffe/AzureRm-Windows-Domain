@@ -97,6 +97,14 @@
       "type": "string",
       "minLength": 1
     },
+    "PublicIP-FS01DnsName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "PublicIP-FS02DnsName": {
+      "type": "string",
+      "minLength": 1
+    },
     "domainName": {
       "type": "string",
       "metadata": {
@@ -108,6 +116,54 @@
       "metadata": {
         "description": "Where to find assets used in this template"
       }
+    },
+    "GTM-FS01Name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "GTM-FS01AdminUserName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "GTM-FS01AdminPassword": {
+      "type": "securestring"
+    },
+    "GTM-FS01WindowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2016-Nano-Server",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "Windows-Server-Technical-Preview",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
+        "2016-Datacenter"
+      ]
+    },
+    "GTM-FS02Name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "GTM-FS02AdminUserName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "GTM-FS02AdminPassword": {
+      "type": "securestring"
+    },
+    "GTM-FS02WindowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2016-Nano-Server",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "Windows-Server-Technical-Preview",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
+        "2016-Datacenter"
+      ]
     }
 
   },
@@ -123,7 +179,7 @@
     "GTM-DC01ImageOffer": "WindowsServer",
     "GTM-DC01OSDiskName": "GTM-DC01OSDisk",
     "GTM-DC01VmSize": "Standard_D2_v2",
-    "GTM-DC01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
+    "GTM-DC01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
     "GTM-DC01SubnetRef": "[concat(variables('GTM-DC01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
     "GTM-DC01StorageAccountContainerName": "vhds",
     "GTM-DC01NicName": "[concat(parameters('GTM-DC01Name'), 'Nic0')]",
@@ -131,7 +187,7 @@
     "GTM-Server01ImageOffer": "WindowsServer",
     "GTM-Server01OSDiskName": "GTM-Server01OSDisk",
     "GTM-Server01VmSize": "Standard_D2_v2",
-    "GTM-Server01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
+    "GTM-Server01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
     "GTM-Server01SubnetRef": "[concat(variables('GTM-Server01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
     "GTM-Server01StorageAccountContainerName": "vhds",
     "GTM-Server01NicName": "[concat(parameters('GTM-Server01Name'), 'Nic0')]",
@@ -139,7 +195,7 @@
     "GTM-DC02ImageOffer": "WindowsServer",
     "GTM-DC02OSDiskName": "GTM-DC02OSDisk",
     "GTM-DC02VmSize": "Standard_D2_v2",
-    "GTM-DC02VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
+    "GTM-DC02VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
     "GTM-DC02SubnetRef": "[concat(variables('GTM-DC02VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
     "GTM-DC02StorageAccountContainerName": "vhds",
     "GTM-DC02NicName": "[concat(parameters('GTM-DC02Name'), 'Nic0')]",
@@ -154,7 +210,27 @@
     "DC01DSCfunction": "CreateFirstDC",
     "DC02DSCscript": "CreateSecondDC.ps1",
     "DC02DSCfunction": "CreateSecondDC",
-    "adPopulationData": "populationData.psd1"
+    "adPopulationData": "populationData.psd1",
+    "GTM-FS01ImagePublisher": "MicrosoftWindowsServer",
+    "GTM-FS01ImageOffer": "WindowsServer",
+    "GTM-FS01OSDiskName": "GTM-FS01OSDisk",
+    "GTM-FS01VmSize": "Standard_D2_v2",
+    "GTM-FS01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
+    "GTM-FS01SubnetRef": "[concat(variables('GTM-FS01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
+    "GTM-FS01StorageAccountContainerName": "vhds",
+    "GTM-FS01NicName": "[concat(parameters('GTM-FS01Name'), 'Nic0')]",
+    "PrivateIP-FS01": "192.168.95.13",
+    "PublicIP-FS01Name": "PublicIP-FS01",
+    "GTM-FS02ImagePublisher": "MicrosoftWindowsServer",
+    "GTM-FS02ImageOffer": "WindowsServer",
+    "GTM-FS02OSDiskName": "GTM-FS02OSDisk",
+    "GTM-FS02VmSize": "Standard_D2_v2",
+    "GTM-FS02VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
+    "GTM-FS02SubnetRef": "[concat(variables('GTM-FS02VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
+    "GTM-FS02StorageAccountContainerName": "vhds",
+    "GTM-FS02NicName": "[concat(parameters('GTM-FS02Name'), 'NetworkInterface')]",
+    "PrivateIP-FS02": "192.168.95.14",
+    "PublicIP-FS02Name": "PublicIP-FS02"
   },
   "resources": [
     {
@@ -207,7 +283,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
         "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC01Name'))]"
       ],
       "tags": {
@@ -326,7 +402,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
         "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-Server01Name'))]"
       ],
       "tags": {
@@ -436,7 +512,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworks', 'VNet1')]",
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
         "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC02Name'))]"
       ],
       "tags": {
@@ -550,6 +626,156 @@
       ]
     },
     {
+      "name": "[variables('GTM-FS01NicName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]"
+      ],
+      "tags": {
+        "displayName": "GTM-FS01Nic"
+      },
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "[variables('PrivateIP-FS01')]",
+              "subnet": {
+                "id": "[variables('GTM-FS01SubnetRef')]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "[parameters('GTM-FS01Name')]",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-FS01NicName'))]"
+      ],
+      "tags": {
+        "displayName": "GTM-FS01"
+      },
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('GTM-FS01VmSize')]"
+        },
+        "osProfile": {
+          "computerName": "[parameters('GTM-FS01Name')]",
+          "adminUsername": "[parameters('GTM-FS01AdminUsername')]",
+          "adminPassword": "[parameters('GTM-FS01AdminPassword')]",
+          "windowsConfiguration": {
+            "timeZone": "Central Standard Time"
+          }
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[variables('GTM-FS01ImagePublisher')]",
+            "offer": "[variables('GTM-FS01ImageOffer')]",
+            "sku": "[parameters('GTM-FS01WindowsOSVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "GTM-FS01OSDisk",
+            "vhd": {
+              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('GTM-FS01StorageAccountContainerName'), '/', variables('GTM-FS01OSDiskName'), '.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-FS01NicName'))]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "[variables('GTM-FS02NicName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]"
+      ],
+      "tags": {
+        "displayName": "GTM-FS02Nic"
+      },
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "[variables('PrivateIP-FS02')]",
+              "subnet": {
+                "id": "[variables('GTM-FS02SubnetRef')]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "[parameters('GTM-FS02Name')]",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-FS02NicName'))]"
+      ],
+      "tags": {
+        "displayName": "GTM-FS02"
+      },
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('GTM-FS02VmSize')]"
+        },
+        "osProfile": {
+          "computerName": "[parameters('GTM-FS02Name')]",
+          "adminUsername": "[parameters('GTM-FS02AdminUsername')]",
+          "adminPassword": "[parameters('GTM-FS02AdminPassword')]",
+          "windowsConfiguration": {
+            "timeZone": "Central Standard Time"
+          }
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[variables('GTM-FS02ImagePublisher')]",
+            "offer": "[variables('GTM-FS02ImageOffer')]",
+            "sku": "[parameters('GTM-FS02WindowsOSVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "GTM-FS02OSDisk",
+            "vhd": {
+              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('GTM-FS02StorageAccountContainerName'), '/', variables('GTM-FS02OSDiskName'), '.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('GTM-FS02NicName'))]"
+            }
+          ]
+        }
+      }
+    },
+    {
       "name": "[variables('PublicIP-DC01Name')]",
       "type": "Microsoft.Network/publicIPAddresses",
       "location": "[resourceGroup().location]",
@@ -594,6 +820,22 @@
         "publicIPAllocationMethod": "Dynamic",
         "dnsSettings": {
           "domainNameLabel": "[parameters('PublicIP-DC02DnsName')]"
+        }
+      }
+    },
+    {
+      "name": "[variables('PublicIP-FS01Name')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "PublicIP-FS01"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('PublicIP-FS01DnsName')]"
         }
       }
     },
@@ -658,6 +900,12 @@
           "DC02nicName": {
             "value": "[variables('GTM-DC02NicName')]"
           },
+          "FS01nicName": {
+            "value": "[variables('GTM-FS01NicName')]"
+          },
+          "FS02nicName": {
+            "value": "[variables('GTM-FS02NicName')]"
+          },
           "ServeripConfigurations": {
             "value": [
               {
@@ -692,6 +940,40 @@
               }
             ]
           },
+          "FS01ipConfigurations": {
+            "value": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Static",
+                  "privateIPAddress": "[variables('PrivateIP-FS01')]",
+                  "subnet": {
+                    "id": "[variables('GTM-Server01SubnetRef')]"
+                  },
+                  "publicIPAddress": {
+                    "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-FS01Name'))]"
+                  }
+                }
+              }
+            ]
+          },
+          "FS02ipConfigurations": {
+            "value": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Static",
+                  "privateIPAddress": "[variables('PrivateIP-FS02')]",
+                  "subnet": {
+                    "id": "[variables('GTM-Server01SubnetRef')]"
+                  },
+                  "publicIPAddress": {
+                    "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-FS02Name'))]"
+                  }
+                }
+              }
+            ]
+          },
           "dnsServers": {
             "value": [
               "[variables('PrivateIP-DC01')]",
@@ -701,6 +983,8 @@
         }
       }
     }
+
+
 
   ]
 }

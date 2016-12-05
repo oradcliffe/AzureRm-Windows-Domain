@@ -67,6 +67,40 @@
     },
     "assetlocation": {
       "value": "https://github.com/oradcliffe/AzureRm-Windows-Domain/raw/DFS/"
+    },
+    "GTM-FS01Name": {
+      "value": "GTM-FS01"
+    },
+    "GTM-FS01AdminUserName": {
+      "value": "serveradmin"
+    },
+    "GTM-FS01AdminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
+        },
+        "secretName": "server01Pass"
+      }
+    },
+    "GTM-FS01WindowsOSVersion": {
+      "value": "2012-R2-Datacenter"
+    },
+    "GTM-FS02Name": {
+      "value": "GTM-FS02"
+    },
+    "GTM-FS02AdminUserName": {
+      "value": "serveradmin"
+    },
+    "GTM-FS02AdminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
+        },
+        "secretName": "server01Pass"
+      }
+    },
+    "GTM-FS02WindowsOSVersion": {
+      "value": "2012-R2-Datacenter"
     }
   }
 }
