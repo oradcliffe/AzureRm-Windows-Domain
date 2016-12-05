@@ -645,6 +645,9 @@
               "privateIPAddress": "[variables('PrivateIP-FS01')]",
               "subnet": {
                 "id": "[variables('GTM-FS01SubnetRef')]"
+              },
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-FS01Name'))]"
               }
             }
           }
@@ -720,6 +723,9 @@
               "privateIPAddress": "[variables('PrivateIP-FS02')]",
               "subnet": {
                 "id": "[variables('GTM-FS02SubnetRef')]"
+              },
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-FS02Name'))]"
               }
             }
           }
