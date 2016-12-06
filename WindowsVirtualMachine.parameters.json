@@ -78,35 +78,35 @@
       "value": "GTM-FS01"
     },
     "GTM-FS01AdminUserName": {
-      "value": "serveradmin"
+      "value": "fs01admin"
     },
     "GTM-FS01AdminPassword": {
       "reference": {
         "keyVault": {
           "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
         },
-        "secretName": "server01Pass"
+        "secretName": "fs01Pass"
       }
     },
     "GTM-FS01WindowsOSVersion": {
-      "value": "2012-R2-Datacenter"
+      "value": "2016-Nano-Server"
     },
     "GTM-FS02Name": {
       "value": "GTM-FS02"
     },
     "GTM-FS02AdminUserName": {
-      "value": "serveradmin"
+      "value": "fs02admin"
     },
     "GTM-FS02AdminPassword": {
       "reference": {
         "keyVault": {
           "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
         },
-        "secretName": "server01Pass"
+        "secretName": "fs02Pass"
       }
     },
     "GTM-FS02WindowsOSVersion": {
-      "value": "2012-R2-Datacenter"
+      "value": "2016-Nano-Server"
     }
   }
 }

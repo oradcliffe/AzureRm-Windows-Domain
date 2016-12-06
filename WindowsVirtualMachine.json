@@ -230,6 +230,10 @@
     "DC01DSCfunction": "CreateFirstDC",
     "DC02DSCscript": "CreateSecondDC.ps1",
     "DC02DSCfunction": "CreateSecondDC",
+    "FS01DSCscript": "fileShareServersDSC.ps1",
+    "FS01DSCfunction": "fileShareConfig",
+    "FS02DSCscript": "fileShareServersDSC.ps1",
+    "FS02DSCfunction": "fileShareConfig",
     "adPopulationData": "populationData.psd1"
   },
   "resources": [
@@ -701,7 +705,47 @@
             }
           ]
         }
-      }
+      },
+      "resources": [
+        {
+          "name": "FS01DSC",
+          "type": "extensions",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2016-03-30",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-FS01Name'))]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-Server01Name'),'/extensions/Server1JoinDomain')]"
+          ],
+          "tags": {
+            "displayName": "FS01DSC"
+          },
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.21",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "wmfVersion": "latest",
+              "configuration": {
+                "url": "[variables('DSCURL')]",
+                "script": "[variables('FS01DSCscript')]",
+                "function": "[variables('FS01DSCfunction')]"
+              },
+              "configurationdata": {
+                "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
+              },
+              "configurationArguments": {
+                "DomainName": "[parameters('domainName')]",
+                "adminCreds": {
+                  "userName": "[parameters('GTM-DC01AdminUserName')]",
+                  "password": "[parameters('GTM-DC01AdminPassword')]"
+                }
+              }
+            },
+            "protectedSettings": {}
+          }
+        }
+      ]
     },
     {
       "name": "[variables('GTM-FS02NicName')]",
@@ -779,7 +823,47 @@
             }
           ]
         }
-      }
+      },
+      "resources": [
+        {
+          "name": "FS02DSC",
+          "type": "extensions",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2016-03-30",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-FS02Name'))]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-Server01Name'),'/extensions/Server1JoinDomain')]"
+          ],
+          "tags": {
+            "displayName": "FS02DSC"
+          },
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.21",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "wmfVersion": "latest",
+              "configuration": {
+                "url": "[variables('DSCURL')]",
+                "script": "[variables('FS02DSCscript')]",
+                "function": "[variables('FS02DSCfunction')]"
+              },
+              "configurationdata": {
+                "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
+              },
+              "configurationArguments": {
+                "DomainName": "[parameters('domainName')]",
+                "adminCreds": {
+                  "userName": "[parameters('GTM-DC01AdminUserName')]",
+                  "password": "[parameters('GTM-DC01AdminPassword')]"
+                }
+              }
+            },
+            "protectedSettings": {}
+          }
+        }
+      ]
     },
     {
       "name": "[variables('PublicIP-DC01Name')]",
@@ -1005,8 +1089,5 @@
         }
       }
     }
-
-
-
   ]
 }
