@@ -739,7 +739,8 @@
                 "adminCreds": {
                   "userName": "[parameters('GTM-DC01AdminUserName')]",
                   "password": "[parameters('GTM-DC01AdminPassword')]"
-                }
+                },
+                "MachineName": "[parameters('GTM-FS01Name')"
               }
             },
             "protectedSettings": {}
@@ -857,7 +858,8 @@
                 "adminCreds": {
                   "userName": "[parameters('GTM-DC01AdminUserName')]",
                   "password": "[parameters('GTM-DC01AdminPassword')]"
-                }
+                },
+                "MachineName": "[parameters('GTM-FS02Name')"
               }
             },
             "protectedSettings": {}
