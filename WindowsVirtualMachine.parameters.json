@@ -89,7 +89,7 @@
       }
     },
     "GTM-FS01WindowsOSVersion": {
-      "value": "2016-Nano-Server"
+      "value": "2012-R2-Datacenter"
     },
     "GTM-FS02Name": {
       "value": "GTM-FS02"
@@ -106,7 +106,7 @@
       }
     },
     "GTM-FS02WindowsOSVersion": {
-      "value": "2016-Nano-Server"
+      "value": "2012-R2-Datacenter"
     }
   }
 }
