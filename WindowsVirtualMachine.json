@@ -384,16 +384,16 @@
                 "function": "[variables('DC01DSCfunction')]"
               },
               "configurationArguments": {
-                "DomainName": "[parameters('domainName')]",
-                "Admincreds": {
-                  "Username": "[parameters('GTM-DC01AdminUserName')]",
+                "domainName": "[parameters('domainName')]",
+                "adminCreds": {
+                  "userName": "[parameters('GTM-DC01AdminUserName')]",
                   "Password": "PrivateSettingsRef:AdminPassword"
                 }
               }
             },
             "protectedSettings": {
               "Items": {
-                "AdminPassword": "[parameters('GTM-DC01AdminPassword')"
+                "adminPassword": "[parameters('GTM-DC01AdminPassword')"
               }
             }
           }
@@ -617,7 +617,7 @@
                 "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
               },
               "configurationArguments": {
-                "DomainName": "[parameters('domainName')]",
+                "domainName": "[parameters('domainName')]",
                 "adminCreds": {
                   "userName": "[parameters('GTM-DC01AdminUserName')]",
                   "password": "[parameters('GTM-DC01AdminPassword')]"
@@ -735,12 +735,12 @@
                 "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
               },
               "configurationArguments": {
-                "DomainName": "[parameters('domainName')]",
+                "domainName": "[parameters('domainName')]",
                 "adminCreds": {
                   "userName": "[parameters('GTM-DC01AdminUserName')]",
                   "password": "[parameters('GTM-DC01AdminPassword')]"
                 },
-                "MachineName": "[parameters('GTM-FS01Name')"
+                "machineName": "[parameters('GTM-FS01Name')"
               }
             },
             "protectedSettings": {}
@@ -854,12 +854,12 @@
                 "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
               },
               "configurationArguments": {
-                "DomainName": "[parameters('domainName')]",
+                "domainName": "[parameters('domainName')]",
                 "adminCreds": {
                   "userName": "[parameters('GTM-DC01AdminUserName')]",
                   "password": "[parameters('GTM-DC01AdminPassword')]"
                 },
-                "MachineName": "[parameters('GTM-FS02Name')"
+                "machineName": "[parameters('GTM-FS02Name')"
               }
             },
             "protectedSettings": {}
