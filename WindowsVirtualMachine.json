@@ -228,7 +228,7 @@
     "DSCURL": "[concat(parameters('assetLocation'),'DSCAssets.zip')]",
     "DC01DSCscript": "CreateFirstDC.ps1",
     "DC01DSCfunction": "CreateFirstDC",
-    "DC02DSCscript": "CreateSecondDC.ps1",
+    "DC02DSCscript": "CreateSecondDC2.ps1",
     "DC02DSCfunction": "CreateSecondDC",
     "FS01DSCscript": "fileShareFS01DSC.ps1",
     "FS01DSCfunction": "fileShareFS01Config",
