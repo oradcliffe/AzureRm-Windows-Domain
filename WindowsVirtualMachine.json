@@ -714,7 +714,8 @@
           "apiVersion": "2016-03-30",
           "dependsOn": [
             "[resourceId('Microsoft.Compute/virtualMachines', parameters('GTM-FS01Name'))]",
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-Server01Name'),'/extensions/Server1JoinDomain')]"
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-Server01Name'),'/extensions/Server1JoinDomain')]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('GTM-DC02Name'),'/extensions/CreateSecondDC')]"
           ],
           "tags": {
             "displayName": "FS01DSC"
