@@ -72,7 +72,7 @@
       "value": "gametimeor.priv"
     },
     "assetlocation": {
-      "value": "https://github.com/oradcliffe/AzureRm-Windows-Domain/raw/DFS/"
+      "value": "https://github.com/oradcliffe/AzureRm-Windows-Domain/raw/cleanUpDFS/"
     },
     "GTM-FS01Name": {
       "value": "GTM-FS01"
