@@ -18,7 +18,7 @@
       "minLength": 1
     },
     "GTM-DC01AdminUserName": {
-      "type": "string",
+      "type": "securestring",
       "minLength": 1
     },
     "GTM-DC01AdminPassword": {
@@ -42,7 +42,7 @@
       "minLength": 1
     },
     "GTM-Server01AdminUserName": {
-      "type": "string",
+      "type": "securestring",
       "minLength": 1
     },
     "GTM-Server01AdminPassword": {
@@ -66,7 +66,7 @@
       "minLength": 1
     },
     "GTM-DC02AdminUserName": {
-      "type": "string",
+      "type": "securestring",
       "minLength": 1
     },
     "GTM-DC02AdminPassword": {
@@ -122,7 +122,7 @@
       "minLength": 1
     },
     "GTM-FS01AdminUserName": {
-      "type": "string",
+      "type": "securestring",
       "minLength": 1
     },
     "GTM-FS01AdminPassword": {
@@ -146,7 +146,7 @@
       "minLength": 1
     },
     "GTM-FS02AdminUserName": {
-      "type": "string",
+      "type": "securestring",
       "minLength": 1
     },
     "GTM-FS02AdminPassword": {
