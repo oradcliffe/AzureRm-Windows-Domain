@@ -383,17 +383,14 @@
                 "function": "[variables('DC01DSCfunction')]"
               },
               "configurationArguments": {
-                "domainName": "[parameters('domainName')]",
-                "adminCreds": {
-                  "userName": "[parameters('GTM-DC01AdminUserName')]",
-                  "Password": "PrivateSettingsRef:AdminPassword"
-                }
+                "domainName": "[parameters('domainName')]"
               }
             },
             "protectedSettings": {
               "configurationArguments": {
-                "parameterOfTypePSCredential1": {
-                  "adminPassword": "[parameters('GTM-DC01AdminPassword')"
+                "adminCreds": {
+                  "userName": "[parameters('GTM-DC01AdminUserName')]",
+                  "Password": "[parameters('GTM-DC01AdminPassword')"
                 }
               }
             }
@@ -618,17 +615,14 @@
                 "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
               },
               "configurationArguments": {
-                "domainName": "[parameters('domainName')]",
-                "adminCreds": {
-                  "userName": "[parameters('GTM-DC01AdminUserName')]",
-                  "Password": "PrivateSettingsRef:AdminPassword"
-                }
+                "domainName": "[parameters('domainName')]"
               }
             },
             "protectedSettings": {
               "configurationArguments": {
-                "parameterOfTypePSCredential1": {
-                  "adminPassword": "[parameters('GTM-DC01AdminPassword')"
+                "adminCreds": {
+                  "userName": "[parameters('GTM-DC01AdminUserName')]",
+                  "Password": "[parameters('GTM-DC01AdminPassword')"
                 }
               }
             }
@@ -743,17 +737,14 @@
                 "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
               },
               "configurationArguments": {
-                "domainName": "[parameters('domainName')]",
-                "adminCreds": {
-                  "userName": "[parameters('GTM-DC01AdminUserName')]",
-                  "Password": "PrivateSettingsRef:AdminPassword"
-                }
+                "domainName": "[parameters('domainName')]"
               }
             },
             "protectedSettings": {
               "configurationArguments": {
-                "parameterOfTypePSCredential1": {
-                  "adminPassword": "[parameters('GTM-DC01AdminPassword')"
+                "adminCreds": {
+                  "userName": "[parameters('GTM-DC01AdminUserName')]",
+                  "Password": "[parameters('GTM-DC01AdminPassword')"
                 }
               }
             }
@@ -868,17 +859,14 @@
                 "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
               },
               "configurationArguments": {
-                "domainName": "[parameters('domainName')]",
-                "adminCreds": {
-                  "userName": "[parameters('GTM-DC01AdminUserName')]",
-                  "Password": "PrivateSettingsRef:AdminPassword"
-                }
+                "domainName": "[parameters('domainName')]"
               }
             },
             "protectedSettings": {
               "configurationArguments": {
-                "parameterOfTypePSCredential1": {
-                  "adminPassword": "[parameters('GTM-DC01AdminPassword')"
+                "adminCreds": {
+                  "userName": "[parameters('GTM-DC01AdminUserName')]",
+                  "Password": "[parameters('GTM-DC01AdminPassword')"
                 }
               }
             }
