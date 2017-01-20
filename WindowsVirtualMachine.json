@@ -18,11 +18,11 @@
       "minLength": 1
     },
     "GTM-DC01AdminUserName": {
-      "type": "securestring",
+      "type": "string",
       "minLength": 1
     },
     "GTM-DC01AdminPassword": {
-      "type": "securestring"
+      "type": "string"
     },
     "GTM-DC01WindowsOSVersion": {
       "type": "string",
@@ -42,11 +42,11 @@
       "minLength": 1
     },
     "GTM-Server01AdminUserName": {
-      "type": "securestring",
+      "type": "string",
       "minLength": 1
     },
     "GTM-Server01AdminPassword": {
-      "type": "securestring"
+      "type": "string"
     },
     "GTM-Server01WindowsOSVersion": {
       "type": "string",
@@ -66,11 +66,11 @@
       "minLength": 1
     },
     "GTM-DC02AdminUserName": {
-      "type": "securestring",
+      "type": "string",
       "minLength": 1
     },
     "GTM-DC02AdminPassword": {
-      "type": "securestring"
+      "type": "string"
     },
     "GTM-DC02WindowsOSVersion": {
       "type": "string",
@@ -122,11 +122,11 @@
       "minLength": 1
     },
     "GTM-FS01AdminUserName": {
-      "type": "securestring",
+      "type": "string",
       "minLength": 1
     },
     "GTM-FS01AdminPassword": {
-      "type": "securestring"
+      "type": "string"
     },
     "GTM-FS01WindowsOSVersion": {
       "type": "string",
@@ -146,11 +146,11 @@
       "minLength": 1
     },
     "GTM-FS02AdminUserName": {
-      "type": "securestring",
+      "type": "string",
       "minLength": 1
     },
     "GTM-FS02AdminPassword": {
-      "type": "securestring"
+      "type": "string"
     },
     "GTM-FS02WindowsOSVersion": {
       "type": "string",
