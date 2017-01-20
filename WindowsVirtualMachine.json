@@ -165,7 +165,6 @@
         "2016-Datacenter"
       ]
     }
-
   },
   "variables": {
     "VNetName": "VNet1",
@@ -392,8 +391,10 @@
               }
             },
             "protectedSettings": {
-              "Items": {
-                "adminPassword": "[parameters('GTM-DC01AdminPassword')"
+              "configurationArguments": {
+                "parameterOfTypePSCredential1": {
+                  "adminPassword": "[parameters('GTM-DC01AdminPassword')"
+                }
               }
             }
           }
@@ -620,11 +621,17 @@
                 "domainName": "[parameters('domainName')]",
                 "adminCreds": {
                   "userName": "[parameters('GTM-DC01AdminUserName')]",
-                  "password": "[parameters('GTM-DC01AdminPassword')]"
+                  "Password": "PrivateSettingsRef:AdminPassword"
                 }
               }
             },
-            "protectedSettings": {}
+            "protectedSettings": {
+              "configurationArguments": {
+                "parameterOfTypePSCredential1": {
+                  "adminPassword": "[parameters('GTM-DC01AdminPassword')"
+                }
+              }
+            }
           }
         }
       ]
@@ -739,11 +746,17 @@
                 "domainName": "[parameters('domainName')]",
                 "adminCreds": {
                   "userName": "[parameters('GTM-DC01AdminUserName')]",
-                  "password": "[parameters('GTM-DC01AdminPassword')]"
+                  "Password": "PrivateSettingsRef:AdminPassword"
                 }
               }
             },
-            "protectedSettings": {}
+            "protectedSettings": {
+              "configurationArguments": {
+                "parameterOfTypePSCredential1": {
+                  "adminPassword": "[parameters('GTM-DC01AdminPassword')"
+                }
+              }
+            }
           }
         }
       ]
@@ -858,11 +871,17 @@
                 "domainName": "[parameters('domainName')]",
                 "adminCreds": {
                   "userName": "[parameters('GTM-DC01AdminUserName')]",
-                  "password": "[parameters('GTM-DC01AdminPassword')]"
+                  "Password": "PrivateSettingsRef:AdminPassword"
                 }
               }
             },
-            "protectedSettings": {}
+            "protectedSettings": {
+              "configurationArguments": {
+                "parameterOfTypePSCredential1": {
+                  "adminPassword": "[parameters('GTM-DC01AdminPassword')"
+                }
+              }
+            }
           }
         }
       ]
