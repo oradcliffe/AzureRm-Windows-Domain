@@ -2,13 +2,13 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "GTM-DC01Name": {
-      "value": "GTM-DC01"
+    "DC01Name": {
+      "value": "DC01"
     },
-    "GTM-DC01AdminUserName": {
+    "DC01AdminUserName": {
       "value": "radcliffe"
     },
-    "GTM-DC01AdminPassword": {
+    "DC01AdminPassword": {
       "reference": {
         "keyVault": {
           "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
@@ -16,16 +16,16 @@
         "secretName": "dc01Pass"
       }
     },
-    "GTM-DC01WindowsOSVersion": {
+    "DC01WindowsOSVersion": {
       "value": "2012-R2-Datacenter"
     },
-    "GTM-Server01Name": {
-      "value": "GTM-Server-01"
+    "Server01Name": {
+      "value": "Server-01"
     },
-    "GTM-Server01AdminUserName": {
+    "Server01AdminUserName": {
       "value": "serveradmin"
     },
-    "GTM-Server01AdminPassword": {
+    "Server01AdminPassword": {
       "reference": {
         "keyVault": {
           "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
@@ -33,16 +33,16 @@
         "secretName": "server01Pass"
       }
     },
-    "GTM-Server01WindowsOSVersion": {
+    "Server01WindowsOSVersion": {
       "value": "2012-R2-Datacenter"
     },
-    "GTM-DC02Name": {
-      "value": "GTM-DC02"
+    "DC02Name": {
+      "value": "DC02"
     },
-    "GTM-DC02AdminUserName": {
+    "DC02AdminUserName": {
       "value": "radcliffe2"
     },
-    "GTM-DC02AdminPassword": {
+    "DC02AdminPassword": {
       "reference": {
         "keyVault": {
           "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
@@ -50,7 +50,7 @@
         "secretName": "dc02Pass"
       }
     },
-    "GTM-DC02WindowsOSVersion": {
+    "DC02WindowsOSVersion": {
       "value": "2012-R2-Datacenter"
     },
     "PublicIP-DC01DnsName": {
@@ -74,13 +74,13 @@
     "assetlocation": {
       "value": "https://github.com/oradcliffe/AzureRm-Windows-Domain/raw/master/"
     },
-    "GTM-FS01Name": {
-      "value": "GTM-FS01"
+    "FS01Name": {
+      "value": "FS01"
     },
-    "GTM-FS01AdminUserName": {
+    "FS01AdminUserName": {
       "value": "fs01admin"
     },
-    "GTM-FS01AdminPassword": {
+    "FS01AdminPassword": {
       "reference": {
         "keyVault": {
           "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
@@ -88,16 +88,16 @@
         "secretName": "fs01Pass"
       }
     },
-    "GTM-FS01WindowsOSVersion": {
+    "FS01WindowsOSVersion": {
       "value": "2012-R2-Datacenter"
     },
-    "GTM-FS02Name": {
-      "value": "GTM-FS02"
+    "FS02Name": {
+      "value": "FS02"
     },
-    "GTM-FS02AdminUserName": {
+    "FS02AdminUserName": {
       "value": "fs02admin"
     },
-    "GTM-FS02AdminPassword": {
+    "FS02AdminPassword": {
       "reference": {
         "keyVault": {
           "id": "/subscriptions/9b0a26b7-6a4c-4998-83e8-d61d13b12fcf/resourceGroups/ojradcliffekv1/providers/Microsoft.KeyVault/vaults/ojradcliffekv1"
@@ -105,7 +105,7 @@
         "secretName": "fs02Pass"
       }
     },
-    "GTM-FS02WindowsOSVersion": {
+    "FS02WindowsOSVersion": {
       "value": "2012-R2-Datacenter"
     }
   }
