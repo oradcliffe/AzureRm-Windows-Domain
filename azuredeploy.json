@@ -245,7 +245,9 @@
     "fileServer01DSCfunction": "fileShareFS01Config",
     "fileServer02DSCscript": "fileShareFS02DSC.ps1",
     "fileServer02DSCfunction": "fileShareFS02Config",
-    "adPopulationData": "populationData.psd1"
+    "adPopulationData": "populationData.psd1",
+    "vnetTemplateUri": "[concat(parameters('assetLocation'),'/nestedTemplates/vnet-with-dns-server.json')]",
+    "nicTemplateUri": "[concat(parameters('assetLocation'),'/nestedTemplates/Internal-nic-with-dns-update.json')]"
   },
   "resources": [
     {
@@ -305,7 +307,7 @@
         "displayName": "domainController01Nic"
       },
       "properties": {
-        "ipConfigurations": [
+        "IPConfigurations": [
           {
             "name": "ipconfig1",
             "properties": {
@@ -424,7 +426,7 @@
         "displayName": "Server01Nic"
       },
       "properties": {
-        "ipConfigurations": [
+        "IPConfigurations": [
           {
             "name": "ipconfig1",
             "properties": {
@@ -534,7 +536,7 @@
         "displayName": "domainController02Nic"
       },
       "properties": {
-        "ipConfigurations": [
+        "IPConfigurations": [
           {
             "name": "ipconfig1",
             "properties": {
@@ -652,7 +654,7 @@
         "displayName": "fileServer01Nic"
       },
       "properties": {
-        "ipConfigurations": [
+        "IPConfigurations": [
           {
             "name": "ipconfig1",
             "properties": {
@@ -771,7 +773,7 @@
         "displayName": "fileServer02Nic"
       },
       "properties": {
-        "ipConfigurations": [
+        "IPConfigurations": [
           {
             "name": "ipconfig1",
             "properties": {
@@ -970,7 +972,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[concat(parameters('assetLocation'),'vnet-with-dns-server.json')]",
+          "uri": "[variables('vnetTemplateUri')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -1011,23 +1013,23 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[concat(parameters('assetLocation'),'Internal-nic-with-dns-update.json')]",
+          "uri": "[variables('nicTemplateUri')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-          "ServernicName": {
+          "serverNicName": {
             "value": "[variables('Server01NicName')]"
           },
-          "domainController02nicName": {
+          "domainController02NicName": {
             "value": "[variables('domainController02NicName')]"
           },
-          "fileServer01nicName": {
+          "fileServer01NicName": {
             "value": "[variables('fileServer01NicName')]"
           },
-          "fileServer02nicName": {
+          "fileServer02NicName": {
             "value": "[variables('fileServer02NicName')]"
           },
-          "ServeripConfigurations": {
+          "serverIPConfigurations": {
             "value": [
               {
                 "name": "ipconfig1",
@@ -1044,7 +1046,7 @@
               }
             ]
           },
-          "domainController02ipConfigurations": {
+          "domainController02IPConfigurations": {
             "value": [
               {
                 "name": "ipconfig1",
@@ -1061,7 +1063,7 @@
               }
             ]
           },
-          "fileServer01ipConfigurations": {
+          "fileServer01IPConfigurations": {
             "value": [
               {
                 "name": "ipconfig1",
@@ -1069,7 +1071,7 @@
                   "privateIPAllocationMethod": "Static",
                   "privateIPAddress": "[variables('privateIP-fileServer01')]",
                   "subnet": {
-                    "id": "[variables('Server01SubnetRef')]"
+                    "id": "[variables('fileServer01SubnetRef')]"
                   },
                   "publicIPAddress": {
                     "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-fileServer01Name'))]"
@@ -1078,7 +1080,7 @@
               }
             ]
           },
-          "fileServer02ipConfigurations": {
+          "fileServer02IPConfigurations": {
             "value": [
               {
                 "name": "ipconfig1",
@@ -1086,7 +1088,7 @@
                   "privateIPAllocationMethod": "Static",
                   "privateIPAddress": "[variables('privateIP-fileServer02')]",
                   "subnet": {
-                    "id": "[variables('Server01SubnetRef')]"
+                    "id": "[variables('fileServer02SubnetRef')]"
                   },
                   "publicIPAddress": {
                     "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-fileServer02Name'))]"
