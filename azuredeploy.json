@@ -236,18 +236,21 @@
     "privateIP-domainController02": "192.168.95.12",
     "privateIP-fileServer01": "192.168.95.13",
     "privateIP-fileServer02": "192.168.95.14",
-    "DSCURL": "[concat(parameters('assetLocation'),'DSCAssets.zip')]",
-    "domainController01DSCscript": "CreateFirstDC.ps1",
-    "domainController01DSCfunction": "CreateFirstDC",
-    "domainController02DSCscript": "CreateSecondDC.ps1",
-    "domainController02DSCfunction": "CreateSecondDC",
-    "fileServer01DSCscript": "fileShareFS01DSC.ps1",
-    "fileServer01DSCfunction": "fileShareFS01Config",
-    "fileServer02DSCscript": "fileShareFS02DSC.ps1",
-    "fileServer02DSCfunction": "fileShareFS02Config",
+    "dc01DscUrl": "[concat(parameters('assetLocation'),'DSC/DC01.ps1.zip')]",
+    "dc02DscUrl": "[concat(parameters('assetLocation'),'DSC/DC02.ps1.zip')]",
+    "fs01DscUrl": "[concat(parameters('assetLocation'),'DSC/FS01.ps1.zip')]",
+    "fs02DscUrl": "[concat(parameters('assetLocation'),'DSC/FS02.ps1.zip')]",
+    "domainController01DSCscript": "DC01.ps1",
+    "domainController01DSCfunction": "DC01",
+    "domainController02DSCscript": "DC02.ps1",
+    "domainController02DSCfunction": "DC02",
+    "fileServer01DSCscript": "FS01.ps1",
+    "fileServer01DSCfunction": "FS01",
+    "fileServer02DSCscript": "FS01.ps1",
+    "fileServer02DSCfunction": "FS01",
     "adPopulationData": "populationData.psd1",
-    "vnetTemplateUri": "[concat(parameters('assetLocation'),'/nestedTemplates/vnet-with-dns-server.json')]",
-    "nicTemplateUri": "[concat(parameters('assetLocation'),'/nestedTemplates/Internal-nic-with-dns-update.json')]"
+    "vnetTemplateUri": "[concat(parameters('assetLocation'),'nestedTemplates/vnet-with-dns-server.json')]",
+    "nicTemplateUri": "[concat(parameters('assetLocation'),'nestedTemplates/Internal-nic-with-dns-update.json')]"
   },
   "resources": [
     {
@@ -392,7 +395,7 @@
             "settings": {
               "wmfVersion": "latest",
               "configuration": {
-                "url": "[variables('DSCURL')]",
+                "url": "[variables('dc01DscUrl')]",
                 "script": "[variables('domainController01DSCscript')]",
                 "function": "[variables('domainController01DSCfunction')]"
               },
@@ -400,15 +403,11 @@
                 "domainName": "[parameters('domainName')]",
                 "adminCreds": {
                   "userName": "[parameters('adminUserName')]",
-                  "Password": "PrivateSettingsRef:adminPassword"
+                  "Password": "[parameters('adminPassword')]"
                 }
               }
             },
-            "protectedSettings": {
-              "Items": {
-                "adminPassword": "[parameters('adminPassword')]"
-              }
-            }
+            "protectedSettings": {}
           }
         }
       ]
@@ -622,7 +621,7 @@
             "settings": {
               "wmfVersion": "latest",
               "configuration": {
-                "url": "[variables('DSCURL')]",
+                "url": "[variables('dc02DscUrl')]",
                 "script": "[variables('domainController02DSCscript')]",
                 "function": "[variables('domainController02DSCfunction')]"
               },
@@ -741,7 +740,7 @@
             "settings": {
               "wmfVersion": "latest",
               "configuration": {
-                "url": "[variables('DSCURL')]",
+                "url": "[variables('fs01DscUrl')]",
                 "script": "[variables('fileServer01DSCscript')]",
                 "function": "[variables('fileServer01DSCfunction')]"
               },
@@ -860,7 +859,7 @@
             "settings": {
               "wmfVersion": "latest",
               "configuration": {
-                "url": "[variables('DSCURL')]",
+                "url": "[variables('fs02DscUrl')]",
                 "script": "[variables('fileServer02DSCscript')]",
                 "function": "[variables('fileServer02DSCfunction')]"
               },
