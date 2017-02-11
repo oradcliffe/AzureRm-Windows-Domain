@@ -2,28 +2,28 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "ServernicName": {
+    "ServerNICName": {
       "type": "string",
       "metadata": {
         "Description": "The name of the server NIC to Create or Update"
       }
     },
-    "DC02nicName": {
+    "domainController02nicName": {
       "type": "string",
       "metadata": {
-        "Description": "The name of the DC02 NIC to Create or Update"
+        "Description": "The name of the domainController02 NIC to Create or Update"
       }
     },
-    "FS01nicName": {
+    "fileServer01nicName": {
       "type": "string",
       "metadata": {
-        "Description": "The name of the DC02 NIC to Create or Update"
+        "Description": "The name of the domainController02 NIC to Create or Update"
       }
     },
-    "FS02nicName": {
+    "fileServer02nicName": {
       "type": "string",
       "metadata": {
-        "Description": "The name of the DC02 NIC to Create or Update"
+        "Description": "The name of the domainController02 NIC to Create or Update"
       }
     },
     "ServeripConfigurations": {
@@ -32,19 +32,19 @@
         "Description": "The IP configurations of the NIC"
       }
     },
-    "DC02ipConfigurations": {
+    "domainController02ipConfigurations": {
       "type": "array",
       "metadata": {
         "Description": "The IP configurations of the NIC"
       }
     },
-    "FS01ipConfigurations": {
+    "fileServer01ipConfigurations": {
       "type": "array",
       "metadata": {
         "Description": "The IP configurations of the NIC"
       }
     },
-    "FS02ipConfigurations": {
+    "fileServer02ipConfigurations": {
       "type": "array",
       "metadata": {
         "Description": "The IP configurations of the NIC"
@@ -59,7 +59,7 @@
   },
   "resources": [
     {
-      "name": "[parameters('ServernicName')]",
+      "name": "[parameters('ServerNICName')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-05-01-preview",
@@ -71,36 +71,36 @@
       }
     },
     {
-      "name": "[parameters('DC02nicName')]",
+      "name": "[parameters('domainController02nicName')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-05-01-preview",
       "properties": {
-        "ipConfigurations": "[parameters('DC02ipConfigurations')]",
+        "ipConfigurations": "[parameters('domainController02ipConfigurations')]",
         "dnsSettings": {
           "dnsServers": "[parameters('dnsServers')]"
         }
       }
     },
     {
-      "name": "[parameters('FS01nicName')]",
+      "name": "[parameters('fileServer01nicName')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-05-01-preview",
       "properties": {
-        "ipConfigurations": "[parameters('FS01ipConfigurations')]",
+        "ipConfigurations": "[parameters('fileServer01ipConfigurations')]",
         "dnsSettings": {
           "dnsServers": "[parameters('dnsServers')]"
         }
       }
     },
     {
-      "name": "[parameters('FS02nicName')]",
+      "name": "[parameters('fileServer02nicName')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-05-01-preview",
       "properties": {
-        "ipConfigurations": "[parameters('FS02ipConfigurations')]",
+        "ipConfigurations": "[parameters('fileServer02ipConfigurations')]",
         "dnsSettings": {
           "dnsServers": "[parameters('dnsServers')]"
         }
