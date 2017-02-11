@@ -135,6 +135,7 @@
     },
     "assetLocation": {
       "type": "string",
+      "defaultValue": "https://github.com/oradcliffe/AzureRm-Windows-Domain/raw/generalize/",
       "metadata": {
         "description": "Where to find assets used in this template"
       }
@@ -161,13 +162,6 @@
       "type": "string",
       "defaultValue": "FS-02",
       "minLength": 1
-    },
-    "fileServer02adminUserName": {
-      "type": "string",
-      "minLength": 1
-    },
-    "fileServer02adminPassword": {
-      "type": "securestring"
     },
     "fileServer02WindowsOSVersion": {
       "type": "string",
