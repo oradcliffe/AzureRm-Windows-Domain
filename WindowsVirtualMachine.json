@@ -806,8 +806,8 @@
         },
         "osProfile": {
           "computerName": "[parameters('fileServer02Name')]",
-          "adminUsername": "[parameters('fileServer02AdminUsername')]",
-          "adminPassword": "[parameters('fileServer02adminPassword')]",
+          "adminUsername": "[parameters('adminUserName')]",
+          "adminPassword": "[parameters('adminPassword')]",
           "windowsConfiguration": {
             "timeZone": "Central Standard Time"
           }
