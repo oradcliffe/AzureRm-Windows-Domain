@@ -22,14 +22,6 @@
         "description": "The type of storage account you want created"
       }
     },
-    "domainController01Name": {
-      "type": "string",
-      "defaultValue": "DC-01",
-      "minLength": 1,
-      "metadata": {
-        "description": "The computer name of the first domain controller"
-      }
-    },
     "adminUserName": {
       "type": "string",
       "minLength": 1,
@@ -41,6 +33,14 @@
       "type": "securestring",
       "metadata": {
         "description": "Your admin password"
+      }
+    },
+    "domainController01Name": {
+      "type": "string",
+      "defaultValue": "DC-01",
+      "minLength": 1,
+      "metadata": {
+        "description": "The computer name of the first domain controller"
       }
     },
     "domainController01WindowsOSVersion": {
