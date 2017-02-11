@@ -22,1083 +22,1089 @@
         "description": "The type of storage account you want created"
       }
     },
-      "DC01Name": {
-        "type": "string",
-        "minLength": 1
-      },
-      "DC01AdminUserName": {
-        "type": "string",
-        "minLength": 1
-      },
-      "DC01AdminPassword": {
-        "type": "securestring"
-      },
-      "DC01WindowsOSVersion": {
-        "type": "string",
-        "defaultValue": "2012-R2-Datacenter",
-        "allowedValues": [
-          "2008-R2-SP1",
-          "2012-Datacenter",
-          "2012-R2-Datacenter",
-          "Windows-Server-Technical-Preview",
-          "2016-Nano-Server",
-          "2016-Datacenter-with-Containers",
-          "2016-Datacenter"
-        ]
-      },
-      "Server01Name": {
-        "type": "string",
-        "minLength": 1
-      },
-      "Server01AdminUserName": {
-        "type": "string",
-        "minLength": 1
-      },
-      "Server01AdminPassword": {
-        "type": "securestring"
-      },
-      "Server01WindowsOSVersion": {
-        "type": "string",
-        "defaultValue": "2012-R2-Datacenter",
-        "allowedValues": [
-          "2008-R2-SP1",
-          "2012-Datacenter",
-          "2012-R2-Datacenter",
-          "Windows-Server-Technical-Preview",
-          "2016-Nano-Server",
-          "2016-Datacenter-with-Containers",
-          "2016-Datacenter"
-        ]
-      },
-      "DC02Name": {
-        "type": "string",
-        "minLength": 1
-      },
-      "DC02AdminUserName": {
-        "type": "string",
-        "minLength": 1
-      },
-      "DC02AdminPassword": {
-        "type": "securestring"
-      },
-      "DC02WindowsOSVersion": {
-        "type": "string",
-        "defaultValue": "2012-R2-Datacenter",
-        "allowedValues": [
-          "2008-R2-SP1",
-          "2012-Datacenter",
-          "2012-R2-Datacenter",
-          "Windows-Server-Technical-Preview",
-          "2016-Nano-Server",
-          "2016-Datacenter-with-Containers",
-          "2016-Datacenter"
-        ]
-      },
-      "PublicIP-DC01DnsName": {
-        "type": "string",
-        "minLength": 1
-      },
-      "PublicIP-Server01DnsName": {
-        "type": "string",
-        "minLength": 1
-      },
-      "PublicIP-DC02DnsName": {
-        "type": "string",
-        "minLength": 1
-      },
-      "PublicIP-FS01DnsName": {
-        "type": "string",
-        "minLength": 1
-      },
-      "PublicIP-FS02DnsName": {
-        "type": "string",
-        "minLength": 1
-      },
-      "domainName": {
-        "type": "string",
-        "metadata": {
-          "description": "The FQDN of the AD Domain created "
-        }
-      },
-      "assetLocation": {
-        "type": "string",
-        "metadata": {
-          "description": "Where to find assets used in this template"
-        }
-      },
-      "FS01Name": {
-        "type": "string",
-        "minLength": 1
-      },
-      "FS01AdminUserName": {
-        "type": "string",
-        "minLength": 1
-      },
-      "FS01AdminPassword": {
-        "type": "securestring"
-      },
-      "FS01WindowsOSVersion": {
-        "type": "string",
-        "defaultValue": "2016-Nano-Server",
-        "allowedValues": [
-          "2008-R2-SP1",
-          "2012-Datacenter",
-          "2012-R2-Datacenter",
-          "Windows-Server-Technical-Preview",
-          "2016-Nano-Server",
-          "2016-Datacenter-with-Containers",
-          "2016-Datacenter"
-        ]
-      },
-      "FS02Name": {
-        "type": "string",
-        "minLength": 1
-      },
-      "FS02AdminUserName": {
-        "type": "string",
-        "minLength": 1
-      },
-      "FS02AdminPassword": {
-        "type": "securestring"
-      },
-      "FS02WindowsOSVersion": {
-        "type": "string",
-        "defaultValue": "2016-Nano-Server",
-        "allowedValues": [
-          "2008-R2-SP1",
-          "2012-Datacenter",
-          "2012-R2-Datacenter",
-          "Windows-Server-Technical-Preview",
-          "2016-Nano-Server",
-          "2016-Datacenter-with-Containers",
-          "2016-Datacenter"
-        ]
+    "domainController01Name": {
+      "type": "string",
+      "defaultValue": "domainController-01",
+      "minLength": 1,
+      "metadata": {
+        "description": "The computer name of the first domain controller"
       }
+    },
+    "adminUserName": {
+      "type": "string",
+      "minLength": 1,
+      "metadata": {
+        "description": "Your admin username"
+      }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Your admin password"
+      }
+    },
+    "domainController01WindowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2012-R2-Datacenter",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "Windows-Server-Technical-Preview",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
+        "2016-Datacenter"
+      ],
+      "metadata": {
+        "description": "What OS the first domain controller will run"
+      }
+    },
+    "server01Name": {
+      "type": "string",
+      "defaultValue": "Server-01",
+      "minLength": 1,
+      "metadata": {
+        "description": "The name of the generic Windows server being deployed"
+      }
+    },
+    "server01WindowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2012-R2-Datacenter",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "Windows-Server-Technical-Preview",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
+        "2016-Datacenter"
+      ],
+      "metadata": {
+        "description": "What OS the generic server will run"
+      }
+    },
+    "domainController02Name": {
+      "type": "string",
+      "defaultValue": "domainController-02",
+      "minLength": 1,
+      "metadata": {
+        "description": "The computer name of the second domain controller"
+      }
+    },
+    "domainController02WindowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2012-R2-Datacenter",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "Windows-Server-Technical-Preview",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
+        "2016-Datacenter"
+      ],
+      "metadata": {
+        "description": "What OS the second domainController will run"
+      }
+    },
+    "publicIP-domainController01DnsName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "publicIP-Server01DnsName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "publicIP-domainController02DnsName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "publicIP-fileServer01DnsName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "publicIP-fileServer02DnsName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domainName": {
+      "type": "string",
+      "metadata": {
+        "description": "The FQDN of the AD Domain created "
+      }
+    },
+    "assetLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "Where to find assets used in this template"
+      }
+    },
+    "fileServer01Name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fileServer01WindowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2016-Nano-Server",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "Windows-Server-Technical-Preview",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
+        "2016-Datacenter"
+      ]
+    },
+    "fileServer02Name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fileServer02adminUserName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fileServer02adminPassword": {
+      "type": "securestring"
+    },
+    "fileServer02WindowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2016-Nano-Server",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "Windows-Server-Technical-Preview",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
+        "2016-Datacenter"
+      ]
+    }
 
+  },
+  "variables": {
+    "VNetName": "VNet1",
+    "VNet1Prefix": "192.168.0.0/16",
+    "VNet1Subnet1Name": "Production",
+    "VNet1Subnet1Prefix": "192.168.95.0/24",
+    "VNet1Subnet2Name": "Future",
+    "VNet1Subnet2Prefix": "192.168.96.0/24",
+    "ojradcliffestorageName": "[concat('ojrad', uniqueString(resourceGroup().id))]",
+    "domainController01ImagePublisher": "MicrosoftWindowsServer",
+    "domainController01ImageOffer": "WindowsServer",
+    "domainController01OSDiskName": "domainController01OSDisk",
+    "domainController01VmSize": "Standard_D2_v2",
+    "domainController01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
+    "domainController01SubnetRef": "[concat(variables('domainController01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
+    "domainController01StorageAccountContainerName": "vhds",
+    "domainController01NicName": "[concat(parameters('domainController01Name'), 'Nic0')]",
+    "Server01ImagePublisher": "MicrosoftWindowsServer",
+    "Server01ImageOffer": "WindowsServer",
+    "Server01OSDiskName": "Server01OSDisk",
+    "Server01VmSize": "Standard_D2_v2",
+    "Server01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
+    "Server01SubnetRef": "[concat(variables('Server01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
+    "Server01StorageAccountContainerName": "vhds",
+    "Server01NicName": "[concat(parameters('Server01Name'), 'Nic0')]",
+    "domainController02ImagePublisher": "MicrosoftWindowsServer",
+    "domainController02ImageOffer": "WindowsServer",
+    "domainController02OSDiskName": "domainController02OSDisk",
+    "domainController02VmSize": "Standard_D2_v2",
+    "domainController02VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
+    "domainController02SubnetRef": "[concat(variables('domainController02VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
+    "domainController02StorageAccountContainerName": "vhds",
+    "domainController02NicName": "[concat(parameters('domainController02Name'), 'Nic0')]",
+    "fileServer01ImagePublisher": "MicrosoftWindowsServer",
+    "fileServer01ImageOffer": "WindowsServer",
+    "fileServer01OSDiskName": "fileServer01OSDisk",
+    "fileServer01VmSize": "Standard_D2_v2",
+    "fileServer01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
+    "fileServer01SubnetRef": "[concat(variables('fileServer01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
+    "fileServer01StorageAccountContainerName": "vhds",
+    "fileServer01NicName": "[concat(parameters('fileServer01Name'), 'Nic0')]",
+    "fileServer02ImagePublisher": "MicrosoftWindowsServer",
+    "fileServer02ImageOffer": "WindowsServer",
+    "fileServer02OSDiskName": "fileServer02OSDisk",
+    "fileServer02VmSize": "Standard_D2_v2",
+    "fileServer02VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
+    "fileServer02SubnetRef": "[concat(variables('fileServer02VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
+    "fileServer02StorageAccountContainerName": "vhds",
+    "fileServer02NicName": "[concat(parameters('fileServer02Name'), 'NetworkInterface')]",
+    "publicIP-domainController01Name": "publicIP-domainController01",
+    "publicIP-Server01Name": "publicIP-Server01",
+    "publicIP-domainController02Name": "publicIP-domainController02",
+    "publicIP-fileServer01Name": "publicIP-fileServer01",
+    "publicIP-fileServer02Name": "publicIP-fileServer02",
+    "privateIP-domainController01": "192.168.95.10",
+    "privateIP-Server01": "192.168.95.11",
+    "privateIP-domainController02": "192.168.95.12",
+    "privateIP-fileServer01": "192.168.95.13",
+    "privateIP-fileServer02": "192.168.95.14",
+    "DSCURL": "[concat(parameters('assetLocation'),'DSCAssets.zip')]",
+    "domainController01DSCscript": "CreateFirstdomainController.ps1",
+    "domainController01DSCfunction": "CreateFirstdomainController",
+    "domainController02DSCscript": "CreateSeconddomainController.ps1",
+    "domainController02DSCfunction": "CreateSeconddomainController",
+    "fileServer01DSCscript": "fileSharefileServer01DSC.ps1",
+    "fileServer01DSCfunction": "fileSharefileServer01Config",
+    "fileServer02DSCscript": "fileSharefileServer02DSC.ps1",
+    "fileServer02DSCfunction": "fileSharefileServer02Config",
+    "adPopulationData": "populationData.psd1"
+  },
+  "resources": [
+    {
+      "name": "[variables('VNetName')]",
+      "type": "Microsoft.Network/virtualNetworks",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "VNet1"
+      },
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('VNet1Prefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[variables('VNet1Subnet1Name')]",
+            "properties": {
+              "addressPrefix": "[variables('VNet1Subnet1Prefix')]"
+            }
+          },
+          {
+            "name": "[variables('VNet1Subnet2Name')]",
+            "properties": {
+              "addressPrefix": "[variables('VNet1Subnet2Prefix')]"
+            }
+          }
+        ]
+      }
     },
-    "variables": {
-      "VNetName": "VNet1",
-      "VNet1Prefix": "192.168.0.0/16",
-      "VNet1Subnet1Name": "Production",
-      "VNet1Subnet1Prefix": "192.168.95.0/24",
-      "VNet1Subnet2Name": "Future",
-      "VNet1Subnet2Prefix": "192.168.96.0/24",
-      "ojradcliffestorageName": "[concat('ojrad', uniqueString(resourceGroup().id))]",
-      "DC01ImagePublisher": "MicrosoftWindowsServer",
-      "DC01ImageOffer": "WindowsServer",
-      "DC01OSDiskName": "DC01OSDisk",
-      "DC01VmSize": "Standard_D2_v2",
-      "DC01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
-      "DC01SubnetRef": "[concat(variables('DC01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
-      "DC01StorageAccountContainerName": "vhds",
-      "DC01NicName": "[concat(parameters('DC01Name'), 'Nic0')]",
-      "Server01ImagePublisher": "MicrosoftWindowsServer",
-      "Server01ImageOffer": "WindowsServer",
-      "Server01OSDiskName": "Server01OSDisk",
-      "Server01VmSize": "Standard_D2_v2",
-      "Server01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
-      "Server01SubnetRef": "[concat(variables('Server01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
-      "Server01StorageAccountContainerName": "vhds",
-      "Server01NicName": "[concat(parameters('Server01Name'), 'Nic0')]",
-      "DC02ImagePublisher": "MicrosoftWindowsServer",
-      "DC02ImageOffer": "WindowsServer",
-      "DC02OSDiskName": "DC02OSDisk",
-      "DC02VmSize": "Standard_D2_v2",
-      "DC02VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
-      "DC02SubnetRef": "[concat(variables('DC02VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
-      "DC02StorageAccountContainerName": "vhds",
-      "DC02NicName": "[concat(parameters('DC02Name'), 'Nic0')]",
-      "FS01ImagePublisher": "MicrosoftWindowsServer",
-      "FS01ImageOffer": "WindowsServer",
-      "FS01OSDiskName": "FS01OSDisk",
-      "FS01VmSize": "Standard_D2_v2",
-      "FS01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
-      "FS01SubnetRef": "[concat(variables('FS01VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
-      "FS01StorageAccountContainerName": "vhds",
-      "FS01NicName": "[concat(parameters('FS01Name'), 'Nic0')]",
-      "FS02ImagePublisher": "MicrosoftWindowsServer",
-      "FS02ImageOffer": "WindowsServer",
-      "FS02OSDiskName": "FS02OSDisk",
-      "FS02VmSize": "Standard_D2_v2",
-      "FS02VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
-      "FS02SubnetRef": "[concat(variables('FS02VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
-      "FS02StorageAccountContainerName": "vhds",
-      "FS02NicName": "[concat(parameters('FS02Name'), 'NetworkInterface')]",
-      "PublicIP-DC01Name": "PublicIP-DC01",
-      "PublicIP-Server01Name": "PublicIP-Server01",
-      "PublicIP-DC02Name": "PublicIP-DC02",
-      "PublicIP-FS01Name": "PublicIP-FS01",
-      "PublicIP-FS02Name": "PublicIP-FS02",
-      "PrivateIP-DC01": "192.168.95.10",
-      "PrivateIP-Server01": "192.168.95.11",
-      "PrivateIP-DC02": "192.168.95.12",
-      "PrivateIP-FS01": "192.168.95.13",
-      "PrivateIP-FS02": "192.168.95.14",
-      "DSCURL": "[concat(parameters('assetLocation'),'DSCAssets.zip')]",
-      "DC01DSCscript": "CreateFirstDC.ps1",
-      "DC01DSCfunction": "CreateFirstDC",
-      "DC02DSCscript": "CreateSecondDC.ps1",
-      "DC02DSCfunction": "CreateSecondDC",
-      "FS01DSCscript": "fileShareFS01DSC.ps1",
-      "FS01DSCfunction": "fileShareFS01Config",
-      "FS02DSCscript": "fileShareFS02DSC.ps1",
-      "FS02DSCfunction": "fileShareFS02Config",
-      "adPopulationData": "populationData.psd1"
+    {
+      "name": "[variables('ojradcliffestorageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "ojradcliffestorage"
+      },
+      "properties": {
+        "accountType": "[parameters('storageAccountType')]"
+      }
     },
-    "resources": [
-      {
-        "name": "[variables('VNetName')]",
-        "type": "Microsoft.Network/virtualNetworks",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [],
-        "tags": {
-          "displayName": "VNet1"
-        },
-        "properties": {
-          "addressSpace": {
-            "addressPrefixes": [
-              "[variables('VNet1Prefix')]"
-            ]
-          },
-          "subnets": [
-            {
-              "name": "[variables('VNet1Subnet1Name')]",
-              "properties": {
-                "addressPrefix": "[variables('VNet1Subnet1Prefix')]"
-              }
-            },
-            {
-              "name": "[variables('VNet1Subnet2Name')]",
-              "properties": {
-                "addressPrefix": "[variables('VNet1Subnet2Prefix')]"
-              }
-            }
-          ]
-        }
+    {
+      "name": "[variables('domainController01NicName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
+        "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-domainController01Name'))]"
+      ],
+      "tags": {
+        "displayName": "domainController01Nic"
       },
-      {
-        "name": "[variables('ojradcliffestorageName')]",
-        "type": "Microsoft.Storage/storageAccounts",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [],
-        "tags": {
-          "displayName": "ojradcliffestorage"
-        },
-        "properties": {
-          "accountType": "[parameters('ojradcliffestorageType')]"
-        }
-      },
-      {
-        "name": "[variables('DC01NicName')]",
-        "type": "Microsoft.Network/networkInterfaces",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [
-          "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
-          "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC01Name'))]"
-        ],
-        "tags": {
-          "displayName": "DC01Nic"
-        },
-        "properties": {
-          "ipConfigurations": [
-            {
-              "name": "ipconfig1",
-              "properties": {
-                "privateIPAllocationMethod": "Static",
-                "privateIPAddress": "[variables('PrivateIP-DC01')]",
-                "subnet": {
-                  "id": "[variables('DC01SubnetRef')]"
-                },
-                "publicIPAddress": {
-                  "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC01Name'))]"
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "[parameters('DC01Name')]",
-        "type": "Microsoft.Compute/virtualMachines",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [
-          "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
-          "[resourceId('Microsoft.Network/networkInterfaces', variables('DC01NicName'))]"
-        ],
-        "tags": {
-          "displayName": "DC01"
-        },
-        "properties": {
-          "hardwareProfile": {
-            "vmSize": "[variables('DC01VmSize')]"
-          },
-          "osProfile": {
-            "computerName": "[parameters('DC01Name')]",
-            "adminUsername": "[parameters('DC01AdminUsername')]",
-            "adminPassword": "[parameters('DC01AdminPassword')]",
-            "windowsConfiguration": {
-              "timeZone": "Central Standard Time"
-            }
-          },
-          "storageProfile": {
-            "imageReference": {
-              "publisher": "[variables('DC01ImagePublisher')]",
-              "offer": "[variables('DC01ImageOffer')]",
-              "sku": "[parameters('DC01WindowsOSVersion')]",
-              "version": "latest"
-            },
-            "osDisk": {
-              "name": "DC01OSDisk",
-              "vhd": {
-                "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('DC01StorageAccountContainerName'), '/', variables('DC01OSDiskName'), '.vhd')]"
-              },
-              "caching": "ReadWrite",
-              "createOption": "FromImage"
-            }
-          },
-          "networkProfile": {
-            "networkInterfaces": [
-              {
-                "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('DC01NicName'))]"
-              }
-            ]
-          }
-        },
-        "resources": [
+      "properties": {
+        "ipConfigurations": [
           {
-            "name": "CreateFirstDC",
-            "type": "extensions",
-            "location": "[resourceGroup().location]",
-            "apiVersion": "2016-03-30",
-            "dependsOn": [
-              "[resourceId('Microsoft.Compute/virtualMachines', parameters('DC01Name'))]"
-            ],
-            "tags": {
-              "displayName": "DC01DSC"
-            },
+            "name": "ipconfig1",
             "properties": {
-              "publisher": "Microsoft.Powershell",
-              "type": "DSC",
-              "typeHandlerVersion": "2.21",
-              "autoUpgradeMinorVersion": true,
-              "settings": {
-                "wmfVersion": "latest",
-                "configuration": {
-                  "url": "[variables('DSCURL')]",
-                  "script": "[variables('DC01DSCscript')]",
-                  "function": "[variables('DC01DSCfunction')]"
-                },
-                "configurationArguments": {
-                  "domainName": "[parameters('domainName')]",
-                  "adminCreds": {
-                    "userName": "[parameters('DC01AdminUserName')]",
-                    "Password": "PrivateSettingsRef:AdminPassword"
-                  }
-                }
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "[variables('privateIP-domainController01')]",
+              "subnet": {
+                "id": "[variables('domainController01SubnetRef')]"
               },
-              "protectedSettings": {
-                "Items": {
-                  "adminPassword": "[parameters('DC01AdminPassword')"
-                }
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-domainController01Name'))]"
               }
             }
           }
         ]
+      }
+    },
+    {
+      "name": "[parameters('domainController01Name')]",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('domainController01NicName'))]"
+      ],
+      "tags": {
+        "displayName": "domainController01"
       },
-      {
-        "name": "[variables('Server01NicName')]",
-        "type": "Microsoft.Network/networkInterfaces",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [
-          "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
-          "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-Server01Name'))]"
-        ],
-        "tags": {
-          "displayName": "Server01Nic"
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('domainController01VmSize')]"
         },
-        "properties": {
-          "ipConfigurations": [
+        "osProfile": {
+          "computerName": "[parameters('domainController01Name')]",
+          "adminUsername": "[parameters('adminUserName')]",
+          "adminPassword": "[parameters('adminPassword')]",
+          "windowsConfiguration": {
+            "timeZone": "Central Standard Time"
+          }
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[variables('domainController01ImagePublisher')]",
+            "offer": "[variables('domainController01ImageOffer')]",
+            "sku": "[parameters('domainController01WindowsOSVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "domainController01OSDisk",
+            "vhd": {
+              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('domainController01StorageAccountContainerName'), '/', variables('domainController01OSDiskName'), '.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
             {
-              "name": "ipconfig1",
-              "properties": {
-                "privateIPAllocationMethod": "Static",
-                "privateIPAddress": "[variables('PrivateIP-Server01')]",
-                "subnet": {
-                  "id": "[variables('Server01SubnetRef')]"
-                },
-                "publicIPAddress": {
-                  "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-Server01Name'))]"
-                }
-              }
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('domainController01NicName'))]"
             }
           ]
         }
       },
-      {
-        "name": "[parameters('Server01Name')]",
-        "type": "Microsoft.Compute/virtualMachines",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [
-          "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
-          "[resourceId('Microsoft.Network/networkInterfaces', variables('Server01NicName'))]"
-        ],
-        "tags": {
-          "displayName": "Server01"
-        },
-        "properties": {
-          "hardwareProfile": {
-            "vmSize": "[variables('Server01VmSize')]"
+      "resources": [
+        {
+          "name": "CreateFirstdomainController",
+          "type": "extensions",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2016-03-30",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('domainController01Name'))]"
+          ],
+          "tags": {
+            "displayName": "domainController01DSC"
           },
-          "osProfile": {
-            "computerName": "[parameters('Server01Name')]",
-            "adminUsername": "[parameters('Server01AdminUsername')]",
-            "adminPassword": "[parameters('Server01AdminPassword')]",
-            "windowsConfiguration": {
-              "timeZone": "Central Standard Time"
-            }
-          },
-          "storageProfile": {
-            "imageReference": {
-              "publisher": "[variables('Server01ImagePublisher')]",
-              "offer": "[variables('Server01ImageOffer')]",
-              "sku": "[parameters('Server01WindowsOSVersion')]",
-              "version": "latest"
-            },
-            "osDisk": {
-              "name": "Server01OSDisk",
-              "vhd": {
-                "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('Server01StorageAccountContainerName'), '/', variables('Server01OSDiskName'), '.vhd')]"
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.21",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "wmfVersion": "latest",
+              "configuration": {
+                "url": "[variables('DSCURL')]",
+                "script": "[variables('domainController01DSCscript')]",
+                "function": "[variables('domainController01DSCfunction')]"
               },
-              "caching": "ReadWrite",
-              "createOption": "FromImage"
-            }
-          },
-          "networkProfile": {
-            "networkInterfaces": [
-              {
-                "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('Server01NicName'))]"
+              "configurationArguments": {
+                "domainName": "[parameters('domainName')]",
+                "adminCreds": {
+                  "userName": "[parameters('adminUserName')]",
+                  "Password": "PrivateSettingsRef:adminPassword"
+                }
               }
-            ]
-          }
-        },
-        "resources": [
-          {
-            "name": "Server1JoinDomain",
-            "type": "extensions",
-            "location": "[resourceGroup().location]",
-            "apiVersion": "2016-03-30",
-            "dependsOn": [
-              "[resourceId('Microsoft.Compute/virtualMachines', parameters('Server01Name'))]",
-              "[concat('Microsoft.Compute/virtualMachines/', parameters('DC01Name'),'/extensions/CreateFirstDC')]",
-              "Microsoft.Resources/deployments/updatenicdns"
-            ],
-            "tags": {
-              "displayName": "Server01JoinDomain"
             },
+            "protectedSettings": {
+              "Items": {
+                "adminPassword": "[parameters('adminPassword')]"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "[variables('Server01NicName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
+        "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-Server01Name'))]"
+      ],
+      "tags": {
+        "displayName": "Server01Nic"
+      },
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
             "properties": {
-              "publisher": "Microsoft.Compute",
-              "type": "JsonADDomainExtension",
-              "typeHandlerVersion": "1.3",
-              "autoUpgradeMinorVersion": true,
-              "settings": {
-                "Name": "[parameters('domainName')]",
-                "User": "[concat(parameters('domainName'), '\\', parameters('DC01AdminUserName'))]",
-                "Restart": "true",
-                "Options": "3"
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "[variables('privateIP-Server01')]",
+              "subnet": {
+                "id": "[variables('Server01SubnetRef')]"
               },
-              "protectedSettings": {
-                "password": "[parameters('DC01AdminPassword')]"
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-Server01Name'))]"
               }
             }
           }
         ]
+      }
+    },
+    {
+      "name": "[parameters('Server01Name')]",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('Server01NicName'))]"
+      ],
+      "tags": {
+        "displayName": "Server01"
       },
-      {
-        "name": "[variables('DC02NicName')]",
-        "type": "Microsoft.Network/networkInterfaces",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [
-          "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
-          "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC02Name'))]"
-        ],
-        "tags": {
-          "displayName": "DC02Nic"
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('Server01VmSize')]"
         },
-        "properties": {
-          "ipConfigurations": [
+        "osProfile": {
+          "computerName": "[parameters('Server01Name')]",
+          "adminUsername": "[parameters('adminUserName')]",
+          "adminPassword": "[parameters('adminPassword')]",
+          "windowsConfiguration": {
+            "timeZone": "Central Standard Time"
+          }
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[variables('Server01ImagePublisher')]",
+            "offer": "[variables('Server01ImageOffer')]",
+            "sku": "[parameters('Server01WindowsOSVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "Server01OSDisk",
+            "vhd": {
+              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('Server01StorageAccountContainerName'), '/', variables('Server01OSDiskName'), '.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
             {
-              "name": "ipconfig1",
-              "properties": {
-                "privateIPAllocationMethod": "Static",
-                "privateIPAddress": "[variables('PrivateIP-DC02')]",
-                "subnet": {
-                  "id": "[variables('DC02SubnetRef')]"
-                },
-                "publicIPAddress": {
-                  "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC02Name'))]"
-                }
-              }
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('Server01NicName'))]"
             }
           ]
         }
       },
-      {
-        "name": "[parameters('DC02Name')]",
-        "type": "Microsoft.Compute/virtualMachines",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [
-          "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
-          "[resourceId('Microsoft.Network/networkInterfaces', variables('DC02NicName'))]"
-        ],
-        "tags": {
-          "displayName": "DC02"
-        },
-        "properties": {
-          "hardwareProfile": {
-            "vmSize": "[variables('DC02VmSize')]"
+      "resources": [
+        {
+          "name": "Server1JoinDomain",
+          "type": "extensions",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2016-03-30",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('Server01Name'))]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('domainController01Name'),'/extensions/CreateFirstdomainController')]",
+            "Microsoft.Resources/deployments/updatenicdns"
+          ],
+          "tags": {
+            "displayName": "Server01JoinDomain"
           },
-          "osProfile": {
-            "computerName": "[parameters('DC02Name')]",
-            "adminUsername": "[parameters('DC02AdminUsername')]",
-            "adminPassword": "[parameters('DC02AdminPassword')]",
-            "windowsConfiguration": {
-              "timeZone": "Central Standard Time"
-            }
-          },
-          "storageProfile": {
-            "imageReference": {
-              "publisher": "[variables('DC02ImagePublisher')]",
-              "offer": "[variables('DC02ImageOffer')]",
-              "sku": "[parameters('DC02WindowsOSVersion')]",
-              "version": "latest"
+          "properties": {
+            "publisher": "Microsoft.Compute",
+            "type": "JsonADDomainExtension",
+            "typeHandlerVersion": "1.3",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "Name": "[parameters('domainName')]",
+              "User": "[concat(parameters('domainName'), '\\', parameters('adminUserName'))]",
+              "Restart": "true",
+              "Options": "3"
             },
-            "osDisk": {
-              "name": "DC02OSDisk",
-              "vhd": {
-                "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('DC02StorageAccountContainerName'), '/', variables('DC02OSDiskName'), '.vhd')]"
-              },
-              "caching": "ReadWrite",
-              "createOption": "FromImage"
+            "protectedSettings": {
+              "password": "[parameters('adminPassword')]"
             }
-          },
-          "networkProfile": {
-            "networkInterfaces": [
-              {
-                "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('DC02NicName'))]"
-              }
-            ]
           }
-        },
-        "resources": [
+        }
+      ]
+    },
+    {
+      "name": "[variables('domainController02NicName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
+        "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-domainController02Name'))]"
+      ],
+      "tags": {
+        "displayName": "domainController02Nic"
+      },
+      "properties": {
+        "ipConfigurations": [
           {
-            "name": "CreateSecondDC",
-            "type": "extensions",
-            "location": "[resourceGroup().location]",
-            "apiVersion": "2016-03-30",
-            "dependsOn": [
-              "[resourceId('Microsoft.Compute/virtualMachines', parameters('DC02Name'))]",
-              "[concat('Microsoft.Compute/virtualMachines/', parameters('Server01Name'),'/extensions/Server1JoinDomain')]"
-            ],
-            "tags": {
-              "displayName": "DC02DSC"
-            },
+            "name": "ipconfig1",
             "properties": {
-              "publisher": "Microsoft.Powershell",
-              "type": "DSC",
-              "typeHandlerVersion": "2.21",
-              "autoUpgradeMinorVersion": true,
-              "settings": {
-                "wmfVersion": "latest",
-                "configuration": {
-                  "url": "[variables('DSCURL')]",
-                  "script": "[variables('DC02DSCscript')]",
-                  "function": "[variables('DC02DSCfunction')]"
-                },
-                "configurationdata": {
-                  "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
-                },
-                "configurationArguments": {
-                  "domainName": "[parameters('domainName')]",
-                  "adminCreds": {
-                    "userName": "[parameters('DC01AdminUserName')]",
-                    "password": "[parameters('DC01AdminPassword')]"
-                  }
-                }
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "[variables('privateIP-domainController02')]",
+              "subnet": {
+                "id": "[variables('domainController02SubnetRef')]"
               },
-              "protectedSettings": {}
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-domainController02Name'))]"
+              }
             }
           }
         ]
+      }
+    },
+    {
+      "name": "[parameters('domainController02Name')]",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('domainController02NicName'))]"
+      ],
+      "tags": {
+        "displayName": "domainController02"
       },
-      {
-        "name": "[variables('FS01NicName')]",
-        "type": "Microsoft.Network/networkInterfaces",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [
-          "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]"
-        ],
-        "tags": {
-          "displayName": "FS01Nic"
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('domainController02VmSize')]"
         },
-        "properties": {
-          "ipConfigurations": [
+        "osProfile": {
+          "computerName": "[parameters('domainController02Name')]",
+          "adminUsername": "[parameters('adminUserName')]",
+          "adminPassword": "[parameters('adminPassword')]",
+          "windowsConfiguration": {
+            "timeZone": "Central Standard Time"
+          }
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[variables('domainController02ImagePublisher')]",
+            "offer": "[variables('domainController02ImageOffer')]",
+            "sku": "[parameters('domainController02WindowsOSVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "domainController02OSDisk",
+            "vhd": {
+              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('domainController02StorageAccountContainerName'), '/', variables('domainController02OSDiskName'), '.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
             {
-              "name": "ipconfig1",
-              "properties": {
-                "privateIPAllocationMethod": "Static",
-                "privateIPAddress": "[variables('PrivateIP-FS01')]",
-                "subnet": {
-                  "id": "[variables('FS01SubnetRef')]"
-                },
-                "publicIPAddress": {
-                  "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-FS01Name'))]"
-                }
-              }
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('domainController02NicName'))]"
             }
           ]
         }
       },
-      {
-        "name": "[parameters('FS01Name')]",
-        "type": "Microsoft.Compute/virtualMachines",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [
-          "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
-          "[resourceId('Microsoft.Network/networkInterfaces', variables('FS01NicName'))]"
-        ],
-        "tags": {
-          "displayName": "FS01"
-        },
-        "properties": {
-          "hardwareProfile": {
-            "vmSize": "[variables('FS01VmSize')]"
+      "resources": [
+        {
+          "name": "CreateSeconddomainController",
+          "type": "extensions",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2016-03-30",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('domainController02Name'))]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('Server01Name'),'/extensions/Server1JoinDomain')]"
+          ],
+          "tags": {
+            "displayName": "domainController02DSC"
           },
-          "osProfile": {
-            "computerName": "[parameters('FS01Name')]",
-            "adminUsername": "[parameters('FS01AdminUsername')]",
-            "adminPassword": "[parameters('FS01AdminPassword')]",
-            "windowsConfiguration": {
-              "timeZone": "Central Standard Time"
-            }
-          },
-          "storageProfile": {
-            "imageReference": {
-              "publisher": "[variables('FS01ImagePublisher')]",
-              "offer": "[variables('FS01ImageOffer')]",
-              "sku": "[parameters('FS01WindowsOSVersion')]",
-              "version": "latest"
-            },
-            "osDisk": {
-              "name": "FS01OSDisk",
-              "vhd": {
-                "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('FS01StorageAccountContainerName'), '/', variables('FS01OSDiskName'), '.vhd')]"
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.21",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "wmfVersion": "latest",
+              "configuration": {
+                "url": "[variables('DSCURL')]",
+                "script": "[variables('domainController02DSCscript')]",
+                "function": "[variables('domainController02DSCfunction')]"
               },
-              "caching": "ReadWrite",
-              "createOption": "FromImage"
-            }
-          },
-          "networkProfile": {
-            "networkInterfaces": [
-              {
-                "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('FS01NicName'))]"
-              }
-            ]
-          }
-        },
-        "resources": [
-          {
-            "name": "FS01DSC",
-            "type": "extensions",
-            "location": "[resourceGroup().location]",
-            "apiVersion": "2016-03-30",
-            "dependsOn": [
-              "[resourceId('Microsoft.Compute/virtualMachines', parameters('FS01Name'))]",
-              "[concat('Microsoft.Compute/virtualMachines/', parameters('Server01Name'),'/extensions/Server1JoinDomain')]",
-              "[concat('Microsoft.Compute/virtualMachines/', parameters('DC02Name'),'/extensions/CreateSecondDC')]"
-            ],
-            "tags": {
-              "displayName": "FS01DSC"
-            },
-            "properties": {
-              "publisher": "Microsoft.Powershell",
-              "type": "DSC",
-              "typeHandlerVersion": "2.21",
-              "autoUpgradeMinorVersion": true,
-              "settings": {
-                "wmfVersion": "latest",
-                "configuration": {
-                  "url": "[variables('DSCURL')]",
-                  "script": "[variables('FS01DSCscript')]",
-                  "function": "[variables('FS01DSCfunction')]"
-                },
-                "configurationdata": {
-                  "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
-                },
-                "configurationArguments": {
-                  "domainName": "[parameters('domainName')]",
-                  "adminCreds": {
-                    "userName": "[parameters('DC01AdminUserName')]",
-                    "password": "[parameters('DC01AdminPassword')]"
-                  }
+              "configurationdata": {
+                "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
+              },
+              "configurationArguments": {
+                "domainName": "[parameters('domainName')]",
+                "adminCreds": {
+                  "userName": "[parameters('adminUserName')]",
+                  "password": "[parameters('adminPassword')]"
                 }
+              }
+            },
+            "protectedSettings": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "[variables('fileServer01NicName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]"
+      ],
+      "tags": {
+        "displayName": "fileServer01Nic"
+      },
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "[variables('privateIP-fileServer01')]",
+              "subnet": {
+                "id": "[variables('fileServer01SubnetRef')]"
               },
-              "protectedSettings": {}
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-fileServer01Name'))]"
+              }
             }
           }
         ]
+      }
+    },
+    {
+      "name": "[parameters('fileServer01Name')]",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('fileServer01NicName'))]"
+      ],
+      "tags": {
+        "displayName": "fileServer01"
       },
-      {
-        "name": "[variables('FS02NicName')]",
-        "type": "Microsoft.Network/networkInterfaces",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [
-          "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]"
-        ],
-        "tags": {
-          "displayName": "FS02Nic"
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('fileServer01VmSize')]"
         },
-        "properties": {
-          "ipConfigurations": [
+        "osProfile": {
+          "computerName": "[parameters('fileServer01Name')]",
+          "adminUsername": "[parameters('adminUserName')]",
+          "adminPassword": "[parameters('adminPassword')]",
+          "windowsConfiguration": {
+            "timeZone": "Central Standard Time"
+          }
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[variables('fileServer01ImagePublisher')]",
+            "offer": "[variables('fileServer01ImageOffer')]",
+            "sku": "[parameters('fileServer01WindowsOSVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "fileServer01OSDisk",
+            "vhd": {
+              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('fileServer01StorageAccountContainerName'), '/', variables('fileServer01OSDiskName'), '.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
             {
-              "name": "ipconfig1",
-              "properties": {
-                "privateIPAllocationMethod": "Static",
-                "privateIPAddress": "[variables('PrivateIP-FS02')]",
-                "subnet": {
-                  "id": "[variables('FS02SubnetRef')]"
-                },
-                "publicIPAddress": {
-                  "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-FS02Name'))]"
-                }
-              }
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('fileServer01NicName'))]"
             }
           ]
         }
       },
-      {
-        "name": "[parameters('FS02Name')]",
-        "type": "Microsoft.Compute/virtualMachines",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [
-          "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
-          "[resourceId('Microsoft.Network/networkInterfaces', variables('FS02NicName'))]"
-        ],
-        "tags": {
-          "displayName": "FS02"
-        },
-        "properties": {
-          "hardwareProfile": {
-            "vmSize": "[variables('FS02VmSize')]"
+      "resources": [
+        {
+          "name": "fileServer01DSC",
+          "type": "extensions",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2016-03-30",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('fileServer01Name'))]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('Server01Name'),'/extensions/Server1JoinDomain')]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('domainController02Name'),'/extensions/CreateSeconddomainController')]"
+          ],
+          "tags": {
+            "displayName": "fileServer01DSC"
           },
-          "osProfile": {
-            "computerName": "[parameters('FS02Name')]",
-            "adminUsername": "[parameters('FS02AdminUsername')]",
-            "adminPassword": "[parameters('FS02AdminPassword')]",
-            "windowsConfiguration": {
-              "timeZone": "Central Standard Time"
-            }
-          },
-          "storageProfile": {
-            "imageReference": {
-              "publisher": "[variables('FS02ImagePublisher')]",
-              "offer": "[variables('FS02ImageOffer')]",
-              "sku": "[parameters('FS02WindowsOSVersion')]",
-              "version": "latest"
-            },
-            "osDisk": {
-              "name": "FS02OSDisk",
-              "vhd": {
-                "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('FS02StorageAccountContainerName'), '/', variables('FS02OSDiskName'), '.vhd')]"
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.21",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "wmfVersion": "latest",
+              "configuration": {
+                "url": "[variables('DSCURL')]",
+                "script": "[variables('fileServer01DSCscript')]",
+                "function": "[variables('fileServer01DSCfunction')]"
               },
-              "caching": "ReadWrite",
-              "createOption": "FromImage"
-            }
-          },
-          "networkProfile": {
-            "networkInterfaces": [
-              {
-                "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('FS02NicName'))]"
-              }
-            ]
-          }
-        },
-        "resources": [
-          {
-            "name": "FS02DSC",
-            "type": "extensions",
-            "location": "[resourceGroup().location]",
-            "apiVersion": "2016-03-30",
-            "dependsOn": [
-              "[resourceId('Microsoft.Compute/virtualMachines', parameters('FS02Name'))]",
-              "[concat('Microsoft.Compute/virtualMachines/', parameters('Server01Name'),'/extensions/Server1JoinDomain')]",
-              "[concat('Microsoft.Compute/virtualMachines/', parameters('FS01Name'),'/extensions/FS01DSC')]"
-            ],
-            "tags": {
-              "displayName": "FS01DSC"
-            },
-            "properties": {
-              "publisher": "Microsoft.Powershell",
-              "type": "DSC",
-              "typeHandlerVersion": "2.21",
-              "autoUpgradeMinorVersion": true,
-              "settings": {
-                "wmfVersion": "latest",
-                "configuration": {
-                  "url": "[variables('DSCURL')]",
-                  "script": "[variables('FS02DSCscript')]",
-                  "function": "[variables('FS02DSCfunction')]"
-                },
-                "configurationdata": {
-                  "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
-                },
-                "configurationArguments": {
-                  "domainName": "[parameters('domainName')]",
-                  "adminCreds": {
-                    "userName": "[parameters('DC01AdminUserName')]",
-                    "password": "[parameters('DC01AdminPassword')]"
-                  }
+              "configurationdata": {
+                "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
+              },
+              "configurationArguments": {
+                "domainName": "[parameters('domainName')]",
+                "adminCreds": {
+                  "userName": "[parameters('adminUserName')]",
+                  "password": "[parameters('adminPassword')]"
                 }
+              }
+            },
+            "protectedSettings": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "[variables('fileServer02NicName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]"
+      ],
+      "tags": {
+        "displayName": "fileServer02Nic"
+      },
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "[variables('privateIP-fileServer02')]",
+              "subnet": {
+                "id": "[variables('fileServer02SubnetRef')]"
               },
-              "protectedSettings": {}
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-fileServer02Name'))]"
+              }
             }
           }
         ]
+      }
+    },
+    {
+      "name": "[parameters('fileServer02Name')]",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('fileServer02NicName'))]"
+      ],
+      "tags": {
+        "displayName": "fileServer02"
       },
-      {
-        "name": "[variables('PublicIP-DC01Name')]",
-        "type": "Microsoft.Network/publicIPAddresses",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [],
-        "tags": {
-          "displayName": "PublicIP-DC01"
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('fileServer02VmSize')]"
         },
-        "properties": {
-          "publicIPAllocationMethod": "Dynamic",
-          "dnsSettings": {
-            "domainNameLabel": "[parameters('PublicIP-DC01DnsName')]"
+        "osProfile": {
+          "computerName": "[parameters('fileServer02Name')]",
+          "adminUsername": "[parameters('fileServer02AdminUsername')]",
+          "adminPassword": "[parameters('fileServer02adminPassword')]",
+          "windowsConfiguration": {
+            "timeZone": "Central Standard Time"
           }
-        }
-      },
-      {
-        "name": "[variables('PublicIP-Server01Name')]",
-        "type": "Microsoft.Network/publicIPAddresses",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [],
-        "tags": {
-          "displayName": "PublicIP-Server01"
         },
-        "properties": {
-          "publicIPAllocationMethod": "Dynamic",
-          "dnsSettings": {
-            "domainNameLabel": "[parameters('PublicIP-Server01DnsName')]"
-          }
-        }
-      },
-      {
-        "name": "[variables('PublicIP-DC02Name')]",
-        "type": "Microsoft.Network/publicIPAddresses",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [],
-        "tags": {
-          "displayName": "PublicIP-DC02"
-        },
-        "properties": {
-          "publicIPAllocationMethod": "Dynamic",
-          "dnsSettings": {
-            "domainNameLabel": "[parameters('PublicIP-DC02DnsName')]"
-          }
-        }
-      },
-      {
-        "name": "[variables('PublicIP-FS01Name')]",
-        "type": "Microsoft.Network/publicIPAddresses",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [],
-        "tags": {
-          "displayName": "PublicIP-FS01"
-        },
-        "properties": {
-          "publicIPAllocationMethod": "Dynamic",
-          "dnsSettings": {
-            "domainNameLabel": "[parameters('PublicIP-FS01DnsName')]"
-          }
-        }
-      },
-      {
-        "name": "[variables('PublicIP-FS02Name')]",
-        "type": "Microsoft.Network/publicIPAddresses",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "2015-06-15",
-        "dependsOn": [],
-        "tags": {
-          "displayName": "PublicIP-FS02"
-        },
-        "properties": {
-          "publicIPAllocationMethod": "Dynamic",
-          "dnsSettings": {
-            "domainNameLabel": "[parameters('PublicIP-FS02DnsName')]"
-          }
-        }
-      },
-      {
-        "name": "updatevnetdns",
-        "type": "Microsoft.Resources/deployments",
-        "apiVersion": "2015-01-01",
-        "dependsOn": [
-          "[concat('Microsoft.Compute/virtualMachines/', parameters('DC01Name'),'/extensions/CreateFirstDC')]"
-        ],
-        "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-            "uri": "[concat(parameters('assetLocation'),'vnet-with-dns-server.json')]",
-            "contentVersion": "1.0.0.0"
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[variables('fileServer02ImagePublisher')]",
+            "offer": "[variables('fileServer02ImageOffer')]",
+            "sku": "[parameters('fileServer02WindowsOSVersion')]",
+            "version": "latest"
           },
-          "parameters": {
-            "virtualNetworkName": {
-              "value": "[variables('VNetName')]"
+          "osDisk": {
+            "name": "fileServer02OSDisk",
+            "vhd": {
+              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('fileServer02StorageAccountContainerName'), '/', variables('fileServer02OSDiskName'), '.vhd')]"
             },
-            "virtualNetworkAddressRange": {
-              "value": "[variables('VNet1Prefix')]"
-            },
-            "subnet1Name": {
-              "value": "[variables('VNet1Subnet1Name')]"
-            },
-            "subnet1Range": {
-              "value": "[variables('VNet1Subnet1Prefix')]"
-            },
-            "subnet2Name": {
-              "value": "[variables('VNet1Subnet2Name')]"
-            },
-            "subnet2Range": {
-              "value": "[variables('VNet1Subnet2Prefix')]"
-            },
-            "DNSServerAddress": {
-              "value": [
-                "[variables('PrivateIP-DC01')]",
-                "[variables('PrivateIP-DC02')]"
-              ]
-            }
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
           }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('fileServer02NicName'))]"
+            }
+          ]
         }
       },
-      {
-        "name": "updatenicdns",
-        "type": "Microsoft.Resources/deployments",
-        "apiVersion": "2015-01-01",
-        "dependsOn": [
-          "[concat('Microsoft.Compute/virtualMachines/', parameters('DC01Name'),'/extensions/CreateFirstDC')]"
-        ],
-        "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-            "uri": "[concat(parameters('assetLocation'),'Internal-nic-with-dns-update.json')]",
-            "contentVersion": "1.0.0.0"
+      "resources": [
+        {
+          "name": "fileServer02DSC",
+          "type": "extensions",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2016-03-30",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('fileServer02Name'))]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('Server01Name'),'/extensions/Server1JoinDomain')]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('fileServer01Name'),'/extensions/fileServer01DSC')]"
+          ],
+          "tags": {
+            "displayName": "fileServer01DSC"
           },
-          "parameters": {
-            "ServernicName": {
-              "value": "[variables('Server01NicName')]"
-            },
-            "DC02nicName": {
-              "value": "[variables('DC02NicName')]"
-            },
-            "FS01nicName": {
-              "value": "[variables('FS01NicName')]"
-            },
-            "FS02nicName": {
-              "value": "[variables('FS02NicName')]"
-            },
-            "ServeripConfigurations": {
-              "value": [
-                {
-                  "name": "ipconfig1",
-                  "properties": {
-                    "privateIPAllocationMethod": "Static",
-                    "privateIPAddress": "[variables('PrivateIP-Server01')]",
-                    "subnet": {
-                      "id": "[variables('Server01SubnetRef')]"
-                    },
-                    "publicIPAddress": {
-                      "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-Server01Name'))]"
-                    }
-                  }
+          "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.21",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "wmfVersion": "latest",
+              "configuration": {
+                "url": "[variables('DSCURL')]",
+                "script": "[variables('fileServer02DSCscript')]",
+                "function": "[variables('fileServer02DSCfunction')]"
+              },
+              "configurationdata": {
+                "url": "[concat(parameters('assetLocation'), variables('adPopulationData'))]"
+              },
+              "configurationArguments": {
+                "domainName": "[parameters('domainName')]",
+                "adminCreds": {
+                  "userName": "[parameters('adminUserName')]",
+                  "password": "[parameters('adminPassword')]"
                 }
-              ]
+              }
             },
-            "DC02ipConfigurations": {
-              "value": [
-                {
-                  "name": "ipconfig1",
-                  "properties": {
-                    "privateIPAllocationMethod": "Static",
-                    "privateIPAddress": "[variables('PrivateIP-DC02')]",
-                    "subnet": {
-                      "id": "[variables('DC02SubnetRef')]"
-                    },
-                    "publicIPAddress": {
-                      "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-DC02Name'))]"
-                    }
-                  }
-                }
-              ]
-            },
-            "FS01ipConfigurations": {
-              "value": [
-                {
-                  "name": "ipconfig1",
-                  "properties": {
-                    "privateIPAllocationMethod": "Static",
-                    "privateIPAddress": "[variables('PrivateIP-FS01')]",
-                    "subnet": {
-                      "id": "[variables('Server01SubnetRef')]"
-                    },
-                    "publicIPAddress": {
-                      "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-FS01Name'))]"
-                    }
-                  }
-                }
-              ]
-            },
-            "FS02ipConfigurations": {
-              "value": [
-                {
-                  "name": "ipconfig1",
-                  "properties": {
-                    "privateIPAllocationMethod": "Static",
-                    "privateIPAddress": "[variables('PrivateIP-FS02')]",
-                    "subnet": {
-                      "id": "[variables('Server01SubnetRef')]"
-                    },
-                    "publicIPAddress": {
-                      "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('PublicIP-FS02Name'))]"
-                    }
-                  }
-                }
-              ]
-            },
-            "dnsServers": {
-              "value": [
-                "[variables('PrivateIP-DC01')]",
-                "[variables('PrivateIP-DC02')]"
-              ]
-            }
+            "protectedSettings": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "[variables('publicIP-domainController01Name')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "publicIP-domainController01"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('publicIP-domainController01DnsName')]"
+        }
+      }
+    },
+    {
+      "name": "[variables('publicIP-Server01Name')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "publicIP-Server01"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('publicIP-Server01DnsName')]"
+        }
+      }
+    },
+    {
+      "name": "[variables('publicIP-domainController02Name')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "publicIP-domainController02"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('publicIP-domainController02DnsName')]"
+        }
+      }
+    },
+    {
+      "name": "[variables('publicIP-fileServer01Name')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "publicIP-fileServer01"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('publicIP-fileServer01DnsName')]"
+        }
+      }
+    },
+    {
+      "name": "[variables('publicIP-fileServer02Name')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "publicIP-fileServer02"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('publicIP-fileServer02DnsName')]"
+        }
+      }
+    },
+    {
+      "name": "updatevnetdns",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2015-01-01",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('domainController01Name'),'/extensions/CreateFirstdomainController')]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(parameters('assetLocation'),'vnet-with-dns-server.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "virtualNetworkName": {
+            "value": "[variables('VNetName')]"
+          },
+          "virtualNetworkAddressRange": {
+            "value": "[variables('VNet1Prefix')]"
+          },
+          "subnet1Name": {
+            "value": "[variables('VNet1Subnet1Name')]"
+          },
+          "subnet1Range": {
+            "value": "[variables('VNet1Subnet1Prefix')]"
+          },
+          "subnet2Name": {
+            "value": "[variables('VNet1Subnet2Name')]"
+          },
+          "subnet2Range": {
+            "value": "[variables('VNet1Subnet2Prefix')]"
+          },
+          "DNSServerAddress": {
+            "value": [
+              "[variables('privateIP-domainController01')]",
+              "[variables('privateIP-domainController02')]"
+            ]
           }
         }
       }
-    ]
-  }
+    },
+    {
+      "name": "updatenicdns",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2015-01-01",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('domainController01Name'),'/extensions/CreateFirstdomainController')]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(parameters('assetLocation'),'Internal-nic-with-dns-update.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "ServernicName": {
+            "value": "[variables('Server01NicName')]"
+          },
+          "domainController02nicName": {
+            "value": "[variables('domainController02NicName')]"
+          },
+          "fileServer01nicName": {
+            "value": "[variables('fileServer01NicName')]"
+          },
+          "fileServer02nicName": {
+            "value": "[variables('fileServer02NicName')]"
+          },
+          "ServeripConfigurations": {
+            "value": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Static",
+                  "privateIPAddress": "[variables('privateIP-Server01')]",
+                  "subnet": {
+                    "id": "[variables('Server01SubnetRef')]"
+                  },
+                  "publicIPAddress": {
+                    "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-Server01Name'))]"
+                  }
+                }
+              }
+            ]
+          },
+          "domainController02ipConfigurations": {
+            "value": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Static",
+                  "privateIPAddress": "[variables('privateIP-domainController02')]",
+                  "subnet": {
+                    "id": "[variables('domainController02SubnetRef')]"
+                  },
+                  "publicIPAddress": {
+                    "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-domainController02Name'))]"
+                  }
+                }
+              }
+            ]
+          },
+          "fileServer01ipConfigurations": {
+            "value": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Static",
+                  "privateIPAddress": "[variables('privateIP-fileServer01')]",
+                  "subnet": {
+                    "id": "[variables('Server01SubnetRef')]"
+                  },
+                  "publicIPAddress": {
+                    "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-fileServer01Name'))]"
+                  }
+                }
+              }
+            ]
+          },
+          "fileServer02ipConfigurations": {
+            "value": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Static",
+                  "privateIPAddress": "[variables('privateIP-fileServer02')]",
+                  "subnet": {
+                    "id": "[variables('Server01SubnetRef')]"
+                  },
+                  "publicIPAddress": {
+                    "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP-fileServer02Name'))]"
+                  }
+                }
+              }
+            ]
+          },
+          "dnsServers": {
+            "value": [
+              "[variables('privateIP-domainController01')]",
+              "[variables('privateIP-domainController02')]"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
