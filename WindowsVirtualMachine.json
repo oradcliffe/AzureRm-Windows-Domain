@@ -2,7 +2,7 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "newStorageAccountName": {
+    "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "The name of the new storage account created to store the VMs disks"
@@ -191,7 +191,7 @@
     "VNet1Subnet1Prefix": "192.168.95.0/24",
     "VNet1Subnet2Name": "Future",
     "VNet1Subnet2Prefix": "192.168.96.0/24",
-    "ojradcliffestorageName": "[concat('ojrad', uniqueString(resourceGroup().id))]",
+    "storageAccountName": "[concat(parameters('storageAccountName'), uniqueString(resourceGroup().id))]",
     "domainController01ImagePublisher": "MicrosoftWindowsServer",
     "domainController01ImageOffer": "WindowsServer",
     "domainController01OSDiskName": "domainController01OSDisk",
@@ -286,13 +286,13 @@
       }
     },
     {
-      "name": "[variables('ojradcliffestorageName')]",
+      "name": "[variables('storageAccountName')]",
       "type": "Microsoft.Storage/storageAccounts",
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-06-15",
       "dependsOn": [],
       "tags": {
-        "displayName": "ojradcliffestorage"
+        "displayName": "storageAccount"
       },
       "properties": {
         "accountType": "[parameters('storageAccountType')]"
@@ -334,7 +334,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Network/networkInterfaces', variables('domainController01NicName'))]"
       ],
       "tags": {
@@ -362,7 +362,7 @@
           "osDisk": {
             "name": "domainController01OSDisk",
             "vhd": {
-              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('domainController01StorageAccountContainerName'), '/', variables('domainController01OSDiskName'), '.vhd')]"
+              "uri": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/', variables('domainController01StorageAccountContainerName'), '/', variables('domainController01OSDiskName'), '.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
@@ -453,7 +453,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Network/networkInterfaces', variables('Server01NicName'))]"
       ],
       "tags": {
@@ -481,7 +481,7 @@
           "osDisk": {
             "name": "Server01OSDisk",
             "vhd": {
-              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('Server01StorageAccountContainerName'), '/', variables('Server01OSDiskName'), '.vhd')]"
+              "uri": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/', variables('Server01StorageAccountContainerName'), '/', variables('Server01OSDiskName'), '.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
@@ -563,7 +563,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Network/networkInterfaces', variables('domainController02NicName'))]"
       ],
       "tags": {
@@ -591,7 +591,7 @@
           "osDisk": {
             "name": "domainController02OSDisk",
             "vhd": {
-              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('domainController02StorageAccountContainerName'), '/', variables('domainController02OSDiskName'), '.vhd')]"
+              "uri": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/', variables('domainController02StorageAccountContainerName'), '/', variables('domainController02OSDiskName'), '.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
@@ -681,7 +681,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Network/networkInterfaces', variables('fileServer01NicName'))]"
       ],
       "tags": {
@@ -709,7 +709,7 @@
           "osDisk": {
             "name": "fileServer01OSDisk",
             "vhd": {
-              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('fileServer01StorageAccountContainerName'), '/', variables('fileServer01OSDiskName'), '.vhd')]"
+              "uri": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/', variables('fileServer01StorageAccountContainerName'), '/', variables('fileServer01OSDiskName'), '.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
@@ -800,7 +800,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('ojradcliffestorageName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Network/networkInterfaces', variables('fileServer02NicName'))]"
       ],
       "tags": {
@@ -828,7 +828,7 @@
           "osDisk": {
             "name": "fileServer02OSDisk",
             "vhd": {
-              "uri": "[concat('https://', variables('ojradcliffestorageName'), '.blob.core.windows.net/', variables('fileServer02StorageAccountContainerName'), '/', variables('fileServer02OSDiskName'), '.vhd')]"
+              "uri": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/', variables('fileServer02StorageAccountContainerName'), '/', variables('fileServer02OSDiskName'), '.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
