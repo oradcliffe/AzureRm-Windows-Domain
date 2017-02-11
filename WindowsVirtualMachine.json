@@ -848,7 +848,7 @@
             "[concat('Microsoft.Compute/virtualMachines/', parameters('fileServer01Name'),'/extensions/fileServer01DSC')]"
           ],
           "tags": {
-            "displayName": "fileServer01DSC"
+            "displayName": "fileServer02DSC"
           },
           "properties": {
             "publisher": "Microsoft.Powershell",
@@ -867,6 +867,8 @@
               },
               "configurationArguments": {
                 "domainName": "[parameters('domainName')]",
+                "fs01ComputerName": "[parameters('fileServer01Name')]",
+                "fs02ComputerName": "[parameters('fileServer02Name')]",
                 "adminCreds": {
                   "userName": "[parameters('adminUserName')]",
                   "password": "[parameters('adminPassword')]"
