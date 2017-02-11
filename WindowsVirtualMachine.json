@@ -24,7 +24,7 @@
     },
     "domainController01Name": {
       "type": "string",
-      "defaultValue": "domainController-01",
+      "defaultValue": "DC-01",
       "minLength": 1,
       "metadata": {
         "description": "The computer name of the first domain controller"
@@ -85,7 +85,7 @@
     },
     "domainController02Name": {
       "type": "string",
-      "defaultValue": "domainController-02",
+      "defaultValue": "DC-02",
       "minLength": 1,
       "metadata": {
         "description": "The computer name of the second domain controller"
@@ -141,6 +141,7 @@
     },
     "fileServer01Name": {
       "type": "string",
+      "defaultValue": "FS-01",
       "minLength": 1
     },
     "fileServer01WindowsOSVersion": {
@@ -158,6 +159,7 @@
     },
     "fileServer02Name": {
       "type": "string",
+      "defaultValue": "FS-02",
       "minLength": 1
     },
     "fileServer02adminUserName": {
