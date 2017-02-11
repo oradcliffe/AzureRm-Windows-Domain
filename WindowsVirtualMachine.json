@@ -225,7 +225,7 @@
     "fileServer02VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('VNetName'))]",
     "fileServer02SubnetRef": "[concat(variables('fileServer02VnetID'), '/subnets/', variables('VNet1Subnet1Name'))]",
     "fileServer02StorageAccountContainerName": "vhds",
-    "fileServer02NicName": "[concat(parameters('fileServer02Name'), 'NetworkInterface')]",
+    "fileServer02NicName": "[concat(parameters('fileServer02Name'), 'Nic0')]",
     "publicIP-domainController01Name": "publicIP-domainController01",
     "publicIP-Server01Name": "publicIP-Server01",
     "publicIP-domainController02Name": "publicIP-domainController02",
