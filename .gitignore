@@ -241,5 +241,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
-#Visual Studio Solutions folder
-/AzureResourceGroup1/
+.gitattributes
