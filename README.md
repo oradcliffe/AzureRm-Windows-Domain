@@ -7,28 +7,9 @@
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.png"/>
 </a>
 
-To deploy this template using the scripts from the root of this repo: (change the folder name below to match the folder name for this sample)
+This template deploys a **Windows domain with DFS**. It consists of **two domain controllers and two file servers, along with a generic, domain-joined server**
 
-```PowerShell
-.\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation 'eastus' -ArtifactsStagingDirectory '[foldername]'
-```
-```bash
-azure-group-deploy.sh -a [foldername] -l eastus -u
-```
-If your sample has artifacts that need to be "staged" for deployment (Configuration Scripts, Nested Templates, DSC Packages) then set the upload switch on the command.
-You can optionally specify a storage account to use, if so the storage account must already exist within the subscription.  If you don't want to specify a storage account
-one will be created by the script (think of this as "temp" storage for AzureRM) and reused by subsequent deployments.
-
-```PowerShell
-.\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation 'eastus' -ArtifactsStagingDirectory '100-blank-template' -UploadArtifacts 
-```
-```bash
-azure-group-deploy.sh -a 100-blank-template -l eastus -u
-```
-
-This template deploys a **solution name**. The **solution name** is a **description**
-
-`Tags: Tag1, Tag2, Tag3`
+`Tags: Windows, Active Directory, DFS, DSC`
 
 ## Solution overview and deployed resources
 
@@ -44,18 +25,8 @@ There are no prerequisites
 
 ## Deployment steps
 
-You can click the "deploy to Azure" button at the beginning of this document or follow the instructions for command line deployment using the scripts in the root of this repo.
-
-## Usage
-
-#### Connect
-
-How to connect to the solution
-
-#### Management
-
-How to manage the solution
+You can click the "deploy to Azure" button at the beginning of this document.
 
 ## Notes
 
-Solution notes
+AD is populated from the .psd1 file in the root of the repo.  You can modify this for whatever you need, but the DSC script will be looking for the types of values defined in the .psd1.  If you need to change those then you'll need to change them in the DSC script that configures DC02.
