@@ -246,8 +246,8 @@
     "domainController02DSCfunction": "DC02",
     "fileServer01DSCscript": "FS01.ps1",
     "fileServer01DSCfunction": "FS01",
-    "fileServer02DSCscript": "FS01.ps1",
-    "fileServer02DSCfunction": "FS01",
+    "fileServer02DSCscript": "FS02.ps1",
+    "fileServer02DSCfunction": "FS02",
     "adPopulationData": "populationData.psd1",
     "vnetTemplateUri": "[concat(parameters('assetLocation'),'nestedTemplates/vnet-with-dns-server.json')]",
     "nicTemplateUri": "[concat(parameters('assetLocation'),'nestedTemplates/Internal-nic-with-dns-update.json')]"
