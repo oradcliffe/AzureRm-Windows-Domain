@@ -147,7 +147,7 @@
     },
     "fileServer01WindowsOSVersion": {
       "type": "string",
-      "defaultValue": "2016-Nano-Server",
+      "defaultValue": "2012-R2-Datacenter",
       "allowedValues": [
         "2008-R2-SP1",
         "2012-Datacenter",
@@ -165,7 +165,7 @@
     },
     "fileServer02WindowsOSVersion": {
       "type": "string",
-      "defaultValue": "2016-Nano-Server",
+      "defaultValue": "2012-R2-Datacenter",
       "allowedValues": [
         "2008-R2-SP1",
         "2012-Datacenter",
