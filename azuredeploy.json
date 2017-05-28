@@ -135,7 +135,7 @@
     },
     "assetLocation": {
       "type": "string",
-      "defaultValue": "https://github.com/oradcliffe/AzureRm-Windows-Domain/raw/generalize/",
+      "defaultValue": "https://github.com/oradcliffe/AzureRm-Windows-Domain/raw/generalize2/",
       "metadata": {
         "description": "Where to find assets used in this template"
       }
