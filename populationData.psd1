@@ -19,11 +19,7 @@ Frieda,Pa$$w0rd,IT,Specialist,Frieda,Babeeda
 George,Pa$$w0rd,Marketing,Specialist,George,Costanza
 Harriet,Pa$$w0rd,Accounting,Specialist,Harriet,Schmariot
 Ted,Pa$$w0rd,Marketing,Specialist,Ted,Boozer
-TedToo,Pa$$w0rd,NewTestOUandGroup,Specialist,Tedtoo,Boozertoo
-Stedman,Pa$$w0rd,fakeouandgroup,teamplayer,Jeff,Stedman
 '@
-
-        RootOUs = 'Accounting','IT','Marketing'
         ChildOUs = 'Users','Computers','Groups'
         TestObjCount = 5
 
