@@ -20,6 +20,7 @@ George,Pa$$w0rd,Marketing,Specialist,George,Costanza
 Harriet,Pa$$w0rd,Accounting,Specialist,Harriet,Schmariot
 Ted,Pa$$w0rd,Marketing,Specialist,Ted,Boozer
 TedToo,Pa$$w0rd,NewTestOUandGroup,Specialist,Tedtoo,Boozertoo
+Stedman,Pa$$w0rd,fakeouandgroup,teamplayer,Jeff,Stedman
 '@
 
         RootOUs = 'Accounting','IT','Marketing'
