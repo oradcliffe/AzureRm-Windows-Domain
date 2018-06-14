@@ -28,7 +28,7 @@
       "defaultValue": "contosoadm",
       "minLength": 1,
       "metadata": {
-        "description": "Your admin username"
+        "description": "Your admin username - this user will be a domain admin and a member of the IT security group"
       }
     },
     "adminPassword": {
