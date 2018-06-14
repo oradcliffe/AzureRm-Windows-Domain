@@ -4,7 +4,7 @@
   "parameters": {
     "storageAccountName": {
       "type": "string",
-      "defaultValue": "demoenvironmentstorageaccount",
+      "defaultValue": "diskstore",
       "metadata": {
         "description": "The name of the new storage account created to store the VMs disks, must be lowercase"
       }
