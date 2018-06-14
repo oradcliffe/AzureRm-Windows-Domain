@@ -24,6 +24,7 @@
     },
     "adminUserName": {
       "type": "string",
+      "defaultValue": "admin",
       "minLength": 1,
       "metadata": {
         "description": "Your admin username"
@@ -100,26 +101,32 @@
     },
     "publicIP-domainController01DnsName": {
       "type": "string",
+      "defaultValue": "pubipdc01",
       "minLength": 1
     },
     "publicIP-Server01DnsName": {
       "type": "string",
+      "defaultValue": "pubipserver01",
       "minLength": 1
     },
     "publicIP-domainController02DnsName": {
       "type": "string",
+      "defaultValue": "pubipdc02",
       "minLength": 1
     },
     "publicIP-fileServer01DnsName": {
       "type": "string",
+      "defaultValue": "pubipfs01",
       "minLength": 1
     },
     "publicIP-fileServer02DnsName": {
       "type": "string",
+      "defaultValue": "pubipfs02",
       "minLength": 1
     },
     "domainName": {
       "type": "string",
+      "defaultValue": "contoso.com",
       "metadata": {
         "description": "The FQDN of the AD Domain created - e.g. Contoso.com"
       }
