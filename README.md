@@ -29,4 +29,4 @@ You can click the "deploy to Azure" button at the beginning of this document.  Y
 
 ## Notes
 
-AD is populated from the .psd1 file in the root of the repo.  You can modify this for whatever you need, but the DSC script will be looking for the types of values defined in the .psd1.  If you need to change those then you'll need to change them in the DSC script that configures DC02.
+AD is populated from the .psd1 file in the root of the repo.  Specific OUs, security groups, and DFS shares are based on the deparment attribute in the user objects in AD.  You can modify this for whatever you need, but the DSC script will be looking for the types of values defined in the .psd1.  If you need to change those then you'll need to change them in the DSC script that configures DC02.
