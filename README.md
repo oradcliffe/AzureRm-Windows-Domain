@@ -25,7 +25,7 @@ There are no prerequisites
 
 ## Deployment steps
 
-You can click the "deploy to Azure" button at the beginning of this document.
+You can click the "deploy to Azure" button at the beginning of this document.  You can change any of the parameters to suit your needs, but pay attention to any exceptions this may cause.
 
 ## Notes
 
