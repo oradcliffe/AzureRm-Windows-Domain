@@ -491,8 +491,8 @@
           "apiVersion": "2016-03-30",
           "dependsOn": [
             "[resourceId('Microsoft.Compute/virtualMachines', parameters('Server01Name'))]",
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('domainController01Name'),'/extensions/CreateFirstdomainController')]",
-            "Microsoft.Resources/deployments/updatenicdns"
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('domainController01Name'),'/extensions/CreateFirstdomainController')]"/*,
+            "Microsoft.Resources/deployments/updatenicdns"*/
           ],
           "tags": {
             "displayName": "Server01JoinDomain"
