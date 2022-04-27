@@ -134,7 +134,7 @@
     },
     "assetLocation": {
       "type": "string",
-      "defaultValue": "https://github.com/oradcliffe/AzureRm-Windows-Domain/raw/master/",
+      "defaultValue": "https://github.com/oradcliffe/AzureRm-Windows-Domain/raw/Updates22/",
       "metadata": {
         "description": "Where to find assets used in this template"
       }
