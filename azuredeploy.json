@@ -492,7 +492,8 @@
           "dependsOn": [
             "[resourceId('Microsoft.Compute/virtualMachines', parameters('Server01Name'))]",
             "[concat('Microsoft.Compute/virtualMachines/', parameters('domainController01Name'),'/extensions/CreateFirstdomainController')]",
-            "Microsoft.Resources/deployments/updatenicdns"
+            "Microsoft.Resources/deployments/updatenicdns",
+            "Microsoft.Resources/deployments/updatenetdns"
           ],
           "tags": {
             "displayName": "Server01JoinDomain"
@@ -602,7 +603,8 @@
           "dependsOn": [
             "[resourceId('Microsoft.Compute/virtualMachines', parameters('domainController02Name'))]",
             "[concat('Microsoft.Compute/virtualMachines/', parameters('Server01Name'),'/extensions/Server1JoinDomain')]",
-            "Microsoft.Resources/deployments/updatenicdns"
+            "Microsoft.Resources/deployments/updatenicdns",
+            "Microsoft.Resources/deployments/updatevnetdns"
           ],
           "tags": {
             "displayName": "domainController02DSC"
