@@ -491,7 +491,7 @@
           "apiVersion": "2016-03-30",
           "dependsOn": [
             "[resourceId('Microsoft.Compute/virtualMachines', parameters('Server01Name'))]",
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('domainController01Name'),'/extensions/CreateFirstdomainController')]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('domainController02Name'),'/extensions/CreateSeconddomainController')]",
             "Microsoft.Resources/deployments/updatenicdns",
             "Microsoft.Resources/deployments/updatevnetdns"
           ],
@@ -602,7 +602,7 @@
           "apiVersion": "2016-03-30",
           "dependsOn": [
             "[resourceId('Microsoft.Compute/virtualMachines', parameters('domainController02Name'))]",
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('Server01Name'),'/extensions/Server1JoinDomain')]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('domainController01Name'),'/extensions/CreateFirstdomainController')]",
             "Microsoft.Resources/deployments/updatenicdns",
             "Microsoft.Resources/deployments/updatevnetdns"
           ],
