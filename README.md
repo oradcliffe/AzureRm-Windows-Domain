@@ -19,7 +19,7 @@ This solution will deploy two domain controllers, two file servers, and a generi
 
 #### Resources
 
-This template deploys five Windows Server VMs, a new VNet, storage account, four public IPs, and four VM nics.  Additionally, to configure the two domain controllers and the two file servers, DSC extensions are used.  The generic windows server uses an additional JSON template to join the domain, so DSC is not used there.  Additionally, to change DNS settings after the first domain controller is promoted, two JSON templates are used to configure the server nics and the VNet settings to point to DC-01 (or whatever you want to name it) for DNS.
+This template deploys five Windows Server VMs, a new VNet, storage account, five public IPs, and five VM NICs.  Additionally, to configure the two domain controllers and the two file servers, DSC extensions are used.  The generic Windows Server VM uses an additional JSON template to join the domain, so DSC is not used there.  Additionally, to change DNS settings after the first domain controller is promoted, two JSON templates are used to configure the server NICs and the VNet settings to point to DC-01 (or whatever you want to name it) for DNS.
 
 ## Prerequisites
 
