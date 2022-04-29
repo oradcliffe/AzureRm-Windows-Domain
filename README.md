@@ -11,6 +11,8 @@ This template deploys a **Windows domain with DFS**. It consists of **two domain
 
 `Tags: Windows, Active Directory, DFS, DSC`
 
+It also includes populated AD data with OUs and groups, and DFS shares that are accessible based on group memebership (for example, all members of IT can access all shares, but marketing users only get the marketing share).
+
 ## Solution overview and deployed resources
 
 This solution will deploy two domain controllers, two file servers, and a generic server, all on Windows Server.  DFS shares for AD groups are configured on the file shares and are given permissions to users based on group membership.  This is all done with DSC and a PS data file (.psd1).  Each server has a unique DSC configuration and therefore generally unique module requirements.
