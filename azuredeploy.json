@@ -1003,7 +1003,12 @@
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
       "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('domainController01Name'),'/extensions/CreateFirstdomainController')]"
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('domainController01Name'),'/extensions/CreateFirstdomainController')]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('domainController01NicName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('Server01NicName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('domainController02NicName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('fileServer01NicName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('fileServer02NicName'))]"
       ],
       "properties": {
         "mode": "Incremental",
